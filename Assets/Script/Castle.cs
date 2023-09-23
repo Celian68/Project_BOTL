@@ -11,7 +11,7 @@ public class Castle : MonoBehaviour
     void Update()
     {
         
-    }
+    } 
 
     void getDamaged(float damage) {
         life -= damage;
