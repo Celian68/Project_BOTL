@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4344663908858684335}
   - component: {fileID: 7561978225850730563}
   - component: {fileID: 8422914140221854979}
-  - component: {fileID: 8087037270806207971}
+  - component: {fileID: 8452665314815964052}
   m_Layer: 0
-  m_Name: Ork
-  m_TagString: Player1
+  m_Name: Knight
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,10 +74,10 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 1160944666, guid: 4aece564fc0277f45932b72a1096ef2c, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: -2036474641, guid: d22989eba0d20b64d95b538a49e403fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -98,16 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ef3fbdfc6923c4baad3ff9f373b8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 1.5
   unitRange: 1
-  life: 100
+  life: 70
   attackSpeed: 1
-  damage: 30
-  target: {fileID: 4693312189506259934, guid: d1d370dc4eae27f49905d806bd3f827f, type: 3}
+  damage: 20
+  target: {fileID: 4693312189506259934, guid: f29d9608ecf100d4b9c2729a91eee5e2, type: 3}
   enemyTarget: {fileID: 0}
-  enemyTag: Player2
-  animator: {fileID: 8087037270806207971}
---- !u!95 &8087037270806207971
+  enemyTag: Player1
+  animator: {fileID: 8452665314815964052}
+--- !u!95 &8452665314815964052
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 8586255814942124710}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b0639f339056dba419b21aaca35b7d61, type: 2}
+  m_Controller: {fileID: 9100000, guid: e6251c5973149e0439ec02b40a9dd4cc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
