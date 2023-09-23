@@ -15,6 +15,8 @@ public class UnitBehavior : MonoBehaviour
  
     public string enemyTag;
 
+    public Animator animator;
+
     private bool isAttacking = false;
 
     // Start is called before the first frame update
@@ -47,9 +49,11 @@ public class UnitBehavior : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= unitRange + 0.5) {
             enemyTarget = nearestEnemy.transform;
             if (!isAttacking) {
+                animator.SetBool("EnnemyFound", true);
                 StartCoroutine(Attack());
             }
         }else{
+            animator.SetBool("EnnemyFound", false);
             enemyTarget = null;
         }
     }
@@ -63,23 +67,26 @@ public class UnitBehavior : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected() {
+    // private void OnDrawGizmosSelected() {
        
-        Gizmos.color = Color.green;
+    //     Gizmos.color = Color.green;
 
-        if (enemyTag == "Player1") {
-            Gizmos.DrawCube(new Vector3(transform.position.x - (unitRange/2), transform.position.y, 0), new Vector3(unitRange * -1, transform.lossyScale.y, 0));
-        }else{
-            Gizmos.DrawCube(new Vector3(transform.position.x + (unitRange/2), transform.position.y, 0), new Vector3(unitRange, transform.lossyScale.y, 0));
-        }
-    }
+    //     if (enemyTag == "Player1") {
+    //         Gizmos.DrawCube(new Vector3(transform.position.x - (unitRange/2), transform.position.y, 0), new Vector3(unitRange * -1, transform.lossyScale.y, 0));
+    //     }else{
+    //         Gizmos.DrawCube(new Vector3(transform.position.x + (unitRange/2), transform.position.y, 0), new Vector3(unitRange, transform.lossyScale.y, 0));
+    //     }
+    // }
 
     public IEnumerator Attack() {
         isAttacking = true;
         while (enemyTarget != null) {
+            animator.SetBool("doDamage", false);
             yield return new WaitForSeconds(attackSpeed);
             if (enemyTarget != null) {
+                animator.SetBool("doDamage", true);
                 enemyTarget.GetComponent<UnitBehavior>().getDamaged(damage);
+                yield return new WaitForSeconds(0.5f);
             }else{
                 enemyTarget = null;
             }
