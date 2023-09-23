@@ -97,11 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ef3fbdfc6923c4baad3ff9f373b8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  unitRange: 1
+  moveSpeed: 1.5
+  unitRange: 0.5
   life: 70
-  attackSpeed: 0.5
-  damage: 10
+  attackSpeed: 1.2
+  damage: 20
   target: {fileID: 4693312189506259934, guid: f29d9608ecf100d4b9c2729a91eee5e2, type: 3}
   enemyTarget: {fileID: 0}
   enemyTag: Player1
