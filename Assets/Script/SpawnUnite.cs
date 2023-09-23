@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class SpawnUnite : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class SpawnUnite : MonoBehaviour
 
     public Transform spawn1;
     public Transform spawn2;
-
 
     // Update is called once per frame
     void Update()

@@ -17,12 +17,15 @@ public class UnitBehavior : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject castle;
+
     private bool isAttacking = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.3f);
+        //Check every 0.3sec fonction "UpdateTarget"; Parama ["Fonction"], Wait to start, check delay
+        InvokeRepeating("UpdateTarget", 0f, 0.3f); 
     }
 
     // Update is called once per frame
@@ -41,13 +44,13 @@ public class UnitBehavior : MonoBehaviour
         foreach (GameObject enemy in ennemies) {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if (distanceToEnemy < shortestDistance && ((enemyTag == "Player2" && transform.position.x < enemy.transform.position.x) || (enemyTag == "Player1" && transform.position.x > enemy.transform.position.x))) {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                shortestDistance = distanceToEnemy; // Save position of nearest ennemi
+                nearestEnemy = enemy; //Set nearest ennemi
             }
         }
 
         if (nearestEnemy != null && shortestDistance <= unitRange + 0.5) {
-            enemyTarget = nearestEnemy.transform;
+            enemyTarget = nearestEnemy.transform; 
             if (!isAttacking) {
                 animator.SetBool("EnnemyFound", true);
                 StartCoroutine(Attack());
@@ -60,10 +63,10 @@ public class UnitBehavior : MonoBehaviour
 
     void Move() {
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * moveSpeed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * moveSpeed * Time.deltaTime, Space.World); 
 
         if (Vector3.Distance(transform.position, target.position) < 0.3f) {
-            //Destroy(gameObject);
+            
         }
     }
 
@@ -85,8 +88,12 @@ public class UnitBehavior : MonoBehaviour
             yield return new WaitForSeconds(attackSpeed);
             if (enemyTarget != null) {
                 animator.SetBool("doDamage", true);
-                enemyTarget.GetComponent<UnitBehavior>().getDamaged(damage);
-                yield return new WaitForSeconds(0.3f);
+                if (enemyTarget == castle) {
+
+                }else{
+                    enemyTarget.GetComponent<UnitBehavior>().getDamaged(damage);
+                    yield return new WaitForSeconds(0.3f);  //delay(3000)
+                }
             }else{
                 enemyTarget = null;
             }
@@ -99,5 +106,9 @@ public class UnitBehavior : MonoBehaviour
         if (life <= 0) {
             Destroy(gameObject);
         }
+    }
+
+    void damageCastle() {
+
     }
 }
