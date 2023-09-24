@@ -10,6 +10,8 @@ TagManager:
   - Castle2
   - End1
   - End2
+  - Spawn1
+  - Spawn2
   layers:
   - Default
   - TransparentFX

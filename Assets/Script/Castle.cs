@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Castle : MonoBehaviour
 {
+    public float maxRessources;
+    private float currentRessources;
 
     public float maxLife;
     private float currentLife;
@@ -13,27 +15,19 @@ public class Castle : MonoBehaviour
     public Sprite state2;
     public Sprite state3;
     public Sprite state4;
+
     private  SpriteRenderer spriteR;
-    private Transform spawn;
-    public GameObject unite1;
-    public GameObject unite2;
-    public GameObject unite3;
-    public GameObject unite4;
-    public GameObject unite5;
 
 
     void Start() {
         currentLife = maxLife;
         spriteR = gameObject.GetComponent<SpriteRenderer>();
-        spawn = transform.GetChild(0).transform;
     }
 
     // Update is called once per frame
     void Update()
     {
         showDamaged();
-
-        spawnUnits();
     } 
 
     public void getDamaged(float damage) {
@@ -60,20 +54,5 @@ public class Castle : MonoBehaviour
         }else{
             spriteR.sprite = state4;
         }
-    }
-
-    void spawnUnits() {
-        if (gameObject.tag == "Castle1") {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                Instantiate(unite1, spawn);
-            }
-        }else{
-            if (Input.GetKeyDown(KeyCode.Alpha6))
-            {
-                Instantiate(unite1, spawn);
-            }
-        }
-
     }
 }
