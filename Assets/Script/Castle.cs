@@ -20,6 +20,7 @@ public class Castle : MonoBehaviour
     private  SpriteRenderer spriteR;
 
     public Text ressourcesCount;
+    public Text lifeCount;
 
 
     void Start() {
@@ -31,6 +32,8 @@ public class Castle : MonoBehaviour
         spriteR = gameObject.GetComponent<SpriteRenderer>();
 
         InvokeRepeating("generateRessources", 0f, 1f); 
+
+        updateLife();
 
     }
 
@@ -50,7 +53,13 @@ public class Castle : MonoBehaviour
             currentLife -= damage;
             currentLife += armor;
             armor = 0;
+
+            if (currentLife < 0) {
+                currentLife = 0;
+            }
         }
+
+        updateLife();
 
         if (currentLife <= 0) {
             Destroy(gameObject);
@@ -84,6 +93,10 @@ public class Castle : MonoBehaviour
 
     void updateRessources() {
         ressourcesCount.text = currentRessources.ToString();
+    }
+
+    void updateLife() {
+        lifeCount.text = currentLife.ToString();
     }
 
     public bool looseRessources(float cost) {

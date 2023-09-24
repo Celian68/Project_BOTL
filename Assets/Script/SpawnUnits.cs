@@ -26,32 +26,54 @@ public class SpawnUnits : MonoBehaviour
         if (gameObject.tag == "Spawn1") {
 
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                if (castle.GetComponent<Castle>().looseRessources(unite1.GetComponent<UnitBehavior>().cost)) {
-                    Instantiate(unite1, transform);
-                }
+                spawnUnit1();
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2)) {
-                if (castle.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
-                    Instantiate(unite2, transform);
-                }
+                spawnUnit2();
             }
 
         }else{
 
             if (Input.GetKeyDown(KeyCode.Alpha6)) {
-                if (castle.GetComponent<Castle>().looseRessources(unite1.GetComponent<UnitBehavior>().cost)) {
-                    Instantiate(unite1, transform);
-                }
+                spawnUnit1();
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha7)) {
-                if (castle.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
-                    Instantiate(unite2, transform);
-                }
+                spawnUnit2();
             }
 
         }
 
+    }
+
+    public void spawnUnit1() {
+        if (castle.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
+            Instantiate(unite1, transform);
+        }
+    }
+
+    public void spawnUnit2() {
+        if (castle.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
+            Instantiate(unite2, transform);
+        }
+    }
+
+    public void spawnUnit3() {
+        if (castle.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
+            Instantiate(unite3, transform);
+        }
+    }
+
+    public void spawnUnit4() {
+        if (castle.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
+            Instantiate(unite4, transform);
+        }
+    }
+
+    public void spawnUnit5() {
+        if (castle.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
+            Instantiate(unite5, transform);
+        }
     }
 }

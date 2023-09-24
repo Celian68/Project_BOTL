@@ -124,12 +124,13 @@ public class UnitBehavior : MonoBehaviour
             yield return new WaitForSeconds(attackSpeed);
             if (enemyTarget != null) {
                 animator.SetBool("doDamage", true);
+                yield return new WaitForSeconds(0.1f);  //delay(3000)
                 if (enemyTarget == castle.transform) {
                     castle.GetComponent<Castle>().getDamaged(damage);
-                }else{
+                }else if (enemyTarget != null) {
                     enemyTarget.GetComponent<UnitBehavior>().getDamaged(damage);
                 }
-                yield return new WaitForSeconds(0.3f);  //delay(3000)
+                yield return new WaitForSeconds(0.2f);  //delay(3000)
             }else{
                 enemyTarget = null;
             }
