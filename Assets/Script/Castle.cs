@@ -1,10 +1,11 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Castle : MonoBehaviour
 {
     public float maxRessources;
     private float currentRessources;
+    public float ressourcesPerSec;
 
     public float maxLife;
     private float currentLife;
@@ -18,19 +19,31 @@ public class Castle : MonoBehaviour
 
     private  SpriteRenderer spriteR;
 
+    public Text ressourcesCount;
+
 
     void Start() {
+
         currentLife = maxLife;
+
+        currentRessources = maxRessources;
+
         spriteR = gameObject.GetComponent<SpriteRenderer>();
+
+        InvokeRepeating("generateRessources", 0f, 1f); 
+
     }
 
     // Update is called once per frame
     void Update()
     {
         showDamaged();
+
+        updateRessources();
     } 
 
     public void getDamaged(float damage) {
+
         if(armor >= 0 && armor > damage){
             armor -= damage;
         }else{
@@ -45,6 +58,7 @@ public class Castle : MonoBehaviour
     }
 
     void showDamaged() {
+
         if (currentLife > maxLife * 0.75f) {
             spriteR.sprite = state1;
         }else if (currentLife > maxLife * 0.5f) {
@@ -54,5 +68,29 @@ public class Castle : MonoBehaviour
         }else{
             spriteR.sprite = state4;
         }
+
+    }
+
+    void generateRessources() {
+        
+        if (currentRessources < maxRessources) {
+            currentRessources += ressourcesPerSec;
+        }
+
+        if (currentRessources > maxRessources) {
+            currentRessources = maxRessources;
+        }
+    }
+
+    void updateRessources() {
+        ressourcesCount.text = currentRessources.ToString();
+    }
+
+    public bool looseRessources(float cost) {
+        if (cost < currentRessources) {
+            currentRessources -= cost;
+            return true;
+        }
+        return false;
     }
 }

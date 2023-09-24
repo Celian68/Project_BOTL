@@ -4,11 +4,12 @@ using System.Collections;
 public class UnitBehavior : MonoBehaviour
 {
 
+    public float life;
+    public float damage;
+    public float cost;
     public float moveSpeed;
     public float unitRange;
-    public float life;
     public float attackSpeed;
-    public float damage;
 
     public Transform target;
     public Transform enemyTarget;
