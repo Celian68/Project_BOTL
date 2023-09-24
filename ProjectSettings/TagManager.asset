@@ -12,6 +12,8 @@ TagManager:
   - End2
   - Spawn1
   - Spawn2
+  - Objective1
+  - Objective2
   layers:
   - Default
   - TransparentFX

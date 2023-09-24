@@ -11,16 +11,18 @@ public class UnitBehavior : MonoBehaviour
     public float unitRange;
     public float attackSpeed;
 
-    public Transform target;
-    public Transform enemyTarget;
- 
-    public string enemyTag;
+    private float teamMultipl;
+    private string unitTeam;
+    private string enemyTeam;
+    private bool isAttacking = false;
 
-    public Animator animator;
-
+    private Transform target;
+    private Transform endTarget;
+    private Transform enemyTarget;
     private GameObject castle;
 
-    private bool isAttacking = false;
+    public Animator animator;
+    private  SpriteRenderer spriteR;
 
     // Start is called before the first frame update
     void Start()
@@ -28,10 +30,25 @@ public class UnitBehavior : MonoBehaviour
         //Check every 0.3sec fonction "UpdateTarget"; Parama ["Fonction"], Wait to start, check delay
         InvokeRepeating("UpdateTarget", 0f, 0.3f); 
 
-        if (enemyTag == "Player2") {
+        spriteR = spriteR = gameObject.GetComponent<SpriteRenderer>();
+
+        if (gameObject.transform.parent.gameObject.tag == "Spawn1") {
+            unitTeam = "Player1";
+            enemyTeam = "Player2";
+            transform.tag = "Player1";
+            teamMultipl = 1;
             castle = GameObject.FindGameObjectWithTag("Castle2");
-        }else{
+            target = GameObject.FindGameObjectWithTag("Objective1").transform;
+            endTarget = GameObject.FindGameObjectWithTag("End1").transform;
+        }else if (gameObject.transform.parent.gameObject.tag == "Spawn2") {
+            unitTeam = "Player2";
+            enemyTeam = "Player1";
+            transform.tag = "Player2";
+            teamMultipl = -1;
             castle = GameObject.FindGameObjectWithTag("Castle1");
+            target = GameObject.FindGameObjectWithTag("Objective2").transform;
+            endTarget = GameObject.FindGameObjectWithTag("End2").transform;
+            spriteR.flipX = true;
         }
     }
 
@@ -44,13 +61,13 @@ public class UnitBehavior : MonoBehaviour
     }
 
     void UpdateTarget() {
-        GameObject[] ennemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] ennemies = GameObject.FindGameObjectsWithTag(enemyTeam);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 
         foreach (GameObject enemy in ennemies) {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance && ((enemyTag == "Player2" && transform.position.x < enemy.transform.position.x) || (enemyTag == "Player1" && transform.position.x > enemy.transform.position.x))) {
+            if (distanceToEnemy < shortestDistance && (((transform.position.x + (0.5f * teamMultipl) - enemy.transform.position.x) * teamMultipl) < 0)) {
                 shortestDistance = distanceToEnemy; // Save position of nearest ennemi
                 nearestEnemy = enemy; //Set nearest ennemi
             }
@@ -80,11 +97,8 @@ public class UnitBehavior : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) < 0.3f && castle != null) {
             enemyTarget = castle.transform;
         }else if (castle == null) {
-            if (enemyTag == "Player2") {
-                target = GameObject.FindGameObjectWithTag("End1").transform;
-            }else{
-                target = GameObject.FindGameObjectWithTag("End2").transform;
-            }
+            
+            target = endTarget;
 
             if (Vector3.Distance(transform.position, target.position) < 0.3f) {
                 Destroy(gameObject);

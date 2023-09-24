@@ -87,7 +87,7 @@ public class Castle : MonoBehaviour
     }
 
     public bool looseRessources(float cost) {
-        if (cost < currentRessources) {
+        if (cost <= currentRessources) {
             currentRessources -= cost;
             return true;
         }

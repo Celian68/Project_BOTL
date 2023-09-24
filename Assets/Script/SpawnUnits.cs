@@ -31,11 +31,23 @@ public class SpawnUnits : MonoBehaviour
                 }
             }
 
+            if (Input.GetKeyDown(KeyCode.Alpha2)) {
+                if (castle.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
+                    Instantiate(unite2, transform);
+                }
+            }
+
         }else{
 
             if (Input.GetKeyDown(KeyCode.Alpha6)) {
                 if (castle.GetComponent<Castle>().looseRessources(unite1.GetComponent<UnitBehavior>().cost)) {
                     Instantiate(unite1, transform);
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha7)) {
+                if (castle.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
+                    Instantiate(unite2, transform);
                 }
             }
 
