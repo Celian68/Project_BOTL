@@ -13,7 +13,7 @@ public class Castle : MonoBehaviour
         
     } 
 
-    void getDamaged(float damage) {
+    public void getDamaged(float damage) {
         if(armor >= 0 && armor > damage){
             armor -= damage;
         }else{

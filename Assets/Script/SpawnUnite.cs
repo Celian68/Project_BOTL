@@ -13,12 +13,12 @@ public class SpawnUnite : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && spawn1 != null)
         {
             Instantiate(unite1, spawn1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && spawn2 != null)
         {
             Instantiate(unite2, spawn2);
         }
