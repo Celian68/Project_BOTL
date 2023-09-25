@@ -31,7 +31,7 @@ public class UnitBehavior : MonoBehaviour
         //Check every 0.3sec fonction "UpdateTarget"; Parama ["Fonction"], Wait to start, check delay
         InvokeRepeating("UpdateTarget", 0f, 0.3f); 
 
-        spriteR = spriteR = gameObject.GetComponent<SpriteRenderer>();
+        spriteR = gameObject.GetComponent<SpriteRenderer>();
 
         if (gameObject.transform.parent.gameObject.tag == "Spawn1") {
             unitTeam = "Player1";
