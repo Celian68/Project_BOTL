@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8586255814942124710}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.027, y: 0.509, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,9 +104,6 @@ MonoBehaviour:
   moveSpeed: 1.5
   unitRange: 1
   attackSpeed: 1
-  target: {fileID: 4693312189506259934, guid: f29d9608ecf100d4b9c2729a91eee5e2, type: 3}
-  enemyTarget: {fileID: 0}
-  enemyTag: Player1
   animator: {fileID: 8452665314815964052}
 --- !u!95 &8452665314815964052
 Animator:

@@ -8,7 +8,7 @@ public class Castle : MonoBehaviour
     public float ressourcesPerSec;
 
     public float maxLife;
-    private float currentLife;
+    public float currentLife;
 
     public float armor = 0;
 
