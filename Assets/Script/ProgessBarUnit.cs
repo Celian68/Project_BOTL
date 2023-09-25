@@ -3,37 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 [ExecuteInEditMode()]
-public class progessBar : MonoBehaviour
+
+public class progessBarUnit : MonoBehaviour
 {
 
-    public float maximum;
+  public float maximum;
     public float current;
 
     public Image mask;
 
-    public Castle target;
     public UnitBehavior unit;
 
     // Start is called before the first frame update
     void Start()
     {
-        if((target != null) && (unit == null)) { //changer
-            maximum = target.maxLife;
-        }
-        //(target == null) && (unit != null)
+     maximum = unit.life;
     }
 
     // Update is called once per frame
     void Update()
     {
         GetCurrentFill();
+        transform.position = unit.transform.position;
     }
 
     void GetCurrentFill(){
-        if(target != null){
-            current = target.currentLife;
-        }
-        mask.fillAmount = current / maximum;
+            current = unit.life;
+        float FillAmout = (float)current / (float)maximum;
+        mask.fillAmount = FillAmout; //m_FillAmount
     }
 
 }
