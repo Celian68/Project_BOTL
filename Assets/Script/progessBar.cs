@@ -12,13 +12,15 @@ public class progessBar : MonoBehaviour
     public Image mask;
 
     public Castle target;
+    public UnitBehavior unit;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(target != null){
+        if((target != null) && (unit == null)) { //changer
             maximum = target.maxLife;
         }
+        //(target == null) && (unit != null)
     }
 
     // Update is called once per frame
@@ -31,13 +33,7 @@ public class progessBar : MonoBehaviour
         if(target != null){
             current = target.currentLife;
         }
-        float FillAmout = (float)current / (float)maximum;
-        mask.fillAmount = FillAmout; //m_FillAmount
+        mask.fillAmount = current / maximum;
     }
-    // void UpdatePose(){
-    //     Vector3 dir = target.transform.position;
-    //     dir.y += 2;
-    //     float ms = target.moveSpeed;
-    //     transform.Translate(dir.normalized * ms * Time.deltaTime, Space.World);
-    // }
+
 }
