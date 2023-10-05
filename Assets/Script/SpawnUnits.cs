@@ -37,32 +37,25 @@ public class SpawnUnits : MonoBehaviour
 
     void spawnUnits() {
 
-        if (gameObject.tag == "Spawn1") {
-
-            if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                UnitButton1();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha2)) {
-                UnitButton2();
-            }
-
-        }else{
-
-            if (Input.GetKeyDown(KeyCode.Alpha6)) {
-                UnitButton3();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha7)) {
-                UnitButton4();
-            }
-
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            UnitButton1();
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            UnitButton2();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6)) {
+            UnitButton3();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7)) {
+            UnitButton4();
+        }
     }
 
     public void UnitButton1() {
-        if (castle1.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
+        if (castle1.GetComponent<Castle>().looseRessources(unite1.GetComponent<UnitBehavior>().cost)) {
             Instantiate(unite1, spawn1);
         }
     }

@@ -16,7 +16,7 @@ public class progessBarCastle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     maximum = castle.maxLife;
+        maximum = castle.maxLife;
     }
 
     // Update is called once per frame
@@ -26,9 +26,11 @@ public class progessBarCastle : MonoBehaviour
     }
 
     void GetCurrentFill(){
-        current = castle.currentLife;
-        float FillAmout = (float)current / (float)maximum;
-        mask.fillAmount = FillAmout; //m_FillAmount
+        if (castle != null) {
+            current = castle.currentLife;
+            float FillAmout = (float)current / (float)maximum;
+            mask.fillAmount = FillAmout; //m_FillAmount
+        }
     }
 
 }
