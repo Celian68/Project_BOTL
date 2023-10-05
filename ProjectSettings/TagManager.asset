@@ -14,6 +14,7 @@ TagManager:
   - Spawn2
   - Objective1
   - Objective2
+  - GameManager
   layers:
   - Default
   - TransparentFX

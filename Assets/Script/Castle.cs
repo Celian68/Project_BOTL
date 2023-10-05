@@ -22,6 +22,8 @@ public class Castle : MonoBehaviour
     public Text ressourcesCount;
     public Text lifeCount;
 
+    private GameObject gameManager;
+
 
     void Start() {
 
@@ -34,6 +36,10 @@ public class Castle : MonoBehaviour
         InvokeRepeating("generateRessources", 0f, 1f); 
 
         updateLife();
+
+        gameObject.SetActive(true);
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
     }
 
@@ -62,7 +68,8 @@ public class Castle : MonoBehaviour
         updateLife();
 
         if (currentLife <= 0) {
-            Destroy(gameObject);
+            gameManager.GetComponent<GameOverManager>().setGameOver(false);
+            gameObject.SetActive(false);
         }
     }
 

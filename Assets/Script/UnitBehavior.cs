@@ -25,7 +25,6 @@ public class UnitBehavior : MonoBehaviour
     public Animator animator;
     private  SpriteRenderer spriteR;
 
-    // Start is called before the first frame update
     void Start()
     {
         //Check every 0.3sec fonction "UpdateTarget"; Parama ["Fonction"], Wait to start, check delay
@@ -74,7 +73,7 @@ public class UnitBehavior : MonoBehaviour
             }
         }
 
-        if (castle != null && enemyTarget == castle.transform) {
+        if (castle.activeSelf && enemyTarget == castle.transform) {
             if (!isAttacking) {
                 animator.SetBool("EnnemyFound", true);
                 StartCoroutine(Attack());
@@ -95,9 +94,9 @@ public class UnitBehavior : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * moveSpeed * Time.deltaTime, Space.World); 
 
-        if (Vector3.Distance(transform.position, target.position) < 0.3f && castle != null) {
+        if (Vector3.Distance(transform.position, target.position) < 0.3f && castle.activeSelf) {
             enemyTarget = castle.transform;
-        }else if (castle == null) {
+        }else if (!castle.activeSelf) {
             
             target = endTarget;
 
@@ -120,18 +119,18 @@ public class UnitBehavior : MonoBehaviour
 
     public IEnumerator Attack() {
         isAttacking = true;
-        while (enemyTarget != null) {
+        while (enemyTarget != null && enemyTarget.gameObject.activeSelf) {
             animator.SetBool("doDamage", false);
             yield return new WaitForSeconds(attackSpeed);
-            if (enemyTarget != null) {
+            if (enemyTarget != null && enemyTarget.gameObject.activeSelf) {
                 animator.SetBool("doDamage", true);
-                yield return new WaitForSeconds(0.1f);  //delay(3000)
+                yield return new WaitForSeconds(0.1f);
                 if (enemyTarget == castle.transform) {
                     castle.GetComponent<Castle>().getDamaged(damage);
-                }else if (enemyTarget != null) {
+                }else if (enemyTarget != null && enemyTarget.gameObject.activeSelf) {
                     enemyTarget.GetComponent<UnitBehavior>().getDamaged(damage);
                 }
-                yield return new WaitForSeconds(0.2f);  //delay(3000)
+                yield return new WaitForSeconds(0.2f);
             }else{
                 enemyTarget = null;
             }
