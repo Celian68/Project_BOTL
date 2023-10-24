@@ -10,7 +10,7 @@ public class Castle : MonoBehaviour
     public float maxLife;
     public float currentLife;
 
-    public float armor = 0;
+    public int ennemyPlayer;
 
     public Sprite state1;
     public Sprite state2;
@@ -53,22 +53,15 @@ public class Castle : MonoBehaviour
 
     public void getDamaged(float damage) {
 
-        if(armor >= 0 && armor > damage){
-            armor -= damage;
-        }else{
-            currentLife -= damage;
-            currentLife += armor;
-            armor = 0;
+        currentLife -= damage;
 
-            if (currentLife < 0) {
-                currentLife = 0;
-            }
+        if (currentLife < 0) {
+            currentLife = 0;
         }
-
         updateLife();
 
         if (currentLife <= 0) {
-            gameManager.GetComponent<GameOverManager>().setGameOver(false);
+            gameManager.GetComponent<GameOverManager>().setGameOver(true, ennemyPlayer);
             gameObject.SetActive(false);
         }
     }

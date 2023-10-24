@@ -91,7 +91,8 @@ public class UnitBehavior : MonoBehaviour
     }
 
     void Move() {
-        Vector3 dir = target.position - transform.position;
+        Vector3 tar = new Vector3(target.position.x, transform.position.y, transform.position.z);
+        Vector3 dir = tar - transform.position;
         transform.Translate(dir.normalized * moveSpeed * Time.deltaTime, Space.World); 
 
         if (Vector3.Distance(transform.position, target.position) < 0.3f && castle.activeSelf) {
@@ -103,6 +104,10 @@ public class UnitBehavior : MonoBehaviour
             if (Vector3.Distance(transform.position, target.position) < 0.3f) {
                 Destroy(gameObject);
             }
+        }
+
+        if (transform.position.x < -20f || transform.position.x > 20f) {
+                Destroy(gameObject);
         }
     }
 
