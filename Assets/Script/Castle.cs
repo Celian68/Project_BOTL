@@ -29,7 +29,7 @@ public class Castle : MonoBehaviour
 
         currentLife = maxLife;
 
-        currentRessources = maxRessources;
+        currentRessources = 0;
 
         spriteR = gameObject.GetComponent<SpriteRenderer>();
 

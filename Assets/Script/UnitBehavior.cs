@@ -20,7 +20,7 @@ public class UnitBehavior : MonoBehaviour
     private Transform target;
     private Transform endTarget;
     private Transform enemyTarget;
-    private GameObject castle;
+    public GameObject castle;
 
     public Animator animator;
     private  SpriteRenderer spriteR;
@@ -95,7 +95,7 @@ public class UnitBehavior : MonoBehaviour
         Vector3 dir = tar - transform.position;
         transform.Translate(dir.normalized * moveSpeed * Time.deltaTime, Space.World); 
 
-        if (Vector3.Distance(transform.position, target.position) < 0.3f && castle.activeSelf) {
+        if (castle.activeSelf && Vector3.Distance(transform.position, target.position) < 0.3f) {
             enemyTarget = castle.transform;
         }else if (!castle.activeSelf) {
             

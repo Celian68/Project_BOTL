@@ -20,6 +20,7 @@ public class GameOverManager : MonoBehaviour
         gameOver = state;
 
         if (gameOver) {
+            gameObject.GetComponent<SpawnUnits>().setGameOver();
             gameOverText.text = "Player " + player.ToString() + " Win !";
             gameOverMenu.SetActive(true);
         }
@@ -28,6 +29,5 @@ public class GameOverManager : MonoBehaviour
     public void ReturnMainMenu() {
         SceneManager.LoadScene("MainMenu");
         gameOver = false;
-        gameOverMenu.SetActive(false);
     }
 }

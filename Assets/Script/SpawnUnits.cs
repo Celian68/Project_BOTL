@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class SpawnUnits : MonoBehaviour
 {
 
+    private bool gameOver;
+
     public GameObject unite1;
     public GameObject unite2;
     public GameObject unite3;
@@ -36,22 +38,24 @@ public class SpawnUnits : MonoBehaviour
     }
 
     void spawnUnits() {
+        if (!gameOver) {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) {
+                UnitButton1();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            UnitButton1();
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha2)) {
+                UnitButton2();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            UnitButton2();
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha6)) {
+                UnitButton3();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha6)) {
-            UnitButton3();
+            if (Input.GetKeyDown(KeyCode.Alpha7)) {
+                UnitButton4();
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha7)) {
-            UnitButton4();
-        }
+        
     }
 
     public void UnitButton1() {
@@ -76,5 +80,9 @@ public class SpawnUnits : MonoBehaviour
         if (castle2.GetComponent<Castle>().looseRessources(unite7.GetComponent<UnitBehavior>().cost)) {
             Instantiate(unite7, spawn2);
         }
+    }
+
+    public void setGameOver() {
+        gameOver = true;
     }
 }
