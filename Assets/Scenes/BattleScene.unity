@@ -285,7 +285,6 @@ GameObject:
   - component: {fileID: 42412383}
   - component: {fileID: 42412382}
   - component: {fileID: 42412381}
-  - component: {fileID: 42412380}
   m_Layer: 5
   m_Name: ProgressBar (2)
   m_TagString: Untagged
@@ -313,22 +312,6 @@ RectTransform:
   m_AnchoredPosition: {x: -31.47771, y: 0.30224}
   m_SizeDelta: {x: 1.3285, y: 0.6045}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &42412380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42412378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9fbc3f3adc00fc4eb8e1f740166c468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maximum: 500
-  current: 0
-  mask: {fileID: 931554736}
-  castle: {fileID: 660674243}
 --- !u!114 &42412381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1264,7 +1247,6 @@ GameObject:
   - component: {fileID: 561491898}
   - component: {fileID: 561491897}
   - component: {fileID: 561491896}
-  - component: {fileID: 561491895}
   m_Layer: 5
   m_Name: ProgressBar (1)
   m_TagString: Untagged
@@ -1292,22 +1274,6 @@ RectTransform:
   m_AnchoredPosition: {x: 33.23257, y: 0.30224}
   m_SizeDelta: {x: 1.3543, y: 0.6045}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &561491895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561491893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9fbc3f3adc00fc4eb8e1f740166c468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maximum: 500
-  current: 0
-  mask: {fileID: 207138173}
-  castle: {fileID: 586161717}
 --- !u!114 &561491896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2441,6 +2407,12 @@ MonoBehaviour:
   unite8: {fileID: 0}
   unite9: {fileID: 0}
   unite10: {fileID: 0}
+  maximum1: 0
+  current1: 0
+  maximum2: 0
+  current2: 0
+  mask1: {fileID: 207138173}
+  mask2: {fileID: 931554736}
 --- !u!114 &1033640426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2666,6 +2638,10 @@ PrefabInstance:
       value: Spawn2
       objectReference: {fileID: 0}
     - target: {fileID: 4534883315798478994, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: animArch
+      value: 
+      objectReference: {fileID: 976739709}
+    - target: {fileID: 4534883315798478994, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: animArche
       value: 
       objectReference: {fileID: 976739709}
@@ -2677,6 +2653,10 @@ PrefabInstance:
       propertyPath: lifeCount
       value: 
       objectReference: {fileID: 513644104}
+    - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: LevelUpButton
+      value: 
+      objectReference: {fileID: 194429753}
     - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: ressourcesCount
       value: 
@@ -4241,6 +4221,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4534883315798478994, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: animArch
+      value: 
+      objectReference: {fileID: 141362346}
+    - target: {fileID: 4534883315798478994, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: animArche
       value: 
       objectReference: {fileID: 141362346}
@@ -4248,6 +4232,10 @@ PrefabInstance:
       propertyPath: lifeCount
       value: 
       objectReference: {fileID: 1923080037}
+    - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: LevelUpButton
+      value: 
+      objectReference: {fileID: 956697189}
     - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: ressourcesCount
       value: 

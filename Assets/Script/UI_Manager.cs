@@ -25,6 +25,14 @@ public class SpawnUnits : MonoBehaviour
     private Transform spawn1;
     private Transform spawn2;
 
+    public float maximum1;
+    public float current1;
+    public float maximum2;
+    public float current2;
+
+    public Image mask1;
+    public Image mask2;
+
     void Start() {
         castle1 = GameObject.FindGameObjectWithTag("Castle1");
         castle2 = GameObject.FindGameObjectWithTag("Castle2");
@@ -35,6 +43,7 @@ public class SpawnUnits : MonoBehaviour
     // Update is called once per frame
     void Update() {
         spawnUnits();
+        GetCurrentFill();
     }
 
     void spawnUnits() {
@@ -82,7 +91,21 @@ public class SpawnUnits : MonoBehaviour
         }
     }
 
-    public void setGameOver() {
-        gameOver = true;
+    void GetCurrentFill(){
+        if (castle1 != null) {
+            current1 = castle1.GetComponent<Castle>().currentLife;
+            maximum1 = castle1.GetComponent<Castle>().maxLife;
+            float FillAmout = current1 / maximum1;
+            mask1.fillAmount = FillAmout;
+        }
+        if (castle2 != null) {
+            current2 = castle2.GetComponent<Castle>().currentLife;
+            maximum2 = castle2.GetComponent<Castle>().maxLife;
+            float FillAmout = current2 / maximum2;
+            mask2.fillAmount = FillAmout;
+        }
+        if (current1 <= 0 || current2 <= 0) {
+            gameOver = true;
+        }
     }
 }
