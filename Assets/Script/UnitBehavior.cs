@@ -13,7 +13,6 @@ public class UnitBehavior : MonoBehaviour
     public float attackSpeed;
 
     private float teamMultipl;
-    private string unitTeam;
     private string enemyTeam;
     private bool isAttacking = false;
 
@@ -33,7 +32,6 @@ public class UnitBehavior : MonoBehaviour
         spriteR = gameObject.GetComponent<SpriteRenderer>();
 
         if (gameObject.transform.parent.gameObject.tag == "Spawn1") {
-            unitTeam = "Player1";
             enemyTeam = "Player2";
             transform.tag = "Player1";
             teamMultipl = 1;
@@ -41,7 +39,6 @@ public class UnitBehavior : MonoBehaviour
             target = GameObject.FindGameObjectWithTag("Objective1").transform;
             endTarget = GameObject.FindGameObjectWithTag("End1").transform;
         }else if (gameObject.transform.parent.gameObject.tag == "Spawn2") {
-            unitTeam = "Player2";
             enemyTeam = "Player1";
             transform.tag = "Player2";
             teamMultipl = -1;

@@ -12,17 +12,16 @@ public class Castle : MonoBehaviour
 
     public int ennemyPlayer;
 
-    public Sprite state1;
-    public Sprite state2;
-    public Sprite state3;
-    public Sprite state4;
-
-    private  SpriteRenderer spriteR;
+    private int level;
 
     public Text ressourcesCount;
     public Text lifeCount;
 
     private GameObject gameManager;
+
+    public GameObject Arche;
+
+    public Animator animCastle;
 
 
     void Start() {
@@ -31,8 +30,6 @@ public class Castle : MonoBehaviour
 
         currentRessources = 0;
 
-        spriteR = gameObject.GetComponent<SpriteRenderer>();
-
         InvokeRepeating("generateRessources", 0f, 1f); 
 
         updateLife();
@@ -40,6 +37,8 @@ public class Castle : MonoBehaviour
         gameObject.SetActive(true);
 
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        level = 1;
 
     }
 
@@ -69,15 +68,14 @@ public class Castle : MonoBehaviour
     void showDamaged() {
 
         if (currentLife > maxLife * 0.75f) {
-            spriteR.sprite = state1;
+            animCastle.SetInteger("State", 0);
         }else if (currentLife > maxLife * 0.5f) {
-            spriteR.sprite = state2;
+            animCastle.SetInteger("State", 1);
         }else if (currentLife > maxLife * 0.25f) {
-            spriteR.sprite = state3;
+            animCastle.SetInteger("State", 2);
         }else{
-            spriteR.sprite = state4;
+            animCastle.SetInteger("State", 3);
         }
-
     }
 
     void generateRessources() {
@@ -105,5 +103,23 @@ public class Castle : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void levelUp() {
+        if (level == 1 && looseRessources(100)) {
+            level++;
+            animCastle.SetInteger("Level", level);
+            maxRessources = 250;
+            ressourcesPerSec = 4;
+            Arche.GetComponent<Arche>().levelUp();
+            //maxLife = 800;
+        }else if (level == 2 && looseRessources(250)) {
+            level++;
+            animCastle.SetInteger("Level", level);
+            maxRessources = 500;
+            ressourcesPerSec = 6;
+            Arche.GetComponent<Arche>().levelUp();
+            //maxLife = 1500;
+        }
     }
 }
