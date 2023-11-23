@@ -122,7 +122,7 @@ public class Castle : MonoBehaviour
             ressourcesPerSec = 4;
             Arche.GetComponent<Arch>().levelUp();
             maxLife = 800;
-            currentLife = Mathf.Abs(maxLife * pourcent * 0.01f);
+            currentLife = Mathf.RoundToInt(maxLife * pourcent * 0.01f);
             updateLife();
         }else if (level == 2 && looseRessources(250)) {
             level++;
@@ -131,7 +131,7 @@ public class Castle : MonoBehaviour
             ressourcesPerSec = 6;
             Arche.GetComponent<Arch>().levelUp();
             maxLife = 1500;
-            currentLife = Mathf.Abs(maxLife * pourcent * 0.01f);
+            currentLife = Mathf.RoundToInt(maxLife * pourcent * 0.01f);
             updateLife();
         }
     }
