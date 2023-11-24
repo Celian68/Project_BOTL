@@ -116,14 +116,27 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    public void ShowDamageText(int damage, Vector3 position) {
+    public void ShowDamageText(int damage, Vector3 position, float player) {
         Vector3 screenPosition = mainCamera.WorldToScreenPoint(position);
         Text damageText = Instantiate(damageTextPrefab, screenPosition, Quaternion.identity, InGameUI);
         damageText.text = "-" + damage;
 
-        LeanTween.alpha(damageText.gameObject, 0, 1.5f); // Faire disparaître le texte
+        RectTransform canvasRect = InGameUI.GetComponent<RectTransform>();
+        Vector2 canvasPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPosition, mainCamera, out canvasPos);
+
+        Vector3 originalPosition = damageText.rectTransform.position;
+
+        iTween.ScaleFrom(damageText.gameObject, new Vector3(0, 0, 0), 3f); // Agrandir le texte
+        LeanTween.alphaText(damageText.rectTransform, 0, 1.5f); // Faire disparaître le texte
+        
+        
+        LeanTween.moveLocalY(damageText.rectTransform.gameObject, originalPosition.y + canvasPos.y + 200f, 1.5f);
+        if (player != 0) {
+            LeanTween.moveLocalX(damageText.rectTransform.gameObject, originalPosition.x + canvasPos.x + 200f * (player * -1), 1.5f);
+        }
 
 
-        Destroy(damageText.gameObject, 2f);
+        //Destroy(damageText.gameObject, 4f);
     }
 }

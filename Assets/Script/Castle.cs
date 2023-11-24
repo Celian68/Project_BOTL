@@ -61,7 +61,7 @@ public class Castle : MonoBehaviour
             currentLife = 0;
         }
         updateLife();
-
+        gameManager.GetComponent<UI_Manager>().ShowDamageText(Mathf.RoundToInt(damage), transform.position, 0);
         if (currentLife <= 0) {
             gameManager.GetComponent<GameOverManager>().setGameOver(true, ennemyPlayer);
             gameObject.SetActive(false);

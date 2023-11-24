@@ -146,7 +146,7 @@ public class UnitBehavior : MonoBehaviour
 
     void getDamaged(float damage) {
         life -= damage;
-        gameManager.GetComponent<UI_Manager>().ShowDamageText(Mathf.RoundToInt(damage), transform.position);
+        gameManager.GetComponent<UI_Manager>().ShowDamageText(Mathf.RoundToInt(damage), transform.position, teamMultipl);
         if (life <= 0) {
             Destroy(gameObject);
         }
