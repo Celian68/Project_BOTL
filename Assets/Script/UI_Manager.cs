@@ -121,7 +121,7 @@ public class UI_Manager : MonoBehaviour
         Text damageText = Instantiate(damageTextPrefab, screenPosition, Quaternion.identity, InGameUI);
         damageText.text = "-" + damage;
 
-        LeanTween.alpha(damageText.GameObject, 0, 1.5f); // Faire disparaître le texte
+        LeanTween.alpha(damageText.gameObject, 0, 1.5f); // Faire disparaître le texte
 
 
         Destroy(damageText.gameObject, 2f);
