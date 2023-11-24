@@ -15,6 +15,7 @@ TagManager:
   - Objective1
   - Objective2
   - GameManager
+  - DamageText
   layers:
   - Default
   - TransparentFX

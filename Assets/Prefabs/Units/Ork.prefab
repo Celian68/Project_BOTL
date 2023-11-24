@@ -104,10 +104,9 @@ MonoBehaviour:
   moveSpeed: 1
   unitRange: 1
   attackSpeed: 1
-  target: {fileID: 4693312189506259934, guid: d1d370dc4eae27f49905d806bd3f827f, type: 3}
-  enemyTarget: {fileID: 0}
-  enemyTag: Player2
+  castle: {fileID: 0}
   animator: {fileID: 8087037270806207971}
+  damageText: {fileID: 5536838227559270364, guid: 01b00c8d0156ef54bbf3e44ad2411e61, type: 3}
 --- !u!95 &8087037270806207971
 Animator:
   serializedVersion: 5

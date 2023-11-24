@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 
 public class UnitBehavior : MonoBehaviour
@@ -23,6 +24,8 @@ public class UnitBehavior : MonoBehaviour
 
     public Animator animator;
     private  SpriteRenderer spriteR;
+    private GameObject gameManager;
+
 
     void Start()
     {
@@ -30,6 +33,7 @@ public class UnitBehavior : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0f, 0.3f); 
 
         spriteR = gameObject.GetComponent<SpriteRenderer>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
         if (gameObject.transform.parent.gameObject.tag == "Spawn1") {
             enemyTeam = "Player2";
@@ -142,6 +146,7 @@ public class UnitBehavior : MonoBehaviour
 
     void getDamaged(float damage) {
         life -= damage;
+        gameManager.GetComponent<UI_Manager>().ShowDamageText(Mathf.RoundToInt(damage), transform.position);
         if (life <= 0) {
             Destroy(gameObject);
         }

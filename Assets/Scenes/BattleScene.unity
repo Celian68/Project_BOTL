@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640425}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpawnUnits, Assembly-CSharp
         m_MethodName: UnitButton1
         m_Mode: 1
@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640425}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpawnUnits, Assembly-CSharp
         m_MethodName: UnitButton2
         m_Mode: 1
@@ -2361,8 +2361,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1033640424}
-  - component: {fileID: 1033640425}
   - component: {fileID: 1033640426}
+  - component: {fileID: 1033640427}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -2385,34 +2385,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1033640425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033640422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3a067872537ef74ca4c8ac8ac7f878c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unite1: {fileID: 8586255814942124710, guid: 3b15c0bd9b4f7db4fa8b0829a07b0be3, type: 3}
-  unite2: {fileID: 8586255814942124710, guid: edd5f4a2942f5d54686f473529bd24ee, type: 3}
-  unite3: {fileID: 0}
-  unite4: {fileID: 0}
-  unite5: {fileID: 0}
-  unite6: {fileID: 8586255814942124710, guid: 3b15c0bd9b4f7db4fa8b0829a07b0be3, type: 3}
-  unite7: {fileID: 8586255814942124710, guid: edd5f4a2942f5d54686f473529bd24ee, type: 3}
-  unite8: {fileID: 0}
-  unite9: {fileID: 0}
-  unite10: {fileID: 0}
-  maximum1: 0
-  current1: 0
-  maximum2: 0
-  current2: 0
-  mask1: {fileID: 207138173}
-  mask2: {fileID: 931554736}
 --- !u!114 &1033640426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2428,6 +2400,33 @@ MonoBehaviour:
   gameOverMenu: {fileID: 785363486}
   gameOverText: {fileID: 1706343028}
   gameOver: 0
+--- !u!114 &1033640427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033640422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a067872537ef74ca4c8ac8ac7f878c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InGameUI: {fileID: 1751146380}
+  unite1: {fileID: 8586255814942124710, guid: 3b15c0bd9b4f7db4fa8b0829a07b0be3, type: 3}
+  unite2: {fileID: 8586255814942124710, guid: edd5f4a2942f5d54686f473529bd24ee, type: 3}
+  unite3: {fileID: 0}
+  unite4: {fileID: 0}
+  unite5: {fileID: 0}
+  unite6: {fileID: 8586255814942124710, guid: 3b15c0bd9b4f7db4fa8b0829a07b0be3, type: 3}
+  unite7: {fileID: 8586255814942124710, guid: edd5f4a2942f5d54686f473529bd24ee, type: 3}
+  unite8: {fileID: 0}
+  unite9: {fileID: 0}
+  unite10: {fileID: 0}
+  mask1: {fileID: 207138173}
+  mask2: {fileID: 931554736}
+  damageTextPrefab: {fileID: 2025210064201736986, guid: 01b00c8d0156ef54bbf3e44ad2411e61, type: 3}
+  mainCamera: {fileID: 519420031}
 --- !u!1 &1082998938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,7 +2548,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640425}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpawnUnits, Assembly-CSharp
         m_MethodName: UnitButton4
         m_Mode: 1
@@ -2629,6 +2628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entrance2
       objectReference: {fileID: 0}
+    - target: {fileID: 3450839366524183509, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 4425076755673146595, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_Name
       value: Spawn2
@@ -2661,6 +2664,10 @@ PrefabInstance:
       propertyPath: ressourcesCount
       value: 
       objectReference: {fileID: 2067342328}
+    - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: ressourcesPerSec
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2745,6 +2752,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109582470}
   m_CullTransparentMesh: 1
+--- !u!1 &1144885946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144885949}
+  - component: {fileID: 1144885948}
+  - component: {fileID: 1144885947}
+  m_Layer: 5
+  m_Name: DamageCount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1144885947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144885946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 1
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 999
+--- !u!222 &1144885948
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144885946}
+  m_CullTransparentMesh: 1
+--- !u!224 &1144885949
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144885946}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1264385529
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,7 +3299,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640425}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SpawnUnits, Assembly-CSharp
         m_MethodName: UnitButton3
         m_Mode: 1
@@ -4240,6 +4326,10 @@ PrefabInstance:
       propertyPath: ressourcesCount
       value: 
       objectReference: {fileID: 1789207744}
+    - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: ressourcesPerSec
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4256,6 +4346,7 @@ SceneRoots:
   - {fileID: 1083290755}
   - {fileID: 1531417774}
   - {fileID: 798355036}
+  - {fileID: 1144885949}
   - {fileID: 726258770}
   - {fileID: 1588813434}
   - {fileID: 1789427431}

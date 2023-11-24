@@ -1,10 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpawnUnits : MonoBehaviour
+public class UI_Manager : MonoBehaviour
 {
 
     private bool gameOver;
+
+    public Transform InGameUI;
 
     public GameObject unite1;
     public GameObject unite2;
@@ -25,13 +28,17 @@ public class SpawnUnits : MonoBehaviour
     private Transform spawn1;
     private Transform spawn2;
 
-    public float maximum1;
-    public float current1;
-    public float maximum2;
-    public float current2;
+    private float maximum1;
+    private float current1;
+    private float maximum2;
+    private float current2;
 
     public Image mask1;
     public Image mask2;
+
+    public Text damageTextPrefab;
+
+    public Camera mainCamera;
 
     void Start() {
         castle1 = GameObject.FindGameObjectWithTag("Castle1");
@@ -107,5 +114,16 @@ public class SpawnUnits : MonoBehaviour
         if (current1 <= 0 || current2 <= 0) {
             gameOver = true;
         }
+    }
+
+    public void ShowDamageText(int damage, Vector3 position) {
+        Vector3 screenPosition = mainCamera.WorldToScreenPoint(position);
+        Text damageText = Instantiate(damageTextPrefab, screenPosition, Quaternion.identity, InGameUI);
+        damageText.text = "-" + damage;
+
+        LeanTween.alpha(damageText.GameObject, 0, 1.5f); // Faire disparaître le texte
+
+
+        Destroy(damageText.gameObject, 2f);
     }
 }
