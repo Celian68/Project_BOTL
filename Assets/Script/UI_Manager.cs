@@ -51,6 +51,7 @@ public class UI_Manager : MonoBehaviour
     void Update() {
         spawnUnits();
         GetCurrentFill();
+        
     }
 
     void spawnUnits() {
@@ -70,6 +71,8 @@ public class UI_Manager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha7)) {
                 UnitButton4();
             }
+
+            MoveCamera();
         }
         
     }
@@ -135,8 +138,13 @@ public class UI_Manager : MonoBehaviour
         if (player != 0) {
             LeanTween.moveLocalX(damageText.rectTransform.gameObject, originalPosition.x + canvasPos.x + 200f * (player * -1), 1.5f);
         }
+        
 
 
-        //Destroy(damageText.gameObject, 4f);
+        Destroy(damageText.gameObject, 4f);
+    }
+
+    public void MoveCamera() {
+
     }
 }

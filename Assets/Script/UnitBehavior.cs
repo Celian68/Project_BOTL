@@ -107,7 +107,7 @@ public class UnitBehavior : MonoBehaviour
             }
         }
 
-        if (transform.position.x < -20f || transform.position.x > 20f) {
+        if (transform.position.x < -20f || transform.position.x > 45f) {
                 Destroy(gameObject);
         }
     }

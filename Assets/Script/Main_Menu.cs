@@ -32,11 +32,13 @@ public class Main_Menu : MonoBehaviour
 
     public void gameEntranceCinematic() {
         if (background.position.y < 3.5f) {
-            background.position = new Vector3(background.position.x, background.position.y + 0.0005f, background.position.z);
+            //background.position = new Vector3(background.position.x, background.position.y + 0.0005f, background.position.z);
+            background.transform.Translate(Vector3.up * Time.deltaTime * 1f);
         }
         
         if (battleGround.position.y < -1.5f) {
-            battleGround.position = new Vector3(battleGround.position.x, battleGround.position.y + 0.0015f, battleGround.position.z);
+            //battleGround.position = new Vector3(battleGround.position.x, battleGround.position.y + 0.0015f, battleGround.position.z);
+            battleGround.transform.Translate(Vector3.up * Time.deltaTime * 3f);
         }
 
         if (background.position.y >= 3.5f && battleGround.position.y >= -1.5f) {

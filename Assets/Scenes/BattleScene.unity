@@ -775,8 +775,8 @@ Transform:
   m_GameObject: {fileID: 208360810}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.5, z: 0}
-  m_LocalScale: {x: 40, y: 14, z: 1}
+  m_LocalPosition: {x: 15, y: -1.5, z: 0}
+  m_LocalScale: {x: 100, y: 14, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1052,8 +1052,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SpawnUnits, Assembly-CSharp
+      - m_Target: {fileID: 1033640427}
+        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
         m_MethodName: UnitButton1
         m_Mode: 1
         m_Arguments:
@@ -1154,6 +1154,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1235,6 +1236,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc297ee5f3b4124eae2b0c809c00fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 1930016210}
 --- !u!1 &561491893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,8 +1546,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SpawnUnits, Assembly-CSharp
+      - m_Target: {fileID: 1033640427}
+        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
         m_MethodName: UnitButton2
         m_Mode: 1
         m_Arguments:
@@ -2548,8 +2562,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SpawnUnits, Assembly-CSharp
+      - m_Target: {fileID: 1033640427}
+        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
         m_MethodName: UnitButton4
         m_Mode: 1
         m_Arguments:
@@ -2586,7 +2600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3158846883796015280, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.8
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3158846883796015280, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3172,7 +3186,7 @@ Transform:
   m_GameObject: {fileID: 1531417773}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: 0.3, z: 0}
+  m_LocalPosition: {x: 45, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3299,8 +3313,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SpawnUnits, Assembly-CSharp
+      - m_Target: {fileID: 1033640427}
+        m_TargetAssemblyTypeName: UI_Manager, Assembly-CSharp
         m_MethodName: UnitButton3
         m_Mode: 1
         m_Arguments:
@@ -3842,7 +3856,7 @@ Transform:
   m_GameObject: {fileID: 1789427430}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5, y: 0.3, z: 0}
+  m_LocalPosition: {x: 37.5, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4268,7 +4282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3158846883796015280, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.8
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3158846883796015280, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4343,12 +4357,12 @@ SceneRoots:
   - {fileID: 208360812}
   - {fileID: 1930016212}
   - {fileID: 137734247809165499}
-  - {fileID: 1083290755}
+  - {fileID: 1789427431}
   - {fileID: 1531417774}
+  - {fileID: 1083290755}
+  - {fileID: 91181551}
   - {fileID: 798355036}
   - {fileID: 1144885949}
   - {fileID: 726258770}
   - {fileID: 1588813434}
-  - {fileID: 1789427431}
-  - {fileID: 91181551}
   - {fileID: 1033640424}
