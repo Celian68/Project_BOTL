@@ -18,10 +18,10 @@ public class CameraManager : MonoBehaviour
 
         int edgeScrollSize = 30;
 
-        if (Input.mousePosition.x < edgeScrollSize && transform.position.x > 0) {
+        if (Input.mousePosition.x < edgeScrollSize && transform.position.x > -20) {
             inputDir.x -= 0.5f;
         }
-        if (Input.mousePosition.x > Screen.width - edgeScrollSize && transform.position.x < 30) {
+        if (Input.mousePosition.x > Screen.width - edgeScrollSize && transform.position.x < 50) {
             inputDir.x += 0.5f;
         }
 
