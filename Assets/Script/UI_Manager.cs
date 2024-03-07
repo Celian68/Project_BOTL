@@ -71,33 +71,31 @@ public class UI_Manager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha7)) {
                 UnitButton4();
             }
-
-            MoveCamera();
         }
         
     }
 
     public void UnitButton1() {
         if (castle1.GetComponent<Castle>().looseRessources(unite1.GetComponent<UnitBehavior>().cost)) {
-            Instantiate(unite1, spawn1);
+            spawn_Unit(unite1, spawn1);
         }
     }
 
     public void UnitButton2() {
         if (castle1.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
-            Instantiate(unite2, spawn1);
+            spawn_Unit(unite2, spawn1);
         }
     }
 
     public void UnitButton3() {
         if (castle2.GetComponent<Castle>().looseRessources(unite6.GetComponent<UnitBehavior>().cost)) {
-            Instantiate(unite6, spawn2);
+            spawn_Unit(unite6, spawn2);
         }
     }
 
     public void UnitButton4() {
         if (castle2.GetComponent<Castle>().looseRessources(unite7.GetComponent<UnitBehavior>().cost)) {
-            Instantiate(unite7, spawn2);
+            spawn_Unit(unite7, spawn2);
         }
     }
 
@@ -144,7 +142,9 @@ public class UI_Manager : MonoBehaviour
         Destroy(damageText.gameObject, 4f);
     }
 
-    public void MoveCamera() {
-
+    public void spawn_Unit(GameObject unit, Transform spawn) {
+        float randomNumber = Random.Range(23, 65)/100f;
+        spawn.position = new Vector3(spawn.position.x, randomNumber, 0);
+        Instantiate(unit, spawn.position, Quaternion.identity);   
     }
 }

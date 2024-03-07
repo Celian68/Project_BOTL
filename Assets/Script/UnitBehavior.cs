@@ -35,14 +35,14 @@ public class UnitBehavior : MonoBehaviour
         spriteR = gameObject.GetComponent<SpriteRenderer>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
-        if (gameObject.transform.parent.gameObject.tag == "Spawn1") {
+        if (gameObject.transform.position.x < 0) {
             enemyTeam = "Player2";
             transform.tag = "Player1";
             teamMultipl = 1;
             castle = GameObject.FindGameObjectWithTag("Castle2");
             target = GameObject.FindGameObjectWithTag("Objective1").transform;
             endTarget = GameObject.FindGameObjectWithTag("End1").transform;
-        }else if (gameObject.transform.parent.gameObject.tag == "Spawn2") {
+        }else {
             enemyTeam = "Player1";
             transform.tag = "Player2";
             teamMultipl = -1;
@@ -148,6 +148,9 @@ public class UnitBehavior : MonoBehaviour
         life -= damage;
         gameManager.GetComponent<UI_Manager>().ShowDamageText(Mathf.RoundToInt(damage), transform.position, teamMultipl);
         if (life <= 0) {
+
+            Vector3 newPosition = new Vector3(transform.position.x, (float)(transform.position.y + 0.16), 0);
+            gameManager.GetComponent<Manage_Dead_Unit>().spawn_Dead_Unit(newPosition);
             Destroy(gameObject);
         }
     }

@@ -101,14 +101,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRessources: 100
+  currentRessources: 0
   ressourcesPerSec: 2
   maxLife: 500
   currentLife: 0
   ennemyPlayer: 2
+  level: 0
   ressourcesCount: {fileID: 0}
   lifeCount: {fileID: 0}
   Arche: {fileID: 3438780565480600284}
   animCastle: {fileID: 8537864181437154132}
+  LevelUpButton: {fileID: 0}
 --- !u!95 &8537864181437154132
 Animator:
   serializedVersion: 5
@@ -204,7 +207,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 777687505, guid: 7c31b888282e4b742b3ee751808ebdc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -249,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba55a03c70d9a74dba35ce5d5a357bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animArche: {fileID: 0}
+  animArch: {fileID: 0}
 --- !u!1 &4425076755673146595
 GameObject:
   m_ObjectHideFlags: 0

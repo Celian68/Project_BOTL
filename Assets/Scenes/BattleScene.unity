@@ -2377,6 +2377,7 @@ GameObject:
   - component: {fileID: 1033640424}
   - component: {fileID: 1033640426}
   - component: {fileID: 1033640427}
+  - component: {fileID: 1033640428}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -2441,6 +2442,19 @@ MonoBehaviour:
   mask2: {fileID: 931554736}
   damageTextPrefab: {fileID: 2025210064201736986, guid: 01b00c8d0156ef54bbf3e44ad2411e61, type: 3}
   mainCamera: {fileID: 519420031}
+--- !u!114 &1033640428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033640422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce385eb710f88d7478829e7dd77be327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathAnimation: {fileID: 5133793643937281285, guid: 0f0c21ea6852daf40999c454a2a2bd26, type: 3}
 --- !u!1 &1082998938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2607,10 @@ PrefabInstance:
     - target: {fileID: 2321436211023644967, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321436211023644967, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2645566526794489130, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_FlipX
@@ -4279,6 +4297,10 @@ PrefabInstance:
     - target: {fileID: 1049432209788827590, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_Name
       value: Castle1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321436211023644967, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3158846883796015280, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_LocalPosition.x

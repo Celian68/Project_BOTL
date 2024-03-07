@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: -2036474641, guid: d22989eba0d20b64d95b538a49e403fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -106,7 +106,6 @@ MonoBehaviour:
   attackSpeed: 1
   castle: {fileID: 0}
   animator: {fileID: 8452665314815964052}
-  damageText: {fileID: 5536838227559270364, guid: 01b00c8d0156ef54bbf3e44ad2411e61, type: 3}
 --- !u!95 &8452665314815964052
 Animator:
   serializedVersion: 5
