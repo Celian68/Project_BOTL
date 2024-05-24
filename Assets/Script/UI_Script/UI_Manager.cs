@@ -1,11 +1,10 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
 {
 
-    private bool gameOver;
+    bool gameOver;
 
     public Transform InGameUI;
 
@@ -22,16 +21,16 @@ public class UI_Manager : MonoBehaviour
     public GameObject unite10;
 
 
-    private GameObject castle1;
-    private GameObject castle2;
+    GameObject castle1;
+    GameObject castle2;
 
-    private Transform spawn1;
-    private Transform spawn2;
+    Transform spawn1;
+    Transform spawn2;
 
-    private float maximum1;
-    private float current1;
-    private float maximum2;
-    private float current2;
+    float maximum1;
+    float current1;
+    float maximum2;
+    float current2;
 
     public Image mask1;
     public Image mask2;
@@ -76,38 +75,38 @@ public class UI_Manager : MonoBehaviour
     }
 
     public void UnitButton1() {
-        if (castle1.GetComponent<Castle>().looseRessources(unite1.GetComponent<UnitBehavior>().cost)) {
+        if (RessourceManager._instance.ConsumResources(unite1.GetComponent<UnitBehavior>().cost, false)) {
             spawn_Unit(unite1, spawn1);
         }
     }
 
     public void UnitButton2() {
-        if (castle1.GetComponent<Castle>().looseRessources(unite2.GetComponent<UnitBehavior>().cost)) {
+        if (RessourceManager._instance.ConsumResources(unite2.GetComponent<UnitBehavior>().cost, false)) {
             spawn_Unit(unite2, spawn1);
         }
     }
 
     public void UnitButton3() {
-        if (castle2.GetComponent<Castle>().looseRessources(unite6.GetComponent<UnitBehavior>().cost)) {
+        if (RessourceManager._instance.ConsumResources(unite6.GetComponent<UnitBehavior>().cost, true)) {
             spawn_Unit(unite6, spawn2);
         }
     }
 
     public void UnitButton4() {
-        if (castle2.GetComponent<Castle>().looseRessources(unite7.GetComponent<UnitBehavior>().cost)) {
+        if (RessourceManager._instance.ConsumResources(unite7.GetComponent<UnitBehavior>().cost, true)) {
             spawn_Unit(unite7, spawn2);
         }
     }
 
     void GetCurrentFill(){
         if (castle1 != null) {
-            current1 = castle1.GetComponent<Castle>().currentLife;
+            current1 = castle1.GetComponent<Castle>().getLife();
             maximum1 = castle1.GetComponent<Castle>().maxLife;
             float FillAmout = current1 / maximum1;
             mask1.fillAmount = FillAmout;
         }
         if (castle2 != null) {
-            current2 = castle2.GetComponent<Castle>().currentLife;
+            current2 = castle2.GetComponent<Castle>().getLife();
             maximum2 = castle2.GetComponent<Castle>().maxLife;
             float FillAmout = current2 / maximum2;
             mask2.fillAmount = FillAmout;

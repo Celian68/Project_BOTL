@@ -16,6 +16,7 @@ TagManager:
   - Objective2
   - GameManager
   - DamageText
+  - PopUp
   layers:
   - Default
   - TransparentFX

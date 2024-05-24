@@ -16,11 +16,14 @@ public class GameOverManager : MonoBehaviour
         gameOver = false;
     }
 
-    public void setGameOver(bool state, int player) {
+    public void setGameOver(bool state, bool player) {
         gameOver = state;
 
+        int intPlayer = player ? 1 : 0;
+        intPlayer++;
+
         if (gameOver) {
-            gameOverText.text = "Player " + player.ToString() + " Win !";
+            gameOverText.text = "Player " + intPlayer.ToString() + " Win !";
             gameOverMenu.SetActive(true);
         }
     }

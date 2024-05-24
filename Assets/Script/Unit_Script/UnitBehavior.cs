@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
 
 public class UnitBehavior : MonoBehaviour
@@ -8,7 +7,7 @@ public class UnitBehavior : MonoBehaviour
 
     public float life;
     public float damage;
-    public float cost;
+    public int cost;
     public float moveSpeed;
     public float unitRange;
     public float attackSpeed;

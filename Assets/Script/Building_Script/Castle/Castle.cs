@@ -4,21 +4,17 @@ using UnityEngine.UI;
 // Class that take care of the Castle of each player
 public class Castle : MonoBehaviour
 {
-    public float maxRessources; // Float that represent the maximum number of ressources that the player can have
-    public float currentRessources; // Float that represent the current number of ressources that the player have
-    public float ressourcesPerSec; // Float that represent the current number of ressources that the player gain every second
 
     public float maxLife; // Float that represent the maximum number of life that the player can have
-    public float currentLife; // Float that represent the current number of life that the player have
+    float currentLife; // Float that represent the current number of life that the player have
 
-    public int ennemyPlayer; // Int that represent the ennemy player (Player 1 or Player 2)
+    public bool player; // Int that represent the ennemy player (Player 1 or Player 2)
 
-    public int level; // Level of the Castle of the Player
+    int level; // Level of the Castle of the Player
 
-    public Text ressourcesCount;
     public Text lifeCount;
 
-    private GameObject gameManager;
+    public GameObject gameManager;
 
     public GameObject Arche;
 
@@ -26,23 +22,15 @@ public class Castle : MonoBehaviour
 
     public GameObject LevelUpButton;
 
-
     void Start() {
 
         currentLife = maxLife;
-
-        currentRessources = 0;
-
-        InvokeRepeating("generateRessources", 0f, 1f); 
 
         updateLife();
 
         gameObject.SetActive(true);
 
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
-
         level = 1;
-
     }
 
     // Update is called once per frame
@@ -50,8 +38,16 @@ public class Castle : MonoBehaviour
     {
         showDamaged();
 
-        updateRessources();
+        LevelUpButton.GetComponent<UIButtonBehavior>().Active((RessourceManager._instance.CheckResources(100, player) && level == 1) || (RessourceManager._instance.CheckResources(250, player) && level == 2));
     } 
+
+    public float getLife() {
+        return currentLife;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 
     public void getDamaged(float damage) {
 
@@ -63,7 +59,7 @@ public class Castle : MonoBehaviour
         updateLife();
         gameManager.GetComponent<UI_Manager>().ShowDamageText(Mathf.RoundToInt(damage), transform.position, 0);
         if (currentLife <= 0) {
-            gameManager.GetComponent<GameOverManager>().setGameOver(true, ennemyPlayer);
+            gameManager.GetComponent<GameOverManager>().setGameOver(true, !player);
             gameObject.SetActive(false);
         }
     }
@@ -80,59 +76,40 @@ public class Castle : MonoBehaviour
         }
     }
 
-    void generateRessources() { 
-        if (currentRessources < maxRessources) {
-            currentRessources += ressourcesPerSec;
-        }
-
-        if (currentRessources > maxRessources) {
-            currentRessources = maxRessources;
-        }
-    }
-
-    void updateRessources() {
-        ressourcesCount.text = currentRessources.ToString();
-
-        if ((currentRessources >= 100 && level == 1) || (currentRessources >= 250 && level == 2)) {
-            LevelUpButton.SetActive(true);
-        }else {
-            LevelUpButton.SetActive(false);
-        }
-    }
-
     void updateLife() {
         lifeCount.text = currentLife.ToString();
-    }
-
-    public bool looseRessources(float cost) {
-        if (cost <= currentRessources) {
-            currentRessources -= cost;
-            return true;
-        }
-        return false;
     }
 
     public void levelUp() {
         float pourcent = currentLife * 100/maxLife;
 
-        if (level == 1 && looseRessources(100)) {
+        if (level == 1 && RessourceManager._instance.ConsumResources(100, player)) {
             level++;
             animCastle.SetInteger("Level", level);
-            maxRessources = 250;
-            ressourcesPerSec = 4;
+            RessourceManager._instance.setMaxResources(250, player);
+            RessourceManager._instance.setResourcePerSec(2, player);
             Arche.GetComponent<Arch>().levelUp();
             maxLife = 800;
             currentLife = Mathf.RoundToInt(maxLife * pourcent * 0.01f);
             updateLife();
-        }else if (level == 2 && looseRessources(250)) {
+        }else if (level == 2 && RessourceManager._instance.ConsumResources(250, player)) {
             level++;
             animCastle.SetInteger("Level", level);
-            maxRessources = 500;
-            ressourcesPerSec = 6;
+            RessourceManager._instance.setMaxResources(500, player);
+            RessourceManager._instance.setResourcePerSec(3, player);
             Arche.GetComponent<Arch>().levelUp();
             maxLife = 1500;
             currentLife = Mathf.RoundToInt(maxLife * pourcent * 0.01f);
             updateLife();
         }
+    }
+
+    public float nextLevelUpCost() {
+        if (level == 1) {
+            return 100;
+        }else if (level == 2) {
+            return 250;
+        }
+        return 0;
     }
 }
