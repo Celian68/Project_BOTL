@@ -23,7 +23,6 @@ public class UnitBehavior : MonoBehaviour
 
     public Animator animator;
     private  SpriteRenderer spriteR;
-    private GameObject gameManager;
 
 
     void Start()
@@ -32,7 +31,6 @@ public class UnitBehavior : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0f, 0.3f); 
 
         spriteR = gameObject.GetComponent<SpriteRenderer>();
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
         if (gameObject.transform.position.x < 0) {
             enemyTeam = "Player2";
@@ -145,11 +143,10 @@ public class UnitBehavior : MonoBehaviour
 
     void getDamaged(float damage) {
         life -= damage;
-        gameManager.GetComponent<UI_Manager>().ShowDamageText(Mathf.RoundToInt(damage), transform.position, teamMultipl);
+        UI_Manager._instance.ShowNumberText(Mathf.RoundToInt(damage), transform.position, teamMultipl, "-");
         if (life <= 0) {
-
             Vector3 newPosition = new Vector3(transform.position.x, (float)(transform.position.y + 0.16), 0);
-            gameManager.GetComponent<Manage_Dead_Unit>().spawn_Dead_Unit(newPosition);
+            Manage_Dead_Unit._instance.spawn_Dead_Unit(newPosition);
             Destroy(gameObject);
         }
     }

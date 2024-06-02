@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +10,25 @@ public class InfoPopUpBehavior : MonoBehaviour
     public Transform description;
     public Transform icon;
 
+    public bool activ;
+
+    public static InfoPopUpBehavior _instance;
+
+    void Awake() { 
+        // If there is an instance, and it's not me, delete myself.
+        if (_instance != null && _instance != this) { 
+            Destroy(this); 
+        }else{ 
+            _instance = this; 
+        } 
+    }
+
     void Start()
     {
         size = GetComponent<RectTransform>().sizeDelta;
         size = new Vector2(size.x * 1000 - 100, size.y * 1000 - 100);
         Visibility(false);
+        activ = true;
     }
 
     void Update()
@@ -70,6 +83,10 @@ public class InfoPopUpBehavior : MonoBehaviour
         transform.position = popupPosition;
     }
 
+    public bool setActiv() {
+        return activ = !activ;
+    }
+
     public void SetDescription(string newDescription, float newCost)
     {
         // Mettre à jour le cout du pop-up
@@ -98,7 +115,13 @@ public class InfoPopUpBehavior : MonoBehaviour
 
     public void Visibility(bool state)
     {
-        // Activer ou désactiver le pop-up
-        gameObject.GetComponent<Image>().enabled = state;
+        if (!state || (state && activ)) {
+            // Activer ou désactiver le pop-up
+            gameObject.GetComponent<Image>().enabled = state;
+            gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().enabled = state;
+            gameObject.transform.GetChild(1).gameObject.GetComponent<Text>().enabled = state;
+            gameObject.transform.GetChild(2).gameObject.GetComponent<Text>().enabled = state;
+            gameObject.transform.GetChild(3).gameObject.GetComponent<Image>().enabled = state;
+        }
     }
 }

@@ -30,11 +30,11 @@ public class RessourceManager : MonoBehaviour
     }
 
     void Start() {
-        currentRessourcesJ1 = 0;
+        currentRessourcesJ1 = 100;
+        currentRessourcesJ2 = 100;
         maxRessourcesJ1 = 100;
-        ressourcesPerSecJ1 = 1;
-        currentRessourcesJ2 = 0;
         maxRessourcesJ2 = 100;
+        ressourcesPerSecJ1 = 1;
         ressourcesPerSecJ2 = 1;
         InvokeRepeating("GenerateRessources", 0f, 0.5f);  
     }

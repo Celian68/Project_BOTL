@@ -39,18 +39,35 @@ public class UI_Manager : MonoBehaviour
 
     public Camera mainCamera;
 
+    public bool activ;
+
+    public static UI_Manager _instance;
+
+    void Awake() { 
+        // If there is an instance, and it's not me, delete myself.
+        if (_instance != null && _instance != this) { 
+            Destroy(this); 
+        }else{ 
+            _instance = this; 
+        } 
+    }
+
     void Start() {
         castle1 = GameObject.FindGameObjectWithTag("Castle1");
         castle2 = GameObject.FindGameObjectWithTag("Castle2");
         spawn1 = GameObject.FindGameObjectWithTag("Spawn1").transform;
         spawn2 = GameObject.FindGameObjectWithTag("Spawn2").transform;
+        activ = true;
     }
 
     // Update is called once per frame
     void Update() {
         spawnUnits();
-        GetCurrentFill();
-        
+        GetCurrentFill();    
+    }
+
+    public bool setActiv() {
+        return activ = !activ;
     }
 
     void spawnUnits() {
@@ -116,29 +133,36 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    public void ShowDamageText(int damage, Vector3 position, float player) {
-        Vector3 screenPosition = mainCamera.WorldToScreenPoint(position);
-        Text damageText = Instantiate(damageTextPrefab, screenPosition, Quaternion.identity, InGameUI);
-        damageText.text = "-" + damage;
+    public void ShowNumberText(int damage, Vector3 position, float player, string sign) {
+        if (activ) {
+            Vector3 screenPosition = mainCamera.WorldToScreenPoint(position);
+            Text damageText = Instantiate(damageTextPrefab, screenPosition, Quaternion.identity, InGameUI);
+            damageText.text = sign + damage;
 
-        RectTransform canvasRect = InGameUI.GetComponent<RectTransform>();
-        Vector2 canvasPos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPosition, mainCamera, out canvasPos);
+            if (sign == "-") {
+                damageText.color = Color.red;
+            }else if (sign == "+") {
+                damageText.color = Color.green;
+            }
 
-        Vector3 originalPosition = damageText.rectTransform.position;
+            RectTransform canvasRect = InGameUI.GetComponent<RectTransform>();
+            Vector2 canvasPos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPosition, mainCamera, out canvasPos);
 
-        iTween.ScaleFrom(damageText.gameObject, new Vector3(0, 0, 0), 3f); // Agrandir le texte
-        LeanTween.alphaText(damageText.rectTransform, 0, 1.5f); // Faire disparaître le texte
+            Vector3 originalPosition = damageText.rectTransform.position;
+
+            iTween.ScaleFrom(damageText.gameObject, new Vector3(0, 0, 0), 3f); // Agrandir le texte
+            LeanTween.alphaText(damageText.rectTransform, 0, 1.5f); // Faire disparaître le texte
         
         
-        LeanTween.moveLocalY(damageText.rectTransform.gameObject, originalPosition.y + canvasPos.y + 200f, 1.5f);
-        if (player != 0) {
-            LeanTween.moveLocalX(damageText.rectTransform.gameObject, originalPosition.x + canvasPos.x + 200f * (player * -1), 1.5f);
+            LeanTween.moveLocalY(damageText.rectTransform.gameObject, originalPosition.y + canvasPos.y + 200f, 1.5f);
+            if (player != 0) {
+                LeanTween.moveLocalX(damageText.rectTransform.gameObject, originalPosition.x + canvasPos.x + 200f * (player * -1), 1.5f);
+            }
+
+            Destroy(damageText.gameObject, 4f);
         }
         
-
-
-        Destroy(damageText.gameObject, 4f);
     }
 
     public void spawn_Unit(GameObject unit, Transform spawn) {

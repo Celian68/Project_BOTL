@@ -10,6 +10,17 @@ public class GameOverManager : MonoBehaviour
 
     public bool gameOver;
 
+    public static GameOverManager _instance;
+
+    void Awake() { 
+        // If there is an instance, and it's not me, delete myself.
+        if (_instance != null && _instance != this) { 
+            Destroy(this); 
+        }else{ 
+            _instance = this; 
+        } 
+    }
+
     void Start()
     {
         gameOverMenu.SetActive(false);

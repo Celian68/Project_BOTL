@@ -14,8 +14,6 @@ public class Castle : MonoBehaviour
 
     public Text lifeCount;
 
-    public GameObject gameManager;
-
     public GameObject Arche;
 
     public Animator animCastle;
@@ -37,8 +35,6 @@ public class Castle : MonoBehaviour
     void Update()
     {
         showDamaged();
-
-        LevelUpButton.GetComponent<UIButtonBehavior>().Active((RessourceManager._instance.CheckResources(100, player) && level == 1) || (RessourceManager._instance.CheckResources(250, player) && level == 2));
     } 
 
     public float getLife() {
@@ -57,9 +53,9 @@ public class Castle : MonoBehaviour
             currentLife = 0;
         }
         updateLife();
-        gameManager.GetComponent<UI_Manager>().ShowDamageText(Mathf.RoundToInt(damage), transform.position, 0);
+        UI_Manager._instance.ShowNumberText(Mathf.RoundToInt(damage), transform.position, 0, "-");
         if (currentLife <= 0) {
-            gameManager.GetComponent<GameOverManager>().setGameOver(true, !player);
+            GameOverManager._instance.setGameOver(true, !player);
             gameObject.SetActive(false);
         }
     }
@@ -100,6 +96,7 @@ public class Castle : MonoBehaviour
             Arche.GetComponent<Arch>().levelUp();
             maxLife = 1500;
             currentLife = Mathf.RoundToInt(maxLife * pourcent * 0.01f);
+            LevelUpButton.SetActive(false);
             updateLife();
         }
     }
