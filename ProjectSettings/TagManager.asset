@@ -17,6 +17,7 @@ TagManager:
   - GameManager
   - DamageText
   - PopUp
+  - Hero1
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public class Castle : MonoBehaviour
     public Text lifeCount;
 
     public GameObject Arche;
+    public GameObject Arche2;
 
     public Animator animCastle;
 
@@ -85,6 +86,7 @@ public class Castle : MonoBehaviour
             RessourceManager._instance.setMaxResources(250, player);
             RessourceManager._instance.setResourcePerSec(2, player);
             Arche.GetComponent<Arch>().levelUp();
+            Arche2.GetComponent<Arch>().levelUp();
             maxLife = 800;
             currentLife = Mathf.RoundToInt(maxLife * pourcent * 0.01f);
             updateLife();
@@ -94,6 +96,7 @@ public class Castle : MonoBehaviour
             RessourceManager._instance.setMaxResources(500, player);
             RessourceManager._instance.setResourcePerSec(3, player);
             Arche.GetComponent<Arch>().levelUp();
+            Arche2.GetComponent<Arch>().levelUp();
             maxLife = 1500;
             currentLife = Mathf.RoundToInt(maxLife * pourcent * 0.01f);
             LevelUpButton.SetActive(false);

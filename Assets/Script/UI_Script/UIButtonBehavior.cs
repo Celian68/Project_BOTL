@@ -61,7 +61,7 @@ public class UIButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
                 InfoPopUpBehavior._instance.SetDescription("Améliore  le  château  au  niveau  " + castle.GetComponent<Castle>().getLevel(), castle.GetComponent<Castle>().nextLevelUpCost());
                 break;
             case 2:
-                GameObject castle2 = GameObject.FindGameObjectWithTag("Castle1");
+                GameObject castle2 = GameObject.FindGameObjectWithTag("Castle2");
                 InfoPopUpBehavior._instance.SetDescription("Améliore  le  château  au  niveau  " + castle2.GetComponent<Castle>().getLevel(), castle2.GetComponent<Castle>().nextLevelUpCost());
                 break;
         }

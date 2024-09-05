@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4344663908858684335}
   - component: {fileID: 7561978225850730563}
-  - component: {fileID: 8422914140221854979}
   - component: {fileID: 8087037270806207971}
   - component: {fileID: 2787621786622564212}
+  - component: {fileID: 3845697864503346769}
   m_Layer: 0
   m_Name: Ork
   m_TagString: Untagged
@@ -87,26 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8422914140221854979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8586255814942124710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ef3fbdfc6923c4baad3ff9f373b8f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 100
-  damage: 30
-  cost: 20
-  moveSpeed: 1
-  unitRange: 1
-  attackSpeed: 1
-  castle: {fileID: 0}
-  animator: {fileID: 8087037270806207971}
 --- !u!95 &8087037270806207971
 Animator:
   serializedVersion: 5
@@ -137,13 +117,13 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8586255814942124710}
   m_BodyType: 0
-  m_Simulated: 0
+  m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -155,3 +135,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3845697864503346769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586255814942124710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea2cf4358228ca4a8ab6aad6e98fcaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 100
+  damage: 30
+  moveSpeed: 1
+  unitRange: 1
+  attackSpeed: 1
+  animator: {fileID: 8087037270806207971}
+  cost: 20
+  state: 0

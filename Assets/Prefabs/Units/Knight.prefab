@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4344663908858684335}
   - component: {fileID: 7561978225850730563}
-  - component: {fileID: 8422914140221854979}
   - component: {fileID: 8452665314815964052}
   - component: {fileID: -1434980603427083066}
+  - component: {fileID: 7171472119116183583}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -87,26 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8422914140221854979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8586255814942124710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ef3fbdfc6923c4baad3ff9f373b8f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 70
-  damage: 20
-  cost: 15
-  moveSpeed: 1.5
-  unitRange: 1
-  attackSpeed: 1
-  castle: {fileID: 0}
-  animator: {fileID: 8452665314815964052}
 --- !u!95 &8452665314815964052
 Animator:
   serializedVersion: 5
@@ -155,3 +135,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7171472119116183583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8586255814942124710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea2cf4358228ca4a8ab6aad6e98fcaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 80
+  damage: 20
+  moveSpeed: 1.5
+  unitRange: 1
+  attackSpeed: 1
+  animator: {fileID: 8452665314815964052}
+  cost: 15
+  state: 0

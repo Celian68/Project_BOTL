@@ -8,24 +8,11 @@ public class UI_Manager : MonoBehaviour
 
     public Transform InGameUI;
 
-    public GameObject unite1;
-    public GameObject unite2;
-    public GameObject unite3;
-    public GameObject unite4;
-    public GameObject unite5;
-
-    public GameObject unite6;
-    public GameObject unite7;
-    public GameObject unite8;
-    public GameObject unite9;
-    public GameObject unite10;
-
-
     GameObject castle1;
     GameObject castle2;
+    public GameObject hero1;
 
-    Transform spawn1;
-    Transform spawn2;
+    public GameObject hero_menu;
 
     float maximum1;
     float current1;
@@ -34,6 +21,7 @@ public class UI_Manager : MonoBehaviour
 
     public Image mask1;
     public Image mask2;
+    public Image maskHero;
 
     public Text damageTextPrefab;
 
@@ -55,64 +43,18 @@ public class UI_Manager : MonoBehaviour
     void Start() {
         castle1 = GameObject.FindGameObjectWithTag("Castle1");
         castle2 = GameObject.FindGameObjectWithTag("Castle2");
-        spawn1 = GameObject.FindGameObjectWithTag("Spawn1").transform;
-        spawn2 = GameObject.FindGameObjectWithTag("Spawn2").transform;
         activ = true;
+        castle1.SetActive(true);
+        hero_menu.SetActive(true);
     }
 
     // Update is called once per frame
     void Update() {
-        spawnUnits();
         GetCurrentFill();    
     }
 
     public bool setActiv() {
         return activ = !activ;
-    }
-
-    void spawnUnits() {
-        if (!gameOver) {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                UnitButton1();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha2)) {
-                UnitButton2();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha6)) {
-                UnitButton3();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha7)) {
-                UnitButton4();
-            }
-        }
-        
-    }
-
-    public void UnitButton1() {
-        if (RessourceManager._instance.ConsumResources(unite1.GetComponent<UnitBehavior>().cost, false)) {
-            spawn_Unit(unite1, spawn1);
-        }
-    }
-
-    public void UnitButton2() {
-        if (RessourceManager._instance.ConsumResources(unite2.GetComponent<UnitBehavior>().cost, false)) {
-            spawn_Unit(unite2, spawn1);
-        }
-    }
-
-    public void UnitButton3() {
-        if (RessourceManager._instance.ConsumResources(unite6.GetComponent<UnitBehavior>().cost, true)) {
-            spawn_Unit(unite6, spawn2);
-        }
-    }
-
-    public void UnitButton4() {
-        if (RessourceManager._instance.ConsumResources(unite7.GetComponent<UnitBehavior>().cost, true)) {
-            spawn_Unit(unite7, spawn2);
-        }
     }
 
     void GetCurrentFill(){
@@ -130,6 +72,13 @@ public class UI_Manager : MonoBehaviour
         }
         if (current1 <= 0 || current2 <= 0) {
             gameOver = true;
+        }
+
+        if (!gameOver) {
+            float currentLife = hero1.GetComponent<HeroBehavior>().getLife();
+            float maximumLife = hero1.GetComponent<HeroBehavior>().maxLife;
+            float FillAmout = currentLife / maximumLife;
+            maskHero.fillAmount = FillAmout;
         }
     }
 
@@ -163,11 +112,5 @@ public class UI_Manager : MonoBehaviour
             Destroy(damageText.gameObject, 4f);
         }
         
-    }
-
-    public void spawn_Unit(GameObject unit, Transform spawn) {
-        float randomNumber = Random.Range(23, 65)/100f;
-        spawn.position = new Vector3(spawn.position.x, randomNumber, 0);
-        Instantiate(unit, spawn.position, Quaternion.identity);   
     }
 }
