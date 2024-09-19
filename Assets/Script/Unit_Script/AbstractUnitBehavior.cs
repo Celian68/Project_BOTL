@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Unity.Collections;
+using System;
 
 
 public abstract class AbstractUnitBehavior : MonoBehaviour
@@ -17,121 +18,85 @@ public abstract class AbstractUnitBehavior : MonoBehaviour
     protected string enemyTeam;
     protected bool isAttacking = false;
 
-    protected Transform target;
-    protected Transform endTarget;
     protected Transform enemyTarget;
-    GameObject castle;
+    protected Collider2D[] enemiesInRange;
+    string castle;
 
     public Animator animator;
-    protected  SpriteRenderer spriteR;
+
+    DetectEnemy detectEnemy;
 
 
     protected virtual void Start()
     {
-        //Check every 0.3sec fonction "UpdateTarget"; Parama ["Fonction"], Wait to start, check delay
-        InvokeRepeating("UpdateTarget", 0f, 0.3f); 
-
-        spriteR = gameObject.GetComponent<SpriteRenderer>();
-
         if (gameObject.transform.position.x < 0) {
-            enemyTeam = "Player2";
-            transform.tag = "Player1";
+            enemyTeam = "Team2";
+            transform.tag = "Team1";
             teamMultipl = 1;
-            castle = GameObject.FindGameObjectWithTag("Castle2");
-            target = GameObject.FindGameObjectWithTag("Objective1").transform;
-            endTarget = GameObject.FindGameObjectWithTag("End1").transform;
+            gameObject.layer = LayerMask.NameToLayer("Team1");
+            castle = "Castle2";
         }else {
-            enemyTeam = "Player1";
-            transform.tag = "Player2";
+            enemyTeam = "Team1";
+            transform.tag = "Team2";
             teamMultipl = -1;
-            castle = GameObject.FindGameObjectWithTag("Castle1");
-            target = GameObject.FindGameObjectWithTag("Objective2").transform;
-            endTarget = GameObject.FindGameObjectWithTag("End2").transform;
-            spriteR.flipX = true;
+            gameObject.layer = LayerMask.NameToLayer("Team2");
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            castle = "Castle1";
         }
         life = maxLife;
+
+        InvokeRepeating("Behavior", 0f, 0.2f);
+        detectEnemy = GetComponentInChildren<DetectEnemy>();
     }
 
-    protected void UpdateTarget() {
-        GameObject[] ennemies = GameObject.FindGameObjectsWithTag(enemyTeam);
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
-
-        foreach (GameObject enemy in ennemies) {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDistance && (((transform.position.x + (0.5f * teamMultipl) - enemy.transform.position.x) * teamMultipl) < 0)) {
-                shortestDistance = distanceToEnemy; // Save position of nearest ennemi
-                nearestEnemy = enemy; //Set nearest ennemi
-            }
+    protected virtual void Behavior() {
+        CheckEnemyInRange();
+        if (!isAttacking && enemyTarget != null) {
+            animator.SetBool("EnemyFound", true);
+            StartCoroutine(Attack());
         }
+    }
 
-        if (castle.activeSelf && enemyTarget == castle.transform) {
-            if (!isAttacking) {
-                animator.SetBool("EnnemyFound", true);
-                StartCoroutine(Attack());
-            }
-        }else if (nearestEnemy != null && shortestDistance <= unitRange + 0.5) {
-            enemyTarget = nearestEnemy.transform; 
-            if (!isAttacking) {
-                animator.SetBool("EnnemyFound", true);
-                StartCoroutine(Attack());
-            }
-        }else{
-            animator.SetBool("EnnemyFound", false);
+    void CheckEnemyInRange() {
+        enemiesInRange = detectEnemy.EnemiesDetection();
+
+        if (enemiesInRange.Length > 0 && !isAttacking) {
+            enemyTarget = enemiesInRange[0].transform;
+        }else if (enemiesInRange.Length == 0) {
             enemyTarget = null;
         }
     }
 
     protected virtual void Move() {
-        Vector3 tar = new Vector3(target.position.x - transform.position.x, 0, 0);
+        Vector3 tar = new Vector3(teamMultipl, 0, 0);
         transform.Translate(tar.normalized * moveSpeed * Time.deltaTime, Space.World); 
 
-        if (castle.activeSelf && Vector3.Distance(transform.position, target.position) < 0.3f) {
-            enemyTarget = castle.transform;
-        }else if (!castle.activeSelf) {
-            
-            target = endTarget;
-
-            if (Vector3.Distance(transform.position, target.position) < 0.3f) {
-                Destroy(gameObject);
-            }
-        }
-
-        if (transform.position.x < -20f || transform.position.x > 45f) {
-                Destroy(gameObject);
+        if (transform.position.x < -15f || transform.position.x > 45f) {
+            Destroy(gameObject);
         }
     }
 
-    // private void OnDrawGizmosSelected() {
-       
-    //     Gizmos.color = Color.green;
-
-    //     if (enemyTag == "Player1") {
-    //         Gizmos.DrawCube(new Vector3(transform.position.x - (unitRange/2), transform.position.y, 0), new Vector3(unitRange * -1, transform.lossyScale.y, 0));
-    //     }else{
-    //         Gizmos.DrawCube(new Vector3(transform.position.x + (unitRange/2), transform.position.y, 0), new Vector3(unitRange, transform.lossyScale.y, 0));
-    //     }
-    // }
-
     protected IEnumerator Attack() {
         isAttacking = true;
-        while (enemyTarget != null && enemyTarget.gameObject.activeSelf) {
+        while (checkEnemyState()) {
             animator.SetBool("doDamage", false);
             yield return new WaitForSeconds(attackSpeed);
-            if (enemyTarget != null && enemyTarget.gameObject.activeSelf) {
+            if (checkEnemyState()) {
                 animator.SetBool("doDamage", true);
                 yield return new WaitForSeconds(0.25f);
-                if (enemyTarget == castle.transform) {
-                    castle.GetComponent<Castle>().getDamaged(damage);
-                }else if (enemyTarget != null && enemyTarget.gameObject.activeSelf) {
-                    enemyTarget.GetComponent<AbstractUnitBehavior>().getDamaged(damage);
+                if (checkEnemyState()) {
+                    if (enemyTarget.tag == castle) {
+                        GameObject.FindGameObjectWithTag(castle).GetComponent<Castle>().getDamaged(damage);
+                    }else{
+                        enemyTarget.GetComponent<AbstractUnitBehavior>().getDamaged(damage);
+                    }
                 }
                 yield return new WaitForSeconds(0.1f);
-            }else{
-                enemyTarget = null;
             }
         }
+        enemyTarget = null;
         isAttacking = false;
+        animator.SetBool("EnemyFound", false);
     }
 
     public virtual void getDamaged(float damage) {
@@ -145,15 +110,40 @@ public abstract class AbstractUnitBehavior : MonoBehaviour
 
     protected abstract void Die();
 
-    public void Heal(float heal) {
-        life += heal;
-        if (life > maxLife) {
-            life = maxLife;
+    public virtual void Heal(float heal) {
+        if (life < maxLife) {
+            life += heal;
+            if (life > maxLife) {
+                life = maxLife;
+            }
+            UI_Manager._instance.ShowNumberText(Mathf.RoundToInt(heal), transform.position, teamMultipl, "+");
         }
-        UI_Manager._instance.ShowNumberText(Mathf.RoundToInt(heal), transform.position, teamMultipl, "+");
     }
 
     public void FullHeal() {
-        life = maxLife;
+        Heal(maxLife);
     }
+
+    public string getEnemyTeam() {
+        return enemyTeam;
+    }
+
+    public float getTeamMultipl() {
+        return teamMultipl;
+    }
+
+    bool checkEnemyState() {
+        return enemyTarget != null && enemyTarget.gameObject.activeSelf;
+    }
+
+    protected void Rotate(int rotation) {
+        if (rotation == 1) {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }else{
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        detectEnemy.setRotation(rotation);
+    }
+
+    public abstract bool IsHero();
 }

@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: EnnemyFound
+    m_ConditionEvent: EnemyFound
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: doDamage
@@ -37,7 +37,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: EnnemyFound
+    m_ConditionEvent: EnemyFound
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4555346344978701449}
@@ -145,7 +145,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: EnnemyFound
+    m_ConditionEvent: EnemyFound
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3368792979796374705}
@@ -170,7 +170,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: EnnemyFound
+    m_ConditionEvent: EnemyFound
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4555346344978701449}
@@ -195,7 +195,7 @@ AnimatorController:
   m_Name: Knight
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: EnnemyFound
+  - m_Name: EnemyFound
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

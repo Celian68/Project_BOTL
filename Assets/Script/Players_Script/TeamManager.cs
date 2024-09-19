@@ -15,9 +15,9 @@ public class TeamManager : MonoBehaviour
     }
 
     public bool getTeamWithTag(string tag) {
-        if (tag == "Player1") {
+        if (tag == "Team1") {
             return false;
-        }else if (tag == "Player2") {
+        }else if (tag == "Team2") {
             return true;
         }
         return false;

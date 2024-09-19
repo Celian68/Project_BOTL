@@ -34,4 +34,8 @@ public class UnitBehavior : AbstractUnitBehavior
             Destroy(gameObject);
         }
     }
+
+    public override bool IsHero() {
+        return false;
+    }
 }

@@ -4,43 +4,49 @@ using UnityEngine.UI;
 
 public class HeroBehavior : AbstractUnitBehavior
 {
-    float state;
+    float heroState;
 
     public Text lifeCount;
 
-    public Transform respawn;
+    Transform respawn;
 
     protected override void Start() {
         base.Start();
         updateLife();
+        respawn = GameObject.Find("Spawn1").transform;
+        if (gameObject.transform.position.x < 0) {
+            respawn = GameObject.Find("Spawn1").transform;
+        }else {
+            respawn = GameObject.Find("Spawn2").transform;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isAttacking && state == 1) {
+        if (!isAttacking && heroState == 1) {
             Move();
-        }else if (state == 2) {
+        }else if (heroState == 2) {
             runAway();
         }
     }
 
     public void Stay() {
         animator.SetBool("Idle", true);
-        GetComponent<SpriteRenderer>().flipX = false;
-        state = 0;
+        Rotate(1);
+        heroState = 0;
     }
 
     public void Right() {
         animator.SetBool("Idle", false);
-        GetComponent<SpriteRenderer>().flipX = false;
-        state = 1;
+        Rotate(1);
+        heroState = 1;
     }
 
     public void Left() {
         animator.SetBool("Idle", false);
-        GetComponent<SpriteRenderer>().flipX = true;
-        state = 2;
+        Rotate(-1);
+        heroState = 2;
     }
 
     void updateLife() {
@@ -56,7 +62,7 @@ public class HeroBehavior : AbstractUnitBehavior
     }
 
     void runAway() {
-        Vector3 tar = new Vector3(target.position.x, 0, 0);
+        Vector3 tar = new Vector3(getTeamMultipl(), 0, 0);
         tar *= -1;
         transform.Translate(tar.normalized * moveSpeed * Time.deltaTime, Space.World);
         if (transform.position.x < -13f) {
@@ -85,5 +91,14 @@ public class HeroBehavior : AbstractUnitBehavior
             isAttacking = false;
             Stay();
         });
+    }
+
+    public override bool IsHero() {
+        return true;
+    }
+
+    public override void Heal(float amount) {  
+        base.Heal(amount);
+        updateLife();
     }
 }

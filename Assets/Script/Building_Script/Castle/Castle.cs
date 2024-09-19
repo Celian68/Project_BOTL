@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,8 @@ public class Castle : MonoBehaviour
     public float maxLife; // Float that represent the maximum number of life that the player can have
     float currentLife; // Float that represent the current number of life that the player have
 
-    public bool player; // Int that represent the ennemy player (Player 1 or Player 2)
+    public bool player; // Int that represent the Enemy player (Player 1 or Player 2)
+
 
     int level; // Level of the Castle of the Player
 
@@ -20,6 +22,7 @@ public class Castle : MonoBehaviour
     public Animator animCastle;
 
     public GameObject LevelUpButton;
+    private Coroutine healingCoroutine;
 
     void Start() {
 
@@ -111,5 +114,30 @@ public class Castle : MonoBehaviour
             return 250;
         }
         return 0;
+    }
+
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<AbstractUnitBehavior>().IsHero()) {
+            healingCoroutine = StartCoroutine(HealingOverTime(10, 1, collision));
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<AbstractUnitBehavior>().IsHero())
+        {
+            StopCoroutine(healingCoroutine); // Arrête la coroutine de soin
+        }
+    }
+
+    private IEnumerator HealingOverTime(int amout, float time, Collider2D collision) {
+        yield return new WaitForSeconds(time);
+        while (true) {
+            collision.GetComponent<AbstractUnitBehavior>().Heal(amout);
+            yield return new WaitForSeconds(time);
+        }
     }
 }
