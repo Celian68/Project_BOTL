@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using Unity.Collections;
-using System;
+
 
 
 public abstract class AbstractUnitBehavior : MonoBehaviour
