@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 public class DetectEnemy : MonoBehaviour
 {
@@ -16,9 +18,22 @@ public class DetectEnemy : MonoBehaviour
         transform.localPosition = new Vector3(transform.localScale.x / 2 /transform.parent.transform.localScale.x * transform.parent.GetComponent<AbstractUnitBehavior>().getTeamMultipl() * rotation, 0, 0);
     }
 
-    public Collider2D[] EnemiesDetection() {
-        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, LayerMask.GetMask(transform.parent.GetComponent<AbstractUnitBehavior>().getEnemyTeam()));
+    public List<Collider2D> EnemiesDetection() {
+        List<Collider2D> allyColliders = new List<Collider2D>();
+        List<Collider2D> hitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, LayerMask.GetMask("Unit")).ToList();
+        foreach (Collider2D hitCollider in hitColliders)
+        {
+            if (hitCollider.tag == transform.parent.tag || hitCollider.tag == transform.parent.GetComponent<AbstractUnitBehavior>()._allyCastle)
+            {
+                allyColliders.Add(hitCollider);
+            }
 
+        }
+        foreach (Collider2D hitCollider in allyColliders)
+        {
+            hitColliders.Remove(hitCollider);
+
+        }
         return hitColliders;
     }
 

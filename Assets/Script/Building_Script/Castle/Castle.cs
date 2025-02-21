@@ -120,15 +120,16 @@ public class Castle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<AbstractUnitBehavior>().IsHero()) {
+        AbstractUnitBehavior unit = collision.GetComponent<AbstractUnitBehavior>();
+        if (unit != null && unit.IsHero()) {
             healingCoroutine = StartCoroutine(HealingOverTime(10, 1, collision));
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<AbstractUnitBehavior>().IsHero())
-        {
+        AbstractUnitBehavior unit = collision.GetComponent<AbstractUnitBehavior>();
+        if (unit != null && unit.IsHero()) {
             StopCoroutine(healingCoroutine); // Arrête la coroutine de soin
         }
     }

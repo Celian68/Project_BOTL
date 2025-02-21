@@ -17,13 +17,20 @@ public class Spell_Manager : MonoBehaviour
             Vector3 mousePosition = Input.mousePosition;
             Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
             zoneIndicator.transform.position = new Vector3(worldPosition.x, 0, 0);
+            if (worldPosition.x < -5.5f)
+            {
+                zoneIndicator.transform.position = new Vector3(-5.5f, 0, 0);
+            }else if (worldPosition.x > 35.5f)
+            {
+                zoneIndicator.transform.position = new Vector3(35.5f, 0, 0);
+            }
 
             // Vérifie si le joueur clique pour déclencher la météorite
             if (Input.GetMouseButtonDown(0)) // Clic gauche
             {
                 CastMeteor();
             }
-            if (Input.GetMouseButtonDown(1)) // Clic gauche
+            if (Input.GetMouseButtonDown(1)) // Clic droit
             {
                 isSelecting = false;
                 zoneIndicator.SetActive(false);

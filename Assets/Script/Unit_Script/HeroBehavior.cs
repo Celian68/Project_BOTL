@@ -10,13 +10,17 @@ public class HeroBehavior : AbstractUnitBehavior
 
     Transform respawn;
 
-    protected override void Start() {
+    protected override void Start()
+    {
         base.Start();
         updateLife();
         respawn = GameObject.Find("Spawn1").transform;
-        if (gameObject.transform.position.x < 0) {
+        if (gameObject.transform.position.x < 0)
+        {
             respawn = GameObject.Find("Spawn1").transform;
-        }else {
+        }
+        else
+        {
             respawn = GameObject.Find("Spawn2").transform;
         }
     }
@@ -24,62 +28,75 @@ public class HeroBehavior : AbstractUnitBehavior
     // Update is called once per frame
     void Update()
     {
-        if (!isAttacking && heroState == 1) {
+        if (!isAttacking && heroState == 1)
+        {
             Move();
-        }else if (heroState == 2) {
+        }
+        else if (heroState == 2)
+        {
             runAway();
         }
     }
 
-    public void Stay() {
+    public void Stay()
+    {
         animator.SetBool("Idle", true);
         Rotate(1);
         heroState = 0;
     }
 
-    public void Right() {
+    public void Right()
+    {
         animator.SetBool("Idle", false);
         Rotate(1);
         heroState = 1;
     }
 
-    public void Left() {
+    public void Left()
+    {
         animator.SetBool("Idle", false);
         Rotate(-1);
         heroState = 2;
     }
 
-    void updateLife() {
+    void updateLife()
+    {
         lifeCount.text = getLife().ToString();
     }
 
-    
 
-    public override void getDamaged(float damage) {  
+
+    public override void getDamaged(float damage)
+    {
         base.getDamaged(damage);
         updateLife();
-        Die();
+        if (getLife() <= 0)
+        {
+            Die();
+        }
     }
 
-    void runAway() {
+    void runAway()
+    {
         Vector3 tar = new Vector3(getTeamMultipl(), 0, 0);
         tar *= -1;
         transform.Translate(tar.normalized * moveSpeed * Time.deltaTime, Space.World);
-        if (transform.position.x < -13f) {
+        if (transform.position.x < -13f)
+        {
             Stay();
         }
     }
 
     protected override void Die()
     {
-        if (getLife() <= 0) {
-            life = Mathf.Max(life, 0);
-            gameObject.SetActive(false);
-            Respawn();
-        }
+        life = 0;
+        updateLife();
+        gameObject.SetActive(false);
+        Respawn();
     }
 
-    void Respawn() {
+    void Respawn()
+    {
         Timer_Factory._instance.StartTimer(10f, () =>
         {
             gameObject.SetActive(true);
@@ -93,11 +110,13 @@ public class HeroBehavior : AbstractUnitBehavior
         });
     }
 
-    public override bool IsHero() {
+    public override bool IsHero()
+    {
         return true;
     }
 
-    public override void Heal(float amount) {  
+    public override void Heal(float amount)
+    {
         base.Heal(amount);
         updateLife();
     }

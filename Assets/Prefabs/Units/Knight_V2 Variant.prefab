@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4380587117591914697, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4380587117591914697, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4380587117591914697, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4380587117591914697, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 1000138867113782091, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
       propertyPath: m_Controller
       value: 
@@ -99,6 +115,26 @@ PrefabInstance:
     - target: {fileID: 8044754612154506025, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
       propertyPath: m_Name
       value: Knight_V2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034048260210856621, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_Size.x
+      value: 0.59625214
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034048260210856621, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9145351
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034048260210856621, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01915595
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034048260210856621, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.042732447
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034048260210856621, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

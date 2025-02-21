@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 
 
@@ -14,14 +15,17 @@ public abstract class AbstractUnitBehavior : MonoBehaviour
     public float attackSpeed;
 
     protected float teamMultipl;
+    protected string myTeam;
     protected string enemyTeam;
     protected bool isAttacking = false;
 
     protected Transform enemyTarget;
-    protected Collider2D[] enemiesInRange;
-    string castle;
+    protected List<Collider2D> enemiesInRange;
+    string _enemyCastle;
+    public string _allyCastle { get; private set; }
 
     public Animator animator;
+    [SerializeField] Rigidbody2D rb;
 
     DetectEnemy detectEnemy;
 
@@ -30,19 +34,21 @@ public abstract class AbstractUnitBehavior : MonoBehaviour
     {
         if (gameObject.transform.position.x < 0) {
             enemyTeam = "Team2";
-            transform.tag = "Team1";
+            myTeam = "Team1";
             teamMultipl = 1;
-            gameObject.layer = LayerMask.NameToLayer("Team1");
-            castle = "Castle2";
+            _enemyCastle = "Castle2";
+            _allyCastle = "Castle1";
         }else {
             enemyTeam = "Team1";
-            transform.tag = "Team2";
+            myTeam = "Team2";
             teamMultipl = -1;
-            gameObject.layer = LayerMask.NameToLayer("Team2");
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            castle = "Castle1";
+            _enemyCastle = "Castle1";
+            _allyCastle = "Castle2";
         }
+        rb.excludeLayers = LayerMask.GetMask("Unit");
         life = maxLife;
+        transform.tag = myTeam;
 
         InvokeRepeating("Behavior", 0f, 0.2f);
         detectEnemy = GetComponentInChildren<DetectEnemy>();
@@ -50,6 +56,7 @@ public abstract class AbstractUnitBehavior : MonoBehaviour
 
     protected virtual void Behavior() {
         CheckEnemyInRange();
+        CheckUnitState();
         if (!isAttacking && enemyTarget != null) {
             animator.SetBool("EnemyFound", true);
             StartCoroutine(Attack());
@@ -59,9 +66,9 @@ public abstract class AbstractUnitBehavior : MonoBehaviour
     void CheckEnemyInRange() {
         enemiesInRange = detectEnemy.EnemiesDetection();
 
-        if (enemiesInRange.Length > 0 && !isAttacking) {
+        if (enemiesInRange.Count > 0 && !isAttacking) {
             enemyTarget = enemiesInRange[0].transform;
-        }else if (enemiesInRange.Length == 0) {
+        }else if (enemiesInRange.Count == 0) {
             enemyTarget = null;
         }
     }
@@ -69,9 +76,11 @@ public abstract class AbstractUnitBehavior : MonoBehaviour
     protected virtual void Move() {
         Vector3 tar = new Vector3(teamMultipl, 0, 0);
         transform.Translate(tar.normalized * moveSpeed * Time.deltaTime, Space.World); 
+    }
 
-        if (transform.position.x < -15f || transform.position.x > 45f) {
-            Destroy(gameObject);
+    protected virtual void CheckUnitState() {
+        if (transform.position.x < -15f || transform.position.x > 45f || transform.position.y < -5f) {
+            Die();
         }
     }
 
@@ -84,8 +93,8 @@ public abstract class AbstractUnitBehavior : MonoBehaviour
                 animator.SetBool("doDamage", true);
                 yield return new WaitForSeconds(0.25f);
                 if (checkEnemyState()) {
-                    if (enemyTarget.tag == castle) {
-                        GameObject.FindGameObjectWithTag(castle).GetComponent<Castle>().getDamaged(damage);
+                    if (enemyTarget.tag == _enemyCastle) {
+                        GameObject.FindGameObjectWithTag(_enemyCastle).GetComponent<Castle>().getDamaged(damage);
                     }else{
                         enemyTarget.GetComponent<AbstractUnitBehavior>().getDamaged(damage);
                     }

@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Default_Hero Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9034048260210856621, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6088601323324952029, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
     m_RemovedGameObjects: []
@@ -85,6 +89,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3165679894458635558}
   m_SourcePrefab: {fileID: 100100000, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+--- !u!50 &945721413787274856 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: -4380587117591914697, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
+  m_PrefabInstance: {fileID: 5632568978377103711}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2417960307804258934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8044754612154506025, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
@@ -108,6 +117,7 @@ MonoBehaviour:
   unitRange: 1.5
   attackSpeed: 1.5
   animator: {fileID: 4885229824868463124}
+  rb: {fileID: 945721413787274856}
   lifeCount: {fileID: 0}
 --- !u!95 &4885229824868463124 stripped
 Animator:
