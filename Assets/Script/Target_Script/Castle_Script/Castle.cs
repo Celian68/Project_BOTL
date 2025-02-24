@@ -93,7 +93,7 @@ public class Castle : AbstractTarget<CastleData>
     protected override void Die()
     {
         currentLife = 0;
-        GameOverManager._instance.setGameOver(true, team);
+        GameOverManager._instance.setGameOver(true, enemyTeam);
         gameObject.SetActive(false);
     }
 
@@ -112,10 +112,10 @@ public class Castle : AbstractTarget<CastleData>
     {
         if (team == t)
         {
-            currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetTargetStats().maxLife);
+            currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetSpecificTargetStats((Level)GetLevel() - 1).maxLife);
             RessourceManager._instance.setMaxResources(500, team);
             RessourceManager._instance.setResourcePerSec(3, team);
-            animator.SetInteger("Level", (int)buildingState);
+            animator.SetInteger("Level", (int)GetLevel());
             Arch.GetComponent<Arch>().LevelUp((int)newLevel);
             Arch2.GetComponent<Arch>().LevelUp((int)newLevel);
             UpdateLife();

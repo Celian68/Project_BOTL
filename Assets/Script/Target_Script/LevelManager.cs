@@ -6,6 +6,8 @@ public class LevelManager : MonoBehaviour
 {
 
     public static LevelManager _instance;
+    [SerializeField] GameObject LevelUpButtonCastle1;
+    [SerializeField] GameObject LevelUpButtonCastle2;
 
     void Awake() { 
         if (_instance != null && _instance != this) { 
@@ -13,10 +15,7 @@ public class LevelManager : MonoBehaviour
         }else{ 
             _instance = this; 
         } 
-    }
 
-    void Start()
-    {
         Player1.Initialize(Faction.Human);
         Player2.Initialize(Faction.NewLand);
     }
@@ -27,6 +26,12 @@ public class LevelManager : MonoBehaviour
     public event Action<Team, Level> OnCastleLevelUp;
     public event Action<Team, Level> OnHeroLevelUp;
     public event Action<Team, UnitName, Level> OnUnitLevelUp;
+
+    void Start()
+    {
+        LevelUpButtonCastle1.SetActive(true);
+        LevelUpButtonCastle2.SetActive(true);
+    }
 
     public Level getLevelCastle(Team team)
     {
@@ -69,12 +74,22 @@ public class LevelManager : MonoBehaviour
         if (team == Team.Team1)
         {
             Player1.UpgradeCastle();
+            if (Player1.CastleLevel == Level.Level3)
+            {
+                LevelUpButtonCastle1.SetActive(false);
+            }
         }
         else
         {
             Player2.UpgradeCastle();
+            if (Player2.CastleLevel == Level.Level3)
+            {
+                LevelUpButtonCastle2.SetActive(false);
+            }
         }
         OnCastleLevelUp?.Invoke(team, getLevelCastle(team));
+
+
     }
 
     public void LevelUpHero(Team team)

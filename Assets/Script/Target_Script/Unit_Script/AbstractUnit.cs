@@ -91,7 +91,10 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
             {
                 SetUnitState(UnitState.Attacking);
                 yield return new WaitForSeconds(0.25f);
-                enemyTarget.GetComponent<ItTarget>()?.GetDamaged(GetUnitStats().damage);
+                if (CheckEnemyState())
+                {
+                    enemyTarget.GetComponent<ItTarget>()?.GetDamaged(GetUnitStats().damage);
+                }
                 yield return new WaitForSeconds(0.1f);
             }
         }
@@ -136,7 +139,7 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
     // Not optimal but necessary because onClick doesn't work with enum
     public virtual void SetUnitState(int newState)
     {
-        SetUnitState((UnitState)newState); 
+        SetUnitState((UnitState)newState);
     }
 
     public UnitClass GetUnitClass()
@@ -147,6 +150,11 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
     public UnitStats GetUnitStats()
     {
         return data.GetUnitStats((int)GetLevel());
+    }
+
+    public UnitStats GetSpecificUnitStats(Level level)
+    {
+        return data.GetUnitStats((int)level);
     }
 
 }
