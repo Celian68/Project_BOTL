@@ -6,7 +6,6 @@ public class Manage_Dead_Unit : MonoBehaviour
     public static Manage_Dead_Unit _instance;
 
     void Awake() { 
-        // If there is an instance, and it's not me, delete myself.
         if (_instance != null && _instance != this) { 
             Destroy(this); 
         }else{ 

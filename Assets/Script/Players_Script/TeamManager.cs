@@ -1,4 +1,5 @@
 using UnityEngine;
+using BOTL.Enum;
 
 public class TeamManager : MonoBehaviour
 {
@@ -14,12 +15,11 @@ public class TeamManager : MonoBehaviour
         } 
     }
 
-    public bool getTeamWithTag(string tag) {
+    public Team getTeamWithTag(string tag) {
         if (tag == "Team1") {
-            return false;
-        }else if (tag == "Team2") {
-            return true;
+            return Team.Team1;
+        }else{
+            return Team.Team2;
         }
-        return false;
     }
 }

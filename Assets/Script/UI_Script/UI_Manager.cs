@@ -8,8 +8,8 @@ public class UI_Manager : MonoBehaviour
 
     public Transform InGameUI;
 
-    GameObject castle1;
-    GameObject castle2;
+    [SerializeField] GameObject castle1;
+    [SerializeField] GameObject castle2;
     public GameObject hero1;
 
     public GameObject hero_menu;
@@ -41,8 +41,6 @@ public class UI_Manager : MonoBehaviour
     }
 
     void Start() {
-        castle1 = GameObject.FindGameObjectWithTag("Castle1");
-        castle2 = GameObject.FindGameObjectWithTag("Castle2");
         activ = true;
         castle1.SetActive(true);
         hero_menu.SetActive(true);
@@ -59,14 +57,14 @@ public class UI_Manager : MonoBehaviour
 
     void GetCurrentFill(){
         if (castle1 != null) {
-            current1 = castle1.GetComponent<Castle>().getLife();
-            maximum1 = castle1.GetComponent<Castle>().maxLife;
+            current1 = castle1.GetComponent<Castle>().GetLife();
+            maximum1 = castle1.GetComponent<Castle>().GetTargetStats().maxLife;
             float FillAmout = current1 / maximum1;
             mask1.fillAmount = FillAmout;
         }
         if (castle2 != null) {
-            current2 = castle2.GetComponent<Castle>().getLife();
-            maximum2 = castle2.GetComponent<Castle>().maxLife;
+            current2 = castle2.GetComponent<Castle>().GetLife();
+            maximum2 = castle2.GetComponent<Castle>().GetTargetStats().maxLife;
             float FillAmout = current2 / maximum2;
             mask2.fillAmount = FillAmout;
         }
@@ -75,8 +73,8 @@ public class UI_Manager : MonoBehaviour
         }
 
         if (!gameOver) {
-            float currentLife = hero1.GetComponent<HeroBehavior>().getLife();
-            float maximumLife = hero1.GetComponent<HeroBehavior>().maxLife;
+            float currentLife = hero1.GetComponent<Hero>().GetLife();
+            float maximumLife = hero1.GetComponent<Hero>().GetTargetStats().maxLife;
             float FillAmout = currentLife / maximumLife;
             maskHero.fillAmount = FillAmout;
         }

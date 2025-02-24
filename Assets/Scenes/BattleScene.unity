@@ -198,6 +198,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4344016}
   m_CullTransparentMesh: 1
+--- !u!1 &17410688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1049432209788827590, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+  m_PrefabInstance: {fileID: 1083290755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &42412378
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,14 +790,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 660674243}
-        m_TargetAssemblyTypeName: Castle, Assembly-CSharp
-        m_MethodName: levelUp
-        m_Mode: 1
+      - m_Target: {fileID: 1033640437}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LevelUpCastleInt
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1069,7 +1074,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.04535669}
+  m_Offset: {x: 0, y: -0.0596624}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1080,7 +1085,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.22928661}
+  m_Size: {x: 0.64, y: 0.27626175}
   m_EdgeRadius: 0
 --- !u!1 &225418550
 GameObject:
@@ -1638,17 +1643,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3756801475192485856, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
   m_PrefabInstance: {fileID: 7816246585920784295}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &299964812 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4486222980684554416, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
-  m_PrefabInstance: {fileID: 7816246585920784295}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299964811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b5696298fe7064183ee9ebf6b0d05b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &300195124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,10 +1772,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299964812}
-        m_TargetAssemblyTypeName: HeroBehavior, Assembly-CSharp
-        m_MethodName: Stay
-        m_Mode: 1
+      - m_Target: {fileID: 7816246585920784296}
+        m_TargetAssemblyTypeName: AbstractUnit, Assembly-CSharp
+        m_MethodName: SetUnitState
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2046,6 +2040,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372438441}
   m_CullTransparentMesh: 1
+--- !u!1 &384144153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1049432209788827590, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+  m_PrefabInstance: {fileID: 137734247809165499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &438455516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,17 +2936,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572109982}
   m_CullTransparentMesh: 1
---- !u!114 &586161717 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+--- !u!95 &586161719 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8537864181437154132, guid: 083497529efbb5046a17b8611121dc26, type: 3}
   m_PrefabInstance: {fileID: 137734247809165499}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6095ee7e845e844496533434fbbbcc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &619321972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,17 +3177,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658798087}
   m_CullTransparentMesh: 1
---- !u!114 &660674243 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
-  m_PrefabInstance: {fileID: 1083290755}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6095ee7e845e844496533434fbbbcc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &700489680
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,7 +3346,7 @@ GameObject:
   - component: {fileID: 726258767}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Castle2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4044,10 +4026,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 586161717}
-        m_TargetAssemblyTypeName: Castle, Assembly-CSharp
-        m_MethodName: levelUp
-        m_Mode: 1
+      - m_Target: {fileID: 1033640437}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LevelUpCastleInt
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4291,8 +4273,8 @@ GameObject:
   - component: {fileID: 1033640432}
   - component: {fileID: 1033640433}
   - component: {fileID: 1033640434}
-  - component: {fileID: 1033640435}
   - component: {fileID: 1033640436}
+  - component: {fileID: 1033640437}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -4402,18 +4384,6 @@ MonoBehaviour:
   unite8: {fileID: 0}
   unite9: {fileID: 0}
   unite10: {fileID: 0}
---- !u!114 &1033640435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033640422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 411b09e570628784493e8ff7d07a9162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1033640436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4429,6 +4399,20 @@ MonoBehaviour:
   zoneIndicator: {fileID: 2118092197}
   meteorPrefab: {fileID: 7235025505526691539, guid: 3636e6572926d2b4589ed87e4a5ad2f1, type: 3}
   mainCamera: {fileID: 519420031}
+--- !u!114 &1033640437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033640422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395d36121243d55429b7dfb0200e0550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1: {fileID: 11400000, guid: baf09de12499535498dfb00da8e5aba4, type: 2}
+  Player2: {fileID: 11400000, guid: 55ca61118a2500a4eb93aa7f5b46f46d, type: 2}
 --- !u!1 &1047988733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4239184342630430316, guid: 283fcaf17dac3574f8560b3cee775e45, type: 3}
@@ -4754,6 +4738,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3098385577349523087, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6084675
+      objectReference: {fileID: 0}
+    - target: {fileID: -3098385577349523087, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_Size.y
+      value: 0.20491123
+      objectReference: {fileID: 0}
+    - target: {fileID: -3098385577349523087, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.1286036
+      objectReference: {fileID: 0}
+    - target: {fileID: -3098385577349523087, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4215191
+      objectReference: {fileID: 0}
     - target: {fileID: 786195996637821915, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: animArch
       value: 
@@ -4768,7 +4768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1049432209788827590, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_TagString
-      value: Castle2
+      value: Team2
       objectReference: {fileID: 0}
     - target: {fileID: 1256143916734030737, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4874,6 +4874,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 14d31b96551e2be4b8a91590f43a651b, type: 2}
     - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: Arche2
       value: 
@@ -5042,6 +5046,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InGameUI: {fileID: 1751146380}
+  castle1: {fileID: 384144153}
+  castle2: {fileID: 17410688}
   hero1: {fileID: 299964811}
   hero_menu: {fileID: 700489680}
   mask1: {fileID: 207138173}
@@ -5368,14 +5374,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299964812}
-        m_TargetAssemblyTypeName: HeroBehavior, Assembly-CSharp
-        m_MethodName: Right
-        m_Mode: 1
+      - m_Target: {fileID: 7816246585920784296}
+        m_TargetAssemblyTypeName: AbstractUnit, Assembly-CSharp
+        m_MethodName: SetUnitState
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5707,14 +5713,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 299964812}
-        m_TargetAssemblyTypeName: HeroBehavior, Assembly-CSharp
-        m_MethodName: Left
-        m_Mode: 1
+      - m_Target: {fileID: 7816246585920784296}
+        m_TargetAssemblyTypeName: AbstractUnit, Assembly-CSharp
+        m_MethodName: SetUnitState
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6588,6 +6594,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752886915}
   m_CullTransparentMesh: 1
+--- !u!1 &1765525467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3438780565480600284, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+  m_PrefabInstance: {fileID: 137734247809165499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1779312586
 GameObject:
   m_ObjectHideFlags: 0
@@ -7427,6 +7438,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1958011095 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3450839366524183509, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+  m_PrefabInstance: {fileID: 137734247809165499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1994340834
 GameObject:
   m_ObjectHideFlags: 0
@@ -8035,6 +8051,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3196751032212170725, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3098385577349523087, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_Size.y
+      value: 0.19269973
+      objectReference: {fileID: 0}
+    - target: {fileID: -3098385577349523087, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.17314214
+      objectReference: {fileID: 0}
+    - target: {fileID: -3098385577349523087, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.41541335
+      objectReference: {fileID: 0}
     - target: {fileID: 786195996637821915, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: animArch
       value: 
@@ -8053,7 +8085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1049432209788827590, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_TagString
-      value: Castle1
+      value: Team1
       objectReference: {fileID: 0}
     - target: {fileID: 1388449709150656110, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: m_Layer
@@ -8132,9 +8164,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 141362346}
     - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: Arch
+      value: 
+      objectReference: {fileID: 1765525467}
+    - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 14d31b96551e2be4b8a91590f43a651b, type: 2}
+    - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: Arch2
+      value: 
+      objectReference: {fileID: 1199603729}
+    - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: Arche2
       value: 
       objectReference: {fileID: 1199603729}
+    - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 586161719}
     - target: {fileID: 6603866667927511330, guid: 083497529efbb5046a17b8611121dc26, type: 3}
       propertyPath: lifeCount
       value: 
@@ -8316,6 +8364,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ebony_Knight_V2
       objectReference: {fileID: 0}
+    - target: {fileID: 3756801475192485856, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486222980684554416, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 8361c6ac7d2ee1349bff4ec4e5fa28f1, type: 2}
+    - target: {fileID: 4486222980684554416, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
+      propertyPath: respawn
+      value: 
+      objectReference: {fileID: 1958011095}
     - target: {fileID: 4486222980684554416, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
       propertyPath: lifeCount
       value: 
@@ -8373,6 +8433,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
+--- !u!114 &7816246585920784296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4486222980684554416, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
+  m_PrefabInstance: {fileID: 7816246585920784295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299964811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b5696298fe7064183ee9ebf6b0d05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

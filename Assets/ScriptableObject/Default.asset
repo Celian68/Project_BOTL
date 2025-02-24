@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  faction: 0
+  targetType: 0
+  targetStats:
+  - maxLife: 10
+    nextUpgradeCost: 1
+  - maxLife: 20
+    nextUpgradeCost: 10
+  - maxLife: 30
+    nextUpgradeCost: 0
+  unitName: 0
+  unitType: 0
+  unitClass: 0
+  unitStats:
+  - damage: 1
+    moveSpeed: 1
+    unitRange: 1
+    attackSpeed: 1
+    baseCost: 1
+  - damage: 5
+    moveSpeed: 1
+    unitRange: 1
+    attackSpeed: 1
+    baseCost: 1
+  - damage: 10
+    moveSpeed: 1
+    unitRange: 1
+    attackSpeed: 1
+    baseCost: 1

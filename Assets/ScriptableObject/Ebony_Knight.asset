@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
+  m_Name: Ebony_Knight
+  m_EditorClassIdentifier: 
+  faction: 0
+  targetType: 0
+  targetStats:
+  - maxLife: 200
+    nextUpgradeCost: 150
+  - maxLife: 300
+    nextUpgradeCost: 300
+  - maxLife: 500
+    nextUpgradeCost: 0
+  unitName: 1
+  unitType: 0
+  unitClass: 1
+  unitStats:
+  - damage: 50
+    moveSpeed: 1.2
+    unitRange: 1.2
+    attackSpeed: 1
+    baseCost: 0
+  - damage: 80
+    moveSpeed: 1.1
+    unitRange: 1.2
+    attackSpeed: 1
+    baseCost: 0
+  - damage: 150
+    moveSpeed: 1
+    unitRange: 1.2
+    attackSpeed: 0.8
+    baseCost: 0

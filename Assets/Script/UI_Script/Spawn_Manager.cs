@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using BOTL.Enum;
 
 public class Spawn_Manager : MonoBehaviour
 {
@@ -37,61 +37,61 @@ public class Spawn_Manager : MonoBehaviour
     }
 
     public void UnitButton1() {
-        if (RessourceManager._instance.ConsumResources(unite1.GetComponent<UnitBehavior>().cost, false)) {
+        if (RessourceManager._instance.ConsumResources(unite1.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team1)) {
             spawn_Unit(unite1, spawn1);
         }
     }
 
     public void UnitButton2() {
-        if (RessourceManager._instance.ConsumResources(unite2.GetComponent<UnitBehavior>().cost, false)) {
+        if (RessourceManager._instance.ConsumResources(unite2.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team1)) {
             spawn_Unit(unite2, spawn1);
         }
     }
 
     public void UnitButton3() {
-        if (RessourceManager._instance.ConsumResources(unite3.GetComponent<UnitBehavior>().cost, false)) {
+        if (RessourceManager._instance.ConsumResources(unite3.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team1)) {
             spawn_Unit(unite3, spawn1);
         }
     }
 
     public void UnitButton4() {
-        if (RessourceManager._instance.ConsumResources(unite4.GetComponent<UnitBehavior>().cost, false)) {
+        if (RessourceManager._instance.ConsumResources(unite4.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team1)) {
             spawn_Unit(unite4, spawn1);
         }
     }
 
     public void UnitButton5() {
-        if (RessourceManager._instance.ConsumResources(unite5.GetComponent<UnitBehavior>().cost, false)) {
+        if (RessourceManager._instance.ConsumResources(unite5.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team1)) {
             spawn_Unit(unite5, spawn1);
         }
     }
 
     public void UnitButton6() {
-        if (RessourceManager._instance.ConsumResources(unite6.GetComponent<UnitBehavior>().cost, true)) {
+        if (RessourceManager._instance.ConsumResources(unite6.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team2)) {
             spawn_Unit(unite6, spawn2);
         }
     }
 
     public void UnitButton7() {
-        if (RessourceManager._instance.ConsumResources(unite7.GetComponent<UnitBehavior>().cost, true)) {
+        if (RessourceManager._instance.ConsumResources(unite7.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team2)) {
             spawn_Unit(unite7, spawn2);
         }
     }
 
     public void UnitButton8() {
-        if (RessourceManager._instance.ConsumResources(unite8.GetComponent<UnitBehavior>().cost, true)) {
+        if (RessourceManager._instance.ConsumResources(unite8.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team2)) {
             spawn_Unit(unite8, spawn2);
         }
     }
 
     public void UnitButton9() {
-        if (RessourceManager._instance.ConsumResources(unite9.GetComponent<UnitBehavior>().cost, true)) {
+        if (RessourceManager._instance.ConsumResources(unite9.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team2)) {
             spawn_Unit(unite9, spawn2);
         }
     }
 
     public void UnitButton10() {
-        if (RessourceManager._instance.ConsumResources(unite10.GetComponent<UnitBehavior>().cost, true)) {
+        if (RessourceManager._instance.ConsumResources(unite10.GetComponent<Unit>().GetUnitStats().baseCost, Team.Team2)) {
             spawn_Unit(unite10, spawn2);
         }
     }

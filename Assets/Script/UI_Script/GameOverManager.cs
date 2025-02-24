@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using BOTL.Enum;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -27,14 +28,11 @@ public class GameOverManager : MonoBehaviour
         gameOver = false;
     }
 
-    public void setGameOver(bool state, bool player) {
+    public void setGameOver(bool state, Team player) {
         gameOver = state;
 
-        int intPlayer = player ? 1 : 0;
-        intPlayer++;
-
         if (gameOver) {
-            gameOverText.text = "Player " + intPlayer.ToString() + " Win !";
+            gameOverText.text = "Player " + ((int)player + 1).ToString() + " Win !";
             gameOverMenu.SetActive(true);
         }
     }

@@ -8,12 +8,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: EnemyFound
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: doDamage
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: UnitState
+    m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3368792979796374705}
   m_Solo: 0
@@ -36,9 +33,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: EnemyFound
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: UnitState
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4555346344978701449}
   m_Solo: 0
@@ -144,9 +141,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: EnemyFound
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: UnitState
+    m_EventTreshold: 4
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3368792979796374705}
   m_Solo: 0
@@ -169,9 +166,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: EnemyFound
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: UnitState
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4555346344978701449}
   m_Solo: 0
@@ -195,14 +192,8 @@ AnimatorController:
   m_Name: Knight
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: EnemyFound
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: doDamage
-    m_Type: 4
+  - m_Name: UnitState
+    m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -256,9 +247,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: doDamage
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: UnitState
+    m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4587285147372800414}
   m_Solo: 0

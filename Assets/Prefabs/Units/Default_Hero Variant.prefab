@@ -111,14 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b5696298fe7064183ee9ebf6b0d05b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 150
-  damage: 30
-  moveSpeed: 5
-  unitRange: 1.5
-  attackSpeed: 1.5
+  data: {fileID: 11400000, guid: 65a28b3c7c929d44dad40c014092bf03, type: 2}
   animator: {fileID: 4885229824868463124}
   rb: {fileID: 945721413787274856}
   lifeCount: {fileID: 0}
+  respawn: {fileID: 0}
 --- !u!95 &4885229824868463124 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1000138867113782091, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}

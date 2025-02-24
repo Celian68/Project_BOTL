@@ -27,10 +27,10 @@ public class Meteor_Behavior : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, 1.5f);
         foreach (Collider2D enemy in enemies)
         {
-            AbstractUnitBehavior unit = enemy.GetComponent<AbstractUnitBehavior>();
+            AbstractUnit unit = enemy.GetComponent<AbstractUnit>();
             if (unit != null && (enemy.CompareTag("Team1") || enemy.CompareTag("Team2")))
             {
-                unit.getDamaged(100);
+                unit.GetDamaged(100);
             }
         }
 

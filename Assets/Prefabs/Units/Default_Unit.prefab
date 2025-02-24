@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2341798237790751116}
-  - component: {fileID: 1751726827366410260}
+  - component: {fileID: 8560498489338661592}
   m_Layer: 6
   m_Name: Range
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3414119724177941579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1751726827366410260
+--- !u!114 &8560498489338661592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,12 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea2cf4358228ca4a8ab6aad6e98fcaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 100
-  damage: 10
-  moveSpeed: 3
-  unitRange: 1
-  attackSpeed: 1
+  data: {fileID: 11400000, guid: 65a28b3c7c929d44dad40c014092bf03, type: 2}
   animator: {fileID: 1000138867113782091}
   rb: {fileID: -4380587117591914697}
-  cost: 10
-  state: 0

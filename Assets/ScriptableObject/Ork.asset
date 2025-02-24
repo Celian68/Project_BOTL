@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
+  m_Name: Ork
+  m_EditorClassIdentifier: 
+  faction: 2
+  targetType: 0
+  targetStats:
+  - maxLife: 100
+    nextUpgradeCost: 100
+  - maxLife: 150
+    nextUpgradeCost: 145
+  - maxLife: 180
+    nextUpgradeCost: 0
+  unitName: 2
+  unitType: 0
+  unitClass: 0
+  unitStats:
+  - damage: 30
+    moveSpeed: 0.8
+    unitRange: 1.2
+    attackSpeed: 0.8
+    baseCost: 20
+  - damage: 45
+    moveSpeed: 0.8
+    unitRange: 1
+    attackSpeed: 0.8
+    baseCost: 20
+  - damage: 70
+    moveSpeed: 0.8
+    unitRange: 1
+    attackSpeed: 1
+    baseCost: 20

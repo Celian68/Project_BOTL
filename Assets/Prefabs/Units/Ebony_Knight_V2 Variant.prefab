@@ -13,6 +13,10 @@ PrefabInstance:
       value: Ebony_Knight_V2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3165679894458635558, guid: 6183697da275e1a4bad6bc55c39c5a07, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 8361c6ac7d2ee1349bff4ec4e5fa28f1, type: 2}
+    - target: {fileID: 3165679894458635558, guid: 6183697da275e1a4bad6bc55c39c5a07, type: 3}
       propertyPath: damage
       value: 50
       objectReference: {fileID: 0}

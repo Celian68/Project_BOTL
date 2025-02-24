@@ -58,11 +58,11 @@ public class UIButtonBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
                 break;
             case 1:
                 GameObject castle = GameObject.FindGameObjectWithTag("Castle1");
-                InfoPopUpBehavior._instance.SetDescription("Améliore  le  château  au  niveau  " + castle.GetComponent<Castle>().getLevel(), castle.GetComponent<Castle>().nextLevelUpCost());
+                InfoPopUpBehavior._instance.SetDescription("Améliore  le  château  au  niveau  " + ((int)castle.GetComponent<Castle>().GetLevel() + 1), castle.GetComponent<Castle>().NextLevelUpCost());
                 break;
             case 2:
                 GameObject castle2 = GameObject.FindGameObjectWithTag("Castle2");
-                InfoPopUpBehavior._instance.SetDescription("Améliore  le  château  au  niveau  " + castle2.GetComponent<Castle>().getLevel(), castle2.GetComponent<Castle>().nextLevelUpCost());
+                InfoPopUpBehavior._instance.SetDescription("Améliore  le  château  au  niveau  " + ((int)castle2.GetComponent<Castle>().GetLevel() + 1), castle2.GetComponent<Castle>().NextLevelUpCost());
                 break;
         }
     }

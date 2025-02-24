@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using BOTL.Enum;
 
 public class RessourceManager : MonoBehaviour
 {
@@ -60,9 +61,9 @@ public class RessourceManager : MonoBehaviour
     }
 
     // Méthodes pour gérer les ressources
-    public void AddResources(int montant, bool player)
+    public void AddResources(float montant, Team player)
     {
-        if (player) {
+        if (player == Team.Team2) {
             currentRessourcesJ2 += montant;
             if (currentRessourcesJ2 > maxRessourcesJ2)
             {
@@ -77,9 +78,9 @@ public class RessourceManager : MonoBehaviour
         }
     }
 
-    public bool ConsumResources(int montant, bool player)
+    public bool ConsumResources(float montant, Team player)
     {
-        if (player) {
+        if (player == Team.Team2) {
             if (currentRessourcesJ2 >= montant)
             {
                 currentRessourcesJ2 -= montant;
@@ -95,27 +96,27 @@ public class RessourceManager : MonoBehaviour
         return false;
     }
 
-    public bool CheckResources(int montant, bool player)
+    public bool CheckResources(float montant, Team player)
     {
-        if (player) {
+        if (player == Team.Team2) {
             return currentRessourcesJ2 >= montant;
         }else{
             return currentRessourcesJ1 >= montant;
         }
     }
 
-    public void setMaxResources(float ressources, bool player)
+    public void setMaxResources(float ressources, Team player)
     {
-        if (player) {
+        if (player == Team.Team2) {
             maxRessourcesJ2 = ressources;
         }else{
             maxRessourcesJ1 = ressources;
         }
     }
 
-    public void setResourcePerSec(float ressource, bool player)
+    public void setResourcePerSec(float ressource, Team player)
     {
-        if (player) {
+        if (player == Team.Team2) {
             ressourcesPerSecJ2 = ressource;
         }else{
             ressourcesPerSecJ1 = ressource;

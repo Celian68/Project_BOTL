@@ -9,7 +9,6 @@ public class CameraManager : MonoBehaviour
         transform.position = new Vector3(0, 3, -10);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 inputDir = new Vector3(0, 0, 0);

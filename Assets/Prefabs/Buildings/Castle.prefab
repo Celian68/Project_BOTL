@@ -104,12 +104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6095ee7e845e844496533434fbbbcc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 500
-  player: 0
+  data: {fileID: 11400000, guid: 14d31b96551e2be4b8a91590f43a651b, type: 2}
+  animator: {fileID: 8537864181437154132}
   lifeCount: {fileID: 0}
-  Arche: {fileID: 3438780565480600284}
-  Arche2: {fileID: 0}
-  animCastle: {fileID: 8537864181437154132}
+  Arch: {fileID: 3438780565480600284}
+  Arch2: {fileID: 1388449709150656110}
   LevelUpButton: {fileID: 0}
 --- !u!95 &8537864181437154132
 Animator:
@@ -260,7 +259,7 @@ GameObject:
   - component: {fileID: 1256143916734030737}
   - component: {fileID: 1323940897157245240}
   - component: {fileID: 6512373876560860927}
-  - component: {fileID: 786195996637821915}
+  - component: {fileID: 7842251721056720698}
   m_Layer: 0
   m_Name: Entrance2
   m_TagString: Untagged
@@ -356,7 +355,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &786195996637821915
+--- !u!114 &7842251721056720698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,7 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba55a03c70d9a74dba35ce5d5a357bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animArch: {fileID: 0}
+  animArch: {fileID: 6512373876560860927}
 --- !u!1 &3438780565480600284
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +379,7 @@ GameObject:
   - component: {fileID: 4642920763419812102}
   - component: {fileID: 2321436211023644967}
   - component: {fileID: 120612526372955414}
-  - component: {fileID: 4534883315798478994}
+  - component: {fileID: 2118168462384957380}
   m_Layer: 0
   m_Name: Entrance1
   m_TagString: Untagged
@@ -476,7 +475,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4534883315798478994
+--- !u!114 &2118168462384957380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,7 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba55a03c70d9a74dba35ce5d5a357bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animArch: {fileID: 0}
+  animArch: {fileID: 120612526372955414}
 --- !u!1 &4425076755673146595
 GameObject:
   m_ObjectHideFlags: 0
