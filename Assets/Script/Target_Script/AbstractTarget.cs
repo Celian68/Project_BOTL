@@ -17,7 +17,6 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
         SetupTeam();
         currentLife = GetTargetStats().maxLife;
         UpdateLife();
-        Debug.Log(GetLevel());
         if (data == null)
         {
             Debug.LogError($" Erreur : `data` (UnitData) est NULL sur {gameObject.name} !");

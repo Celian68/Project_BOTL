@@ -9,9 +9,6 @@ public class Castle : AbstractTarget<CastleData>
     [SerializeField] Text lifeCount;
 
     [SerializeField] GameObject Arch;
-    [SerializeField] GameObject Arch2;
-
-    Coroutine healingCoroutine;
 
     protected BuildingState buildingState;
 
@@ -57,39 +54,6 @@ public class Castle : AbstractTarget<CastleData>
         }
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Collision");
-        Debug.Log(collision);
-        Debug.Log(collision.name);
-        AbstractUnit unit = collision.GetComponent<AbstractUnit>();
-        if (unit != null && unit.GetUnitClass() == UnitClass.Hero && unit.GetTeam() == team)
-        {
-            healingCoroutine = StartCoroutine(HealingOverTime(10, 1, collision));
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("Sortie");
-        AbstractUnit unit = collision.GetComponent<AbstractUnit>();
-        if (unit != null && unit.GetUnitClass() == UnitClass.Hero && unit.GetTeam() == team)
-        {
-            StopCoroutine(healingCoroutine); // Arrête la coroutine de soin
-        }
-    }
-
-    private IEnumerator HealingOverTime(int amout, float time, Collider2D collision)
-    {
-        yield return new WaitForSeconds(time);
-        while (true)
-        {
-            collision.GetComponent<AbstractUnit>().Heal(amout);
-            yield return new WaitForSeconds(time);
-        }
-    }
-
     protected override void Die()
     {
         currentLife = 0;
@@ -112,12 +76,11 @@ public class Castle : AbstractTarget<CastleData>
     {
         if (team == t)
         {
-            currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetSpecificTargetStats((Level)GetLevel() - 1).maxLife);
+            currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetSpecificTargetStats(GetLevel() - 1).maxLife);
             RessourceManager._instance.setMaxResources(500, team);
             RessourceManager._instance.setResourcePerSec(3, team);
             animator.SetInteger("Level", (int)GetLevel());
             Arch.GetComponent<Arch>().LevelUp((int)newLevel);
-            Arch2.GetComponent<Arch>().LevelUp((int)newLevel);
             UpdateLife();
         }
     }

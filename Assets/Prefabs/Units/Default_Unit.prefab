@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d195e7e6b10dc4f8cfb820dcc61d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotation: 1
 --- !u!1 &8044754612154506025
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +176,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 96
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

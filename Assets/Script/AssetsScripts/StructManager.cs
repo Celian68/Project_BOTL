@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace BOTL.Struct
 {
     [System.Serializable]
@@ -12,10 +10,23 @@ namespace BOTL.Struct
         public float baseCost;
     }
 
-    [System.Serializable]   
+    [System.Serializable]
     public struct TargetStats
     {
         public float maxLife;
         public int nextUpgradeCost;
     }
+
+    [System.Serializable]
+    public struct CastleStats
+    {
+        public float maxResource;
+    }
+
+    [System.Serializable]
+    public struct ProduceurStats
+    {
+        public float resourcePerSec;
+    }
+
 }

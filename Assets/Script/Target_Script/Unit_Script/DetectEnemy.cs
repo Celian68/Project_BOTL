@@ -23,6 +23,7 @@ public class DetectEnemy : MonoBehaviour
         List<Collider2D> hitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, LayerMask.GetMask("Unit")).ToList();
         foreach (Collider2D hitCollider in hitColliders)
         {
+            
             if (hitCollider.GetComponent<ItTarget>().GetTeam() == transform.parent.GetComponent<ItTarget>().GetTeam())
             {
                 allyColliders.Add(hitCollider);

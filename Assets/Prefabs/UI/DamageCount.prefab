@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2582929505677400101}
   - component: {fileID: 2025210064201736986}
   - component: {fileID: 1313927584503770958}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DamageCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}

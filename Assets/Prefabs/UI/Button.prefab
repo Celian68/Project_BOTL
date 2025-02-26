@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1577175034568050956}
   - component: {fileID: 414079871159876389}
   - component: {fileID: -1448231357263595667}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUp: {fileID: 7217984803838252837, guid: 3d86d28bb70cef448b3b8064bed64a2c, type: 3}
+  cost: 0
+  description: 
   type: 0
 --- !u!1 &3044477769010779217
 GameObject:
@@ -103,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454826860231664570}
   - component: {fileID: 7955099108758152572}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5509695694821787974}
   - component: {fileID: 9145920527946261477}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonBackgroundIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
