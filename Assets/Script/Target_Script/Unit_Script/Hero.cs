@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using BOTL.Enum;
+using BOTL.Data;
 using System.Collections;
-using BOTL.Struct;
 
 
 public class Hero : AbstractUnit
@@ -19,15 +18,6 @@ public class Hero : AbstractUnit
         LevelManager._instance.OnHeroLevelUp += LevelUp;
     }
 
-    protected override void Update()
-    {
-        base.Update();
-        if (unitState == UnitState.Retreating)
-        {
-            runAway();
-        }
-    }
-
     protected override void SetupTeam()
     {
         base.SetupTeam();
@@ -41,14 +31,21 @@ public class Hero : AbstractUnit
         }
     }
 
-    void runAway()
+    protected override void Move()
     {
-        Vector3 tar = new Vector3(teamMultipl, 0, 0);
-        tar *= -1;
-        transform.Translate(tar.normalized * GetUnitStats().moveSpeed * Time.deltaTime, Space.World);
-        if (transform.position.x < -13f)
+        if (unitState == UnitState.Retreating)
         {
-            SetUnitState(UnitState.Idle);
+            Vector3 tar = new Vector3(teamMultipl, 0, 0);
+            tar *= -1;
+            transform.Translate(tar.normalized * GetUnitStats().moveSpeed * Time.deltaTime, Space.World);
+            if (transform.position.x < -13f)
+            {
+                SetUnitState(UnitState.Idle);
+            }
+        }
+        else
+        {
+            base.Move();
         }
     }
 
@@ -94,7 +91,7 @@ public class Hero : AbstractUnit
     {
         if (team == t)
         {
-            currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetTargetStats().maxLife);
+            currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetSpecificTargetStats(GetLevel() - 1).maxLife);
             UpdateLife();
         }
     }

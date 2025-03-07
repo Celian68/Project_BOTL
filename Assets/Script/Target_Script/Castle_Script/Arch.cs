@@ -1,5 +1,5 @@
 using UnityEngine;
-using BOTL.Enum;
+using BOTL.Data;
 using System.Collections;
 
 // Class that take care of the little Arch in front of the Castle of each player

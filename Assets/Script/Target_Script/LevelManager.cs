@@ -1,5 +1,5 @@
 using System;
-using BOTL.Enum;
+using BOTL.Data;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour

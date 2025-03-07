@@ -1,6 +1,5 @@
 using UnityEngine;
-using BOTL.Enum;
-using BOTL.Struct;
+using BOTL.Data;
 
 public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data : TargetData
 {
@@ -8,7 +7,7 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
     [SerializeField] protected Animator animator;
     protected float currentLife;
     protected Team enemyTeam;
-    protected float teamMultipl;
+    protected int teamMultipl;
     protected Team team;
 
 
@@ -50,7 +49,7 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
 
     public virtual void Heal(float heal)
     {
-        if (currentLife < GetTargetStats().maxLife) UI_Manager._instance.ShowNumberText(Mathf.RoundToInt(heal), transform.position, teamMultipl, "+");;
+        if (currentLife < GetTargetStats().maxLife) UI_Manager._instance.ShowNumberText(Mathf.RoundToInt(heal), transform.position, teamMultipl, "+"); ;
         currentLife = Mathf.Min(currentLife + heal, GetTargetStats().maxLife);
         UpdateLife();
     }
@@ -60,18 +59,19 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
     protected abstract void Die();
 
     protected abstract void UpdateLife();
-    protected abstract void OnDestroy();
+    protected virtual void OnDestroy()
+    { }
 
     public abstract Level GetLevel();
 
     public TargetStats GetTargetStats()
     {
-        return data.GetTargetStats((int)GetLevel());
+        return data.GetTargetStats(GetLevel());
     }
 
     public TargetStats GetSpecificTargetStats(Level level)
     {
-        return data.GetTargetStats((int)level);
+        return data.GetTargetStats(level);
     }
 
     public Team GetTeam()
@@ -79,7 +79,7 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
         return team;
     }
 
-    public float GetTeamMultipl()
+    public int GetTeamMultipl()
     {
         return teamMultipl;
     }
@@ -89,7 +89,7 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
         return currentLife;
     }
 
-    public float NextLevelUpCost()
+    public int NextLevelUpCost()
     {
         return GetTargetStats().nextUpgradeCost;
     }

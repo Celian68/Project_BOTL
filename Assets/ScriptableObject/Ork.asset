@@ -27,16 +27,16 @@ MonoBehaviour:
   unitStats:
   - damage: 30
     moveSpeed: 0.8
-    unitRange: 1.2
+    attackRange: 1
     attackSpeed: 0.8
     baseCost: 20
   - damage: 45
     moveSpeed: 0.8
-    unitRange: 1
+    attackRange: 1
     attackSpeed: 0.8
     baseCost: 20
   - damage: 70
     moveSpeed: 0.8
-    unitRange: 1
+    attackRange: 1
     attackSpeed: 1
     baseCost: 20

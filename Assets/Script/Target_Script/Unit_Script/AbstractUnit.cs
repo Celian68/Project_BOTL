@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using BOTL.Enum;
-using BOTL.Struct;
+using BOTL.Data;
 
 public abstract class AbstractUnit : AbstractTarget<UnitData>
 {
@@ -18,12 +17,12 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
         detectEnemy = GetComponentInChildren<DetectEnemy>();
         base.Start();
         rb.excludeLayers = LayerMask.GetMask("Unit");
-        InvokeRepeating("Behavior", 0f, 0.2f);
+        InvokeRepeating(nameof(Behavior), 0f, 0.2f);
     }
 
     protected virtual void Update()
     {
-        if (unitState == UnitState.Moving)
+        if (unitState == UnitState.Moving || unitState == UnitState.Retreating)
         {
             Move();
         }
@@ -105,7 +104,7 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
     {
         currentLife = 0;
         UpdateLife();
-        Manage_Dead_Unit._instance.spawn_Dead_Unit(transform.position);
+        DeadUnitManager._instance.SpawnDeadUnit(transform.position);
     }
 
     protected void Rotate(float rotation)

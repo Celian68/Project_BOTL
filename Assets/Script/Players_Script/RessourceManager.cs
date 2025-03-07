@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using BOTL.Enum;
+using BOTL.Data;
 
 public class RessourceManager : MonoBehaviour
 {

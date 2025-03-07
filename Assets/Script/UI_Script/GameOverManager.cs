@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using BOTL.Enum;
+using BOTL.Data;
 
 public class GameOverManager : MonoBehaviour
 {

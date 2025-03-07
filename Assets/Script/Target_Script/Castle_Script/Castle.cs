@@ -1,17 +1,15 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using BOTL.Enum;
+using BOTL.Data;
 
 // Class that take care of the Castle of each player
 public class Castle : AbstractTarget<CastleData>
 {
     [SerializeField] Text lifeCount;
-
     [SerializeField] GameObject Arch;
 
     protected BuildingState buildingState;
-
+    
     protected override void Start()
     {
         base.Start();
@@ -87,6 +85,7 @@ public class Castle : AbstractTarget<CastleData>
 
     protected override void OnDestroy()
     {
+        base.OnDestroy();
         LevelManager._instance.OnCastleLevelUp -= LevelUp;
     }
 }

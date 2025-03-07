@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using BOTL.Enum;
+using BOTL.Data;
 
 public class Unit : AbstractUnit
 {
@@ -24,7 +24,6 @@ public class Unit : AbstractUnit
     
     protected override void Die()
     {
-        transform.position = new Vector3(transform.position.x, (float)(transform.position.y + 0.16), 0);
         base.Die();
         Destroy(gameObject);
     }
@@ -33,13 +32,14 @@ public class Unit : AbstractUnit
     {
         if (team == t && unitName == data.UnitName)
         {
-            currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife/ GetTargetStats().maxLife);
+            currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetSpecificTargetStats(GetLevel() - 1).maxLife);
             UpdateLife();
         }
     }
 
     protected override void OnDestroy()
     {
+        base.OnDestroy();
         LevelManager._instance.OnUnitLevelUp -= LevelUp;
     }
 

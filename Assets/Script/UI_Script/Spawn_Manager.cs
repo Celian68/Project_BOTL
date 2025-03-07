@@ -1,5 +1,5 @@
 using UnityEngine;
-using BOTL.Enum;
+using BOTL.Data;
 
 public class Spawn_Manager : MonoBehaviour
 {

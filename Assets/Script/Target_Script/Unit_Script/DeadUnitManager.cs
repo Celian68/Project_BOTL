@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Manage_Dead_Unit : MonoBehaviour
+public class DeadUnitManager : MonoBehaviour
 {
 
-    public static Manage_Dead_Unit _instance;
+    public static DeadUnitManager _instance;
 
     void Awake() { 
         if (_instance != null && _instance != this) { 
@@ -15,7 +15,7 @@ public class Manage_Dead_Unit : MonoBehaviour
     
     public GameObject deathAnimation;
 
-    public void spawn_Dead_Unit(Vector3 position) {
+    public void SpawnDeadUnit(Vector3 position) {
         Instantiate(deathAnimation, position, Quaternion.identity);
     }
 }
