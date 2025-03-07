@@ -1,6 +1,5 @@
 using UnityEngine;
-using BOTL.Enum;
-using BOTL.Struct;
+using BOTL.Data;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "TargetData", menuName = "ScriptableObject/TargetData")]
@@ -12,9 +11,9 @@ public abstract class TargetData : ScriptableObject
 
     public Faction Faction => faction;
     public TargetType TargetType => targetType;
-    public TargetStats GetTargetStats(int level)
+    public TargetStats GetTargetStats(Level level)
     {
-        return targetStats[level];
+        return targetStats[(int)level];
     }
 }
 

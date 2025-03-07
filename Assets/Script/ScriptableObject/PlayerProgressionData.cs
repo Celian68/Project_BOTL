@@ -1,5 +1,5 @@
 using UnityEngine;
-using BOTL.Enum;
+using BOTL.Data;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "PlayerProgressionData", menuName = "ScriptableObject/PlayerProgressionData")]

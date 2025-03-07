@@ -1,30 +1,30 @@
-namespace BOTL.Struct
+namespace BOTL.Data
 {
     [System.Serializable]
     public struct UnitStats
     {
         public float damage;
         public float moveSpeed;
-        public float unitRange;
+        public float attackRange;
         public float attackSpeed;
-        public float baseCost;
+        public int baseCost;
     }
 
     [System.Serializable]
     public struct TargetStats
     {
-        public float maxLife;
+        public int maxLife;
         public int nextUpgradeCost;
     }
 
     [System.Serializable]
     public struct CastleStats
     {
-        public float maxResource;
+        public int maxResource;
     }
 
     [System.Serializable]
-    public struct ProduceurStats
+    public struct ProducerStats
     {
         public float resourcePerSec;
     }

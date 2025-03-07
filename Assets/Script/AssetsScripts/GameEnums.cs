@@ -1,4 +1,4 @@
-namespace BOTL.Enum
+namespace BOTL.Data
 {
     public enum UnitState { Idle, Moving, Retreating, Attacking, Charging, CancelLoad, Stunned, Dead }
     public enum Team { Team1, Team2 }

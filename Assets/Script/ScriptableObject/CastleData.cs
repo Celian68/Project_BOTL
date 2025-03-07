@@ -1,19 +1,19 @@
 using UnityEngine;
-using BOTL.Struct;
+using BOTL.Data;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "CastleData", menuName = "ScriptableObject/CastleData")]
 public class CastleData : TargetData
 {
     [SerializeField] List<CastleStats> castleStats;
-    [SerializeField] List<ProduceurStats> produceurStats;
+    [SerializeField] List<ProducerStats> producerStats;
 
-    public CastleStats GetCastleStats(int level)
+    public CastleStats GetCastleStats(Level level)
     {
-        return castleStats[level];
+        return castleStats[(int)level];
     }
-    public ProduceurStats GetProduceurStats(int level)
+    public ProducerStats GetProduceurStats(Level level)
     {
-        return produceurStats[level];
+        return producerStats[(int)level];
     }
 }

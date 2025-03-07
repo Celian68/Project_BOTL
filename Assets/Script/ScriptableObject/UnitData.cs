@@ -1,6 +1,5 @@
 using UnityEngine;
-using BOTL.Enum;
-using BOTL.Struct;
+using BOTL.Data;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "UnitData", menuName = "ScriptableObject/UnitData")]
