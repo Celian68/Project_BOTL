@@ -96,7 +96,7 @@ public class RessourceManager : MonoBehaviour
         return false;
     }
 
-    public bool CheckResources(float montant, Team player)
+    public bool CheckResources(int montant, Team player)
     {
         if (player == Team.Team2) {
             return currentRessourcesJ2 >= montant;
@@ -105,7 +105,7 @@ public class RessourceManager : MonoBehaviour
         }
     }
 
-    public void setMaxResources(float ressources, Team player)
+    public void setMaxResources(int ressources, Team player)
     {
         if (player == Team.Team2) {
             maxRessourcesJ2 = ressources;

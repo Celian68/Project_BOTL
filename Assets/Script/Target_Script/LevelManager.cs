@@ -8,114 +8,78 @@ public class LevelManager : MonoBehaviour
     public static LevelManager _instance;
     [SerializeField] GameObject LevelUpButtonCastle1;
     [SerializeField] GameObject LevelUpButtonCastle2;
-
-    void Awake() { 
-        if (_instance != null && _instance != this) { 
-            Destroy(this); 
-        }else{ 
-            _instance = this; 
-        } 
-
-        Player1.Initialize(Faction.Human);
-        Player2.Initialize(Faction.NewLand);
-    }
-
     [SerializeField] PlayerProgressionData Player1;
     [SerializeField] PlayerProgressionData Player2;
+    [SerializeField] UnitsCollectionData UnitDataCollection;
 
     public event Action<Team, Level> OnCastleLevelUp;
     public event Action<Team, Level> OnHeroLevelUp;
-    public event Action<Team, UnitName, Level> OnUnitLevelUp;
+    public event Action<Team, UnitData, Level> OnUnitLevelUp;
+
+    void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
     void Start()
     {
+        Player1.Initialize(Faction.Human);
+        Player2.Initialize(Faction.NewLand);
         LevelUpButtonCastle1.SetActive(true);
         LevelUpButtonCastle2.SetActive(true);
     }
 
     public Level getLevelCastle(Team team)
     {
-        if (team == Team.Team1)
-        {
-            return Player1.CastleLevel;
-        }
-        else
-        {
-            return Player2.CastleLevel;
-        }
+        return GetPlayerProgressionData(team).CastleLevel;
     }
 
     public Level getLevelHero(Team team)
     {
-        if (team == Team.Team1)
-        {
-            return Player1.HeroLevel;
-        }
-        else
-        {
-            return Player2.HeroLevel;
-        }
+        return GetPlayerProgressionData(team).HeroLevel;
     }
 
-    public Level getLevelUnit(Team team, UnitName unitName)
+    public Level getLevelUnit(Team team, UnitData unitData)
     {
-        if (team == Team.Team1)
-        {
-            return Player1.GetUnitLevel(unitName);
-        }
-        else
-        {
-            return Player2.GetUnitLevel(unitName);
-        }
+        return GetPlayerProgressionData(team).GetUnitLevel(unitData);
     }
 
     public void LevelUpCastle(Team team)
     {
-        if (team == Team.Team1)
+        if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).CastleData.GetUpgradeCost(getLevelCastle(team)), team))
         {
-            Player1.UpgradeCastle();
-            if (Player1.CastleLevel == Level.Level3)
+            GetPlayerProgressionData(team).UpgradeCastle();
+            if (GetPlayerProgressionData(team).CastleLevel == Level.Level3)
             {
-                LevelUpButtonCastle1.SetActive(false);
+                GetPlayerButton(team).SetActive(false);
             }
+            OnCastleLevelUp?.Invoke(team, getLevelCastle(team));
         }
-        else
-        {
-            Player2.UpgradeCastle();
-            if (Player2.CastleLevel == Level.Level3)
-            {
-                LevelUpButtonCastle2.SetActive(false);
-            }
-        }
-        OnCastleLevelUp?.Invoke(team, getLevelCastle(team));
-
-
     }
 
     public void LevelUpHero(Team team)
     {
-        if (team == Team.Team1)
+        if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).HeroData.GetUpgradeCost(getLevelCastle(team)), team))
         {
-            Player1.UpgradeHero();
+            GetPlayerProgressionData(team).UpgradeHero();
+            OnHeroLevelUp?.Invoke(team, getLevelHero(team));
         }
-        else
-        {
-            Player2.UpgradeHero();
-        }
-        OnHeroLevelUp?.Invoke(team, getLevelHero(team));
     }
 
-    public void LevelUpUnit(Team team, UnitName unitName)
+    public void LevelUpUnit(Team team, UnitData unitData)
     {
-        if (team == Team.Team1)
+        if (RessourceManager._instance.ConsumResources(unitData.GetUpgradeCost(getLevelCastle(team)), team))
         {
-            Player1.UpgradeUnit(unitName);
+            GetPlayerProgressionData(team).UpgradeUnit(unitData);
+            OnUnitLevelUp?.Invoke(team, unitData, getLevelUnit(team, unitData));
         }
-        else
-        {
-            Player2.UpgradeUnit(unitName);
-        }
-        OnUnitLevelUp?.Invoke(team, unitName, getLevelUnit(team, unitName));
     }
 
     public void LevelUpCastleInt(int team)
@@ -128,8 +92,37 @@ public class LevelManager : MonoBehaviour
         LevelUpHero((Team)team);
     }
 
-    public void LevelUpUnitInt(int team, int unitName)
+    public void LevelUpUnitInt(int team, int unitIndex)
     {
-        LevelUpUnit((Team)team, (UnitName)unitName);
+        LevelUpUnit((Team)team, GetPlayerProgressionData((Team)team).getUnitData(unitIndex));
+    }
+
+    public PlayerProgressionData GetPlayerProgressionData(Team team)
+    {
+        if (team == Team.Team1)
+        {
+            return Player1;
+        }
+        else
+        {
+            return Player2;
+        }
+    }
+
+    public GameObject GetPlayerButton(Team team)
+    {
+        if (team == Team.Team1)
+        {
+            return LevelUpButtonCastle1;
+        }
+        else
+        {
+            return LevelUpButtonCastle2;
+        }
+    }
+
+    public UnitsCollectionData getUnitDataCollection()
+    {
+        return UnitDataCollection;
     }
 }

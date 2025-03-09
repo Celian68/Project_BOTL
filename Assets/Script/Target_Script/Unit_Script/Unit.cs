@@ -13,7 +13,7 @@ public class Unit : AbstractUnit
     
     public override Level GetLevel()
     {
-        return LevelManager._instance.getLevelUnit(team, data.UnitName);
+        return LevelManager._instance.getLevelUnit(team, data);
     }
 
     protected override IEnumerator Attack()
@@ -28,9 +28,9 @@ public class Unit : AbstractUnit
         Destroy(gameObject);
     }
 
-    protected void LevelUp(Team t, UnitName unitName, Level level)
+    protected void LevelUp(Team t, UnitData unitData, Level level)
     {
-        if (team == t && unitName == data.UnitName)
+        if (team == t && unitData == data)
         {
             currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetSpecificTargetStats(GetLevel() - 1).maxLife);
             UpdateLife();

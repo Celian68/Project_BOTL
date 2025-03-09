@@ -29,10 +29,10 @@ public class Castle : AbstractTarget<CastleData>
     protected override void UpdateLife()
     {
         lifeCount.text = currentLife.ToString();
-        showDamaged();
+        ShowDamaged();
     }
 
-    void showDamaged()
+    void ShowDamaged()
     {
         if (currentLife > GetTargetStats().maxLife * 0.75f)
         {
@@ -75,8 +75,8 @@ public class Castle : AbstractTarget<CastleData>
         if (team == t)
         {
             currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetSpecificTargetStats(GetLevel() - 1).maxLife);
-            RessourceManager._instance.setMaxResources(500, team);
-            RessourceManager._instance.setResourcePerSec(3, team);
+            RessourceManager._instance.setMaxResources(GetCastleStats().maxResource, team);
+            RessourceManager._instance.setResourcePerSec(GetProducerStats().resourcePerSec, team);
             animator.SetInteger("Level", (int)GetLevel());
             Arch.GetComponent<Arch>().LevelUp((int)newLevel);
             UpdateLife();
@@ -87,5 +87,25 @@ public class Castle : AbstractTarget<CastleData>
     {
         base.OnDestroy();
         LevelManager._instance.OnCastleLevelUp -= LevelUp;
+    }
+
+    public CastleStats GetCastleStats()
+    {
+        return data.GetCastleStats(GetLevel());
+    }
+
+    public CastleStats GetSpecificCastleStats(Level level)
+    {
+        return data.GetCastleStats(level);
+    }
+
+    public ProducerStats GetProducerStats()
+    {
+        return data.GetProducerStats(GetLevel());
+    }
+
+    public ProducerStats GetSpecificProducerStats(Level level)
+    {
+        return data.GetProducerStats(level);
     }
 }

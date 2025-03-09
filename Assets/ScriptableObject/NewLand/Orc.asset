@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
-  m_Name: Ork
+  m_Name: Orc
   m_EditorClassIdentifier: 
+  targetId: N01
+  displayName: Orc
   faction: 2
   targetType: 0
   targetStats:
@@ -21,7 +23,6 @@ MonoBehaviour:
     nextUpgradeCost: 145
   - maxLife: 180
     nextUpgradeCost: 0
-  unitName: 2
   unitType: 0
   unitClass: 0
   unitStats:

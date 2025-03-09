@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5f4513feed4f74c9a094179797f639, type: 3}
   m_Name: Player1Progress
   m_EditorClassIdentifier: 
-  team: 0
-  faction: 0
-  castleLevel: 0
-  heroLevel: 0
+  castleData: {fileID: 11400000, guid: 14d31b96551e2be4b8a91590f43a651b, type: 2}

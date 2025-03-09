@@ -4275,6 +4275,7 @@ GameObject:
   - component: {fileID: 1033640434}
   - component: {fileID: 1033640436}
   - component: {fileID: 1033640437}
+  - component: {fileID: 1033640438}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -4415,6 +4416,19 @@ MonoBehaviour:
   LevelUpButtonCastle2: {fileID: 194429753}
   Player1: {fileID: 11400000, guid: baf09de12499535498dfb00da8e5aba4, type: 2}
   Player2: {fileID: 11400000, guid: 55ca61118a2500a4eb93aa7f5b46f46d, type: 2}
+--- !u!114 &1033640438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033640422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805b80e20b354ab4198039c5ab75822d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _castleData: {fileID: 11400000, guid: 14d31b96551e2be4b8a91590f43a651b, type: 2}
 --- !u!1 &1047988733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4239184342630430316, guid: 283fcaf17dac3574f8560b3cee775e45, type: 3}

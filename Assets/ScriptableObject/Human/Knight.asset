@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
-  m_Name: KnightData
+  m_Name: Knight
   m_EditorClassIdentifier: 
+  targetId: H01
+  displayName: Knight
   faction: 0
   targetType: 0
   targetStats:
@@ -21,7 +23,6 @@ MonoBehaviour:
     nextUpgradeCost: 150
   - maxLife: 130
     nextUpgradeCost: 0
-  unitName: 1
   unitType: 0
   unitClass: 0
   unitStats:

@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
   m_Name: Ebony_Knight
   m_EditorClassIdentifier: 
+  targetId: HH1
+  displayName: Ebony Knight
   faction: 0
   targetType: 0
   targetStats:
   - maxLife: 200
-    nextUpgradeCost: 150
+    nextUpgradeCost: 200
   - maxLife: 300
     nextUpgradeCost: 300
   - maxLife: 500
-    nextUpgradeCost: 0
-  unitName: 1
+    nextUpgradeCost: -1
   unitType: 0
   unitClass: 1
   unitStats:

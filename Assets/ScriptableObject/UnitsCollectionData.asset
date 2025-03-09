@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d905eae67c955c4d97d93a68f778d4b, type: 3}
-  m_Name: CastleData
+  m_Script: {fileID: 11500000, guid: 1e2c6dd86cd03cb4b9651b16bce7fa22, type: 3}
+  m_Name: UnitsCollectionData
   m_EditorClassIdentifier: 
+  targetId: 
+  displayName: 
   faction: 0
-  targetType: 1
-  targetStats:
-  - maxLife: 500
-    nextUpgradeCost: 100
-  - maxLife: 850
-    nextUpgradeCost: 250
-  - maxLife: 1500
-    nextUpgradeCost: 0
+  targetType: 0
+  targetStats: []
+  _humanData: []
+  _elfData: []
+  _newLandData: []
+  _castleData: {fileID: 0}

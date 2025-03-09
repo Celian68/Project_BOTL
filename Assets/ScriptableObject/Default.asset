@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
+  targetId: 000
+  displayName: DefaultUnit
   faction: 0
   targetType: 0
   targetStats:
@@ -20,23 +22,22 @@ MonoBehaviour:
   - maxLife: 20
     nextUpgradeCost: 10
   - maxLife: 30
-    nextUpgradeCost: 0
-  unitName: 0
+    nextUpgradeCost: -1
   unitType: 0
   unitClass: 0
   unitStats:
   - damage: 1
     moveSpeed: 1
-    unitRange: 1
+    attackRange: 1
     attackSpeed: 1
     baseCost: 1
   - damage: 5
     moveSpeed: 1
-    unitRange: 1
+    attackRange: 1
     attackSpeed: 1
     baseCost: 1
   - damage: 10
     moveSpeed: 1
-    unitRange: 1
+    attackRange: 1
     attackSpeed: 1
     baseCost: 1

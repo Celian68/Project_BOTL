@@ -148,12 +148,12 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
 
     public UnitStats GetUnitStats()
     {
-        return data.GetUnitStats((int)GetLevel());
+        return data.GetUnitStats(GetLevel());
     }
 
     public UnitStats GetSpecificUnitStats(Level level)
     {
-        return data.GetUnitStats((int)level);
+        return data.GetUnitStats(level);
     }
 
 }

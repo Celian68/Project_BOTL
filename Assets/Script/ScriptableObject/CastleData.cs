@@ -12,7 +12,8 @@ public class CastleData : TargetData
     {
         return castleStats[(int)level];
     }
-    public ProducerStats GetProduceurStats(Level level)
+
+    public ProducerStats GetProducerStats(Level level)
     {
         return producerStats[(int)level];
     }
