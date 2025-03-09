@@ -19,18 +19,17 @@ public class PlayerProgressionData : ScriptableObject
     public CastleData CastleData => castleData;
     public UnitData HeroData => heroData;
 
-    public void Initialize(Faction faction, List<UnitData> selectedUnits = null, UnitData selectedHero = null)
+    public void Initialize(Faction faction, List<UnitData> selectedUnits, UnitData selectedHero)
 {
     this.faction = faction;
     castleLevel = Level.Level1;
     heroLevel = Level.Level1;
 
     unitsData = new Dictionary<UnitData, Level>();
-    List<UnitData> unitsToUse = selectedUnits ?? new List<UnitData> {LevelManager._instance.getUnitDataCollection().GetUnitData(Faction.Human, "H01"), LevelManager._instance.getUnitDataCollection().GetUnitData(Faction.NewLand, "N01")};
-    heroData = selectedHero != null ? selectedHero : LevelManager._instance.getUnitDataCollection().GetUnitData(Faction.Human, "HH1");
+    heroData = selectedHero;
 
 
-    foreach (UnitData unitData in unitsToUse)
+    foreach (UnitData unitData in selectedUnits)
     {
         unitsData[unitData] = Level.Level1;
     }
@@ -71,6 +70,6 @@ public class PlayerProgressionData : ScriptableObject
     }
 
     public UnitData getUnitData(int index) {
-        return unitsData.Select(x => x.Key).ToList()[index];
+        return unitsData.Keys.ToList()[index];
     }
 }

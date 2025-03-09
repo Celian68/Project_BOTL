@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using BOTL.Data;
 using UnityEngine;
 
@@ -30,8 +31,14 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        Player1.Initialize(Faction.Human);
-        Player2.Initialize(Faction.NewLand);
+        var defaultUnits = new List<UnitData>
+        {
+            UnitDataCollection.GetUnitData(Faction.Human, "H01"),
+            UnitDataCollection.GetUnitData(Faction.NewLand, "N01")
+        };
+        var defaultHero = UnitDataCollection.GetUnitData(Faction.Human, "HH1");
+        Player1.Initialize(Faction.Human, defaultUnits, defaultHero);
+        Player2.Initialize(Faction.NewLand, defaultUnits, defaultHero);
         LevelUpButtonCastle1.SetActive(true);
         LevelUpButtonCastle2.SetActive(true);
     }
