@@ -8,6 +8,7 @@ namespace BOTL.Data
         public float attackRange;
         public float attackSpeed;
         public int baseCost;
+        public float spawnTime;
     }
 
     [System.Serializable]
@@ -27,6 +28,22 @@ namespace BOTL.Data
     public struct ProducerStats
     {
         public float resourcePerSec;
+    }
+
+    [System.Serializable]
+    public struct SpellStats
+    {
+        public float range;
+        public float cooldown;
+        public int nextUpgradeCost;
+        public bool isGlobal;
+        public float initialisationTime;
+    }
+
+    [System.Serializable]
+    public struct BuildingStats
+    {
+        public int nextUpgradeCost;
     }
 
 }

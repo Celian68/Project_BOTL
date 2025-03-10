@@ -7,15 +7,18 @@ public class LevelManager : MonoBehaviour
 {
 
     public static LevelManager _instance;
-    [SerializeField] GameObject LevelUpButtonCastle1;
-    [SerializeField] GameObject LevelUpButtonCastle2;
-    [SerializeField] PlayerProgressionData Player1;
-    [SerializeField] PlayerProgressionData Player2;
-    [SerializeField] UnitsCollectionData UnitDataCollection;
+    [SerializeField] GameObject levelUpButtonCastle1;
+    [SerializeField] GameObject levelUpButtonCastle2;
+    [SerializeField] PlayerProgressionData player1;
+    [SerializeField] PlayerProgressionData player2;
+    [SerializeField] UnitsCollectionData unitsDataCollection;
+    [SerializeField] SpellsCollectionData spellsDataCollection;
+    [SerializeField] UnitsCollectionData herosDataCollection;
+    [SerializeField] BuildingsCollectionData buildingsDataCollection;
 
-    public event Action<Team, Level> OnCastleLevelUp;
-    public event Action<Team, Level> OnHeroLevelUp;
-    public event Action<Team, UnitData, Level> OnUnitLevelUp;
+    public event Action<Team, Level> onCastleLevelUp;
+    public event Action<Team, Level> onHeroLevelUp;
+    public event Action<Team, UnitData, Level> onUnitLevelUp;
 
     void Awake()
     {
@@ -27,20 +30,25 @@ public class LevelManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        var defaultUnits = new List<UnitData>
+        {
+            unitsDataCollection.GetData(Faction.Human, "HU01"),
+            unitsDataCollection.GetData(Faction.NewLand, "NU01")
+        };
+        var defaultSpell = new List<SpellData>
+        {
+            spellsDataCollection.GetData(Faction.NewLand, "NS01")
+        };
+        var defaultHero = unitsDataCollection.GetData(Faction.Human, "HH1");
+        player1.Initialize(Faction.Human, defaultUnits, defaultSpell, defaultHero);
+        player2.Initialize(Faction.NewLand, defaultUnits, defaultSpell, defaultHero);
     }
 
     void Start()
     {
-        var defaultUnits = new List<UnitData>
-        {
-            UnitDataCollection.GetUnitData(Faction.Human, "H01"),
-            UnitDataCollection.GetUnitData(Faction.NewLand, "N01")
-        };
-        var defaultHero = UnitDataCollection.GetUnitData(Faction.Human, "HH1");
-        Player1.Initialize(Faction.Human, defaultUnits, defaultHero);
-        Player2.Initialize(Faction.NewLand, defaultUnits, defaultHero);
-        LevelUpButtonCastle1.SetActive(true);
-        LevelUpButtonCastle2.SetActive(true);
+        levelUpButtonCastle1.SetActive(true);
+        levelUpButtonCastle2.SetActive(true);
     }
 
     public Level getLevelCastle(Team team)
@@ -67,7 +75,7 @@ public class LevelManager : MonoBehaviour
             {
                 GetPlayerButton(team).SetActive(false);
             }
-            OnCastleLevelUp?.Invoke(team, getLevelCastle(team));
+            onCastleLevelUp?.Invoke(team, getLevelCastle(team));
         }
     }
 
@@ -76,7 +84,7 @@ public class LevelManager : MonoBehaviour
         if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).HeroData.GetUpgradeCost(getLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeHero();
-            OnHeroLevelUp?.Invoke(team, getLevelHero(team));
+            onHeroLevelUp?.Invoke(team, getLevelHero(team));
         }
     }
 
@@ -85,7 +93,7 @@ public class LevelManager : MonoBehaviour
         if (RessourceManager._instance.ConsumResources(unitData.GetUpgradeCost(getLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeUnit(unitData);
-            OnUnitLevelUp?.Invoke(team, unitData, getLevelUnit(team, unitData));
+            onUnitLevelUp?.Invoke(team, unitData, getLevelUnit(team, unitData));
         }
     }
 
@@ -101,18 +109,18 @@ public class LevelManager : MonoBehaviour
 
     public void LevelUpUnitInt(int team, int unitIndex)
     {
-        LevelUpUnit((Team)team, GetPlayerProgressionData((Team)team).getUnitData(unitIndex));
+        LevelUpUnit((Team)team, GetPlayerProgressionData((Team)team).GetUnitData(unitIndex));
     }
 
     public PlayerProgressionData GetPlayerProgressionData(Team team)
     {
         if (team == Team.Team1)
         {
-            return Player1;
+            return player1;
         }
         else
         {
-            return Player2;
+            return player2;
         }
     }
 
@@ -120,16 +128,16 @@ public class LevelManager : MonoBehaviour
     {
         if (team == Team.Team1)
         {
-            return LevelUpButtonCastle1;
+            return levelUpButtonCastle1;
         }
         else
         {
-            return LevelUpButtonCastle2;
+            return levelUpButtonCastle2;
         }
     }
 
     public UnitsCollectionData getUnitDataCollection()
     {
-        return UnitDataCollection;
+        return unitsDataCollection;
     }
 }

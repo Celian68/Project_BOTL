@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e2c6dd86cd03cb4b9651b16bce7fa22, type: 3}
-  m_Name: UnitsCollectionData
+  m_Script: {fileID: 11500000, guid: 88ed86598bf3d8543a36f6171b2a50f5, type: 3}
+  m_Name: BuildingsCollectionData
   m_EditorClassIdentifier: 
-  _humanData:
-  - {fileID: 11400000, guid: 0575ef1046dbe5b41873f84684fcbb98, type: 2}
+  _humanData: []
   _elfData: []
-  _newLandData:
-  - {fileID: 11400000, guid: 05b632cb9a259304ba086f2590ed9a39, type: 2}
+  _newLandData: []
+  _castleData: {fileID: 0}

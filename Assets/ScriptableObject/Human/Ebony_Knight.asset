@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
   m_Name: Ebony_Knight
   m_EditorClassIdentifier: 
-  targetId: HH1
+  targetId: HH01
   displayName: Ebony Knight
   faction: 0
   targetType: 0
+  targetPrefab: {fileID: 0}
   targetStats:
   - maxLife: 200
     nextUpgradeCost: 200
@@ -30,14 +31,17 @@ MonoBehaviour:
     moveSpeed: 1.2
     attackRange: 1
     attackSpeed: 1
-    baseCost: 0
+    baseCost: 100
+    spawnTime: 10
   - damage: 80
     moveSpeed: 1.1
     attackRange: 1
     attackSpeed: 1
-    baseCost: 0
+    baseCost: 100
+    spawnTime: 10
   - damage: 150
     moveSpeed: 1
     attackRange: 1
     attackSpeed: 0.8
-    baseCost: 0
+    baseCost: 100
+    spawnTime: 10

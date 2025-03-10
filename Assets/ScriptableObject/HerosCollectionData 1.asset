@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e2c6dd86cd03cb4b9651b16bce7fa22, type: 3}
-  m_Name: UnitsCollectionData
+  m_Name: HerosCollectionData 1
   m_EditorClassIdentifier: 
   _humanData:
-  - {fileID: 11400000, guid: 0575ef1046dbe5b41873f84684fcbb98, type: 2}
+  - {fileID: 11400000, guid: 8361c6ac7d2ee1349bff4ec4e5fa28f1, type: 2}
   _elfData: []
-  _newLandData:
-  - {fileID: 11400000, guid: 05b632cb9a259304ba086f2590ed9a39, type: 2}
+  _newLandData: []

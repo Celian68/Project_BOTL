@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  targetId: 000
+  targetId: XU00
   displayName: DefaultUnit
   faction: 0
   targetType: 0
+  targetPrefab: {fileID: 8044754612154506025, guid: 670c4c882dcbce6488cbfb62b99131ce, type: 3}
   targetStats:
   - maxLife: 10
     nextUpgradeCost: 1
@@ -31,13 +32,16 @@ MonoBehaviour:
     attackRange: 1
     attackSpeed: 1
     baseCost: 1
+    spawnTime: 1
   - damage: 5
     moveSpeed: 1
     attackRange: 1
     attackSpeed: 1
     baseCost: 1
+    spawnTime: 1
   - damage: 10
     moveSpeed: 1
     attackRange: 1
     attackSpeed: 1
     baseCost: 1
+    spawnTime: 1

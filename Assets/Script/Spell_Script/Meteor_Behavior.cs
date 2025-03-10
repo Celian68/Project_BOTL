@@ -5,7 +5,6 @@ public class Meteor_Behavior : MonoBehaviour
 
     public GameObject explosionWavePrefab;
 
-    // Update is called once per frame
     void Update()
     {
         Move();

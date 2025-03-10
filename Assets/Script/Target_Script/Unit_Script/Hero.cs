@@ -15,7 +15,7 @@ public class Hero : AbstractUnit
     {
         base.Start();
         SetUnitState(UnitState.Idle);
-        LevelManager._instance.OnHeroLevelUp += LevelUp;
+        LevelManager._instance.onHeroLevelUp += LevelUp;
     }
 
     protected override void SetupTeam()
@@ -65,7 +65,7 @@ public class Hero : AbstractUnit
         base.Die();
         gameObject.SetActive(false);
         transform.position = new Vector3(respawn.position.x, 0.7f, 0);
-        Invoke("Respawn", 10f);
+        Invoke("Respawn", GetUnitStats().spawnTime);
     }
 
     void Respawn()
@@ -98,6 +98,6 @@ public class Hero : AbstractUnit
 
     protected override void OnDestroy()
     {
-        LevelManager._instance.OnHeroLevelUp -= LevelUp;
+        LevelManager._instance.onHeroLevelUp -= LevelUp;
     }
 }

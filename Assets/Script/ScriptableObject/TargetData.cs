@@ -9,6 +9,8 @@ public abstract class TargetData : ScriptableObject
     [SerializeField] string displayName; 
     [SerializeField] Faction faction;
     [SerializeField] TargetType targetType;
+    [SerializeField] GameObject targetPrefab;
+
     [SerializeField] List<TargetStats> targetStats;
 
     public string TargetId => targetId;

@@ -8,9 +8,8 @@ public class UnitsCollectionData : ScriptableObject
     [SerializeField] List<UnitData> _humanData = new List<UnitData>();
     [SerializeField] List<UnitData> _elfData = new List<UnitData>();
     [SerializeField] List<UnitData> _newLandData = new List<UnitData>();
-    [SerializeField] CastleData _castleData;
 
-    public UnitData GetUnitData(Faction faction, string unitID)
+    public UnitData GetData(Faction faction, string unitID)
     {
         return faction switch
         {
@@ -21,7 +20,7 @@ public class UnitsCollectionData : ScriptableObject
         };
     }
 
-    public List<UnitData> GetUnitDataList(Faction faction)
+    public List<UnitData> GetDataList(Faction faction)
     {
         return faction switch
         {
@@ -30,10 +29,5 @@ public class UnitsCollectionData : ScriptableObject
             Faction.NewLand => _newLandData,
             _ => null,
         };
-    }
-
-    public CastleData GetCastleData()
-    {
-        return _castleData;
     }
 }

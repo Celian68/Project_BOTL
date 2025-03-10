@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
   m_Name: Knight
   m_EditorClassIdentifier: 
-  targetId: H01
+  targetId: HU01
   displayName: Knight
   faction: 0
   targetType: 0
+  targetPrefab: {fileID: 0}
   targetStats:
   - maxLife: 80
     nextUpgradeCost: 90
@@ -31,13 +32,16 @@ MonoBehaviour:
     attackRange: 0.8
     attackSpeed: 1.2
     baseCost: 15
+    spawnTime: 3
   - damage: 25
     moveSpeed: 1.5
     attackRange: 0.8
     attackSpeed: 1.2
     baseCost: 15
+    spawnTime: 3
   - damage: 40
     moveSpeed: 1.5
     attackRange: 0.8
     attackSpeed: 1.5
     baseCost: 15
+    spawnTime: 3

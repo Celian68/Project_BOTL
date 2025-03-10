@@ -10,6 +10,7 @@ public class PlayerProgressionData : ScriptableObject
     [SerializeField] CastleData castleData;
     Level castleLevel;
     Dictionary<UnitData, Level> unitsData;
+    Dictionary<SpellData, Level> spellsData;
     UnitData heroData;
     Level heroLevel;
 
@@ -19,19 +20,25 @@ public class PlayerProgressionData : ScriptableObject
     public CastleData CastleData => castleData;
     public UnitData HeroData => heroData;
 
-    public void Initialize(Faction faction, List<UnitData> selectedUnits, UnitData selectedHero)
+    public void Initialize(Faction faction, List<UnitData> selectedUnits, List<SpellData> selectedSpells, UnitData selectedHero)
 {
     this.faction = faction;
     castleLevel = Level.Level1;
     heroLevel = Level.Level1;
 
     unitsData = new Dictionary<UnitData, Level>();
+    spellsData = new Dictionary<SpellData, Level>();
     heroData = selectedHero;
 
 
     foreach (UnitData unitData in selectedUnits)
     {
         unitsData[unitData] = Level.Level1;
+    }
+
+    foreach (SpellData spellData in selectedSpells)
+    {
+        spellsData[spellData] = Level.Level1;
     }
 }
 
@@ -42,12 +49,28 @@ public class PlayerProgressionData : ScriptableObject
         return Level.Level1;
     }
 
+    public Level GetSpellLevel(SpellData spellData)
+    {
+        if (spellsData.ContainsKey(spellData))
+            return spellsData[spellData];
+        return Level.Level1;
+    }
+
     public void UpgradeUnit(UnitData unitData)
     {
         if (unitsData.ContainsKey(unitData) && unitsData[unitData] < Level.Level3)
         {
             unitsData[unitData]++;
             Debug.Log($"{unitData} amélioré au niveau {unitsData[unitData]}");
+        }
+    }
+
+    public void UpgradeSpell(SpellData spellData)
+    {
+        if (spellsData.ContainsKey(spellData) && spellsData[spellData] < Level.Level3)
+        {
+            spellsData[spellData]++;
+            Debug.Log($"{spellData} amélioré au niveau {spellsData[spellData]}");
         }
     }
 
@@ -69,7 +92,11 @@ public class PlayerProgressionData : ScriptableObject
         }
     }
 
-    public UnitData getUnitData(int index) {
+    public UnitData GetUnitData(int index) {
         return unitsData.Keys.ToList()[index];
+    }
+
+    public SpellData GetSpellData(int index) {
+        return spellsData.Keys.ToList()[index];
     }
 }

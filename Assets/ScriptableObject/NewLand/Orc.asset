@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7194f45d7c9bb564dbdb1161be4ac479, type: 3}
   m_Name: Orc
   m_EditorClassIdentifier: 
-  targetId: N01
+  targetId: NU01
   displayName: Orc
   faction: 2
   targetType: 0
+  targetPrefab: {fileID: 8959025170286639158, guid: 54ebc2696e3099f4b9b285edf62b1228, type: 3}
   targetStats:
   - maxLife: 100
     nextUpgradeCost: 100
   - maxLife: 150
     nextUpgradeCost: 145
   - maxLife: 180
-    nextUpgradeCost: 0
+    nextUpgradeCost: -1
   unitType: 0
   unitClass: 0
   unitStats:
@@ -31,13 +32,16 @@ MonoBehaviour:
     attackRange: 1
     attackSpeed: 0.8
     baseCost: 20
+    spawnTime: 4
   - damage: 45
     moveSpeed: 0.8
     attackRange: 1
     attackSpeed: 0.8
     baseCost: 20
+    spawnTime: 4
   - damage: 70
     moveSpeed: 0.8
     attackRange: 1
     attackSpeed: 1
     baseCost: 20
+    spawnTime: 4

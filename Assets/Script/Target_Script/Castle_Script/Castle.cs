@@ -15,7 +15,7 @@ public class Castle : AbstractTarget<CastleData>
         base.Start();
         gameObject.SetActive(true);
         SetBuildingState(BuildingState.New);
-        LevelManager._instance.OnCastleLevelUp += LevelUp;
+        LevelManager._instance.onCastleLevelUp += LevelUp;
     }
 
     protected override void SetupTeam()
@@ -86,7 +86,7 @@ public class Castle : AbstractTarget<CastleData>
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        LevelManager._instance.OnCastleLevelUp -= LevelUp;
+        LevelManager._instance.onCastleLevelUp -= LevelUp;
     }
 
     public CastleStats GetCastleStats()

@@ -1519,7 +1519,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1033640436}
         m_TargetAssemblyTypeName: Spell_Manager, Assembly-CSharp
         m_MethodName: ActivateSpell
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4275,7 +4275,6 @@ GameObject:
   - component: {fileID: 1033640434}
   - component: {fileID: 1033640436}
   - component: {fileID: 1033640437}
-  - component: {fileID: 1033640438}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -4398,7 +4397,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoneIndicator: {fileID: 2118092197}
-  meteorPrefab: {fileID: 7235025505526691539, guid: 3636e6572926d2b4589ed87e4a5ad2f1, type: 3}
   mainCamera: {fileID: 519420031}
 --- !u!114 &1033640437
 MonoBehaviour:
@@ -4412,23 +4410,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395d36121243d55429b7dfb0200e0550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelUpButtonCastle1: {fileID: 956697189}
-  LevelUpButtonCastle2: {fileID: 194429753}
-  Player1: {fileID: 11400000, guid: baf09de12499535498dfb00da8e5aba4, type: 2}
-  Player2: {fileID: 11400000, guid: 55ca61118a2500a4eb93aa7f5b46f46d, type: 2}
---- !u!114 &1033640438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033640422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 805b80e20b354ab4198039c5ab75822d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _castleData: {fileID: 11400000, guid: 14d31b96551e2be4b8a91590f43a651b, type: 2}
+  levelUpButtonCastle1: {fileID: 956697189}
+  levelUpButtonCastle2: {fileID: 194429753}
+  player1: {fileID: 11400000, guid: baf09de12499535498dfb00da8e5aba4, type: 2}
+  player2: {fileID: 11400000, guid: 55ca61118a2500a4eb93aa7f5b46f46d, type: 2}
+  unitsDataCollection: {fileID: 11400000, guid: 0a9d8dd39de543f498e4e4d3104a1c4b, type: 2}
+  spellsDataCollection: {fileID: 11400000, guid: 642187d884c38a543b7023cf2d6606ff, type: 2}
+  herosDataCollection: {fileID: 11400000, guid: 0995a777d126afb4e988ed7beb904ae4, type: 2}
+  buildingsDataCollection: {fileID: 11400000, guid: a845b168b28c22a478180f4faee5d982, type: 2}
 --- !u!1 &1047988733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4239184342630430316, guid: 283fcaf17dac3574f8560b3cee775e45, type: 3}

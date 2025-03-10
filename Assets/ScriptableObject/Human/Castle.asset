@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d905eae67c955c4d97d93a68f778d4b, type: 3}
-  m_Name: CastleData
+  m_Name: Castle
   m_EditorClassIdentifier: 
-  targetId: C00
+  targetId: C000
   displayName: Castle
   faction: 0
   targetType: 1
+  targetPrefab: {fileID: 1049432209788827590, guid: 083497529efbb5046a17b8611121dc26, type: 3}
   targetStats:
   - maxLife: 500
     nextUpgradeCost: 100
