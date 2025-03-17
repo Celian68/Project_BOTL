@@ -78,8 +78,17 @@ public class Hero : AbstractUnit
 
     public override void SetUnitState(int newState)
     {
-        base.SetUnitState(newState);
         command = (UnitState)newState;
+
+        if (newState == (int)UnitState.Retreating && unitState == UnitState.Charging) {
+            SetUnitState(UnitState.CancelLoad);
+            return;
+        }
+        if (unitState != UnitState.Attacking && unitState != UnitState.Charging)
+        {
+            base.SetUnitState(newState);
+        }
+        
     }
 
     public override Level GetLevel()

@@ -72,7 +72,7 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
 
     bool CheckEnemyState()
     {
-        return enemyTarget != null && enemyTarget.gameObject.activeSelf;
+        return enemyTarget != null && enemyTarget.gameObject.activeSelf && unitState != UnitState.Retreating && unitState != UnitState.CancelLoad;
     }
 
     protected virtual void Move()
