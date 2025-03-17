@@ -2,11 +2,10 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-public class DetectEnemy : MonoBehaviour
+public class DetectUnit : MonoBehaviour
 {
     float rotation = 1;
 
-    // Update is called once per frame
     void Update()
     {
         ManagePosition();
@@ -23,6 +22,14 @@ public class DetectEnemy : MonoBehaviour
         var parentTeam = transform.parent.GetComponent<ItTarget>().GetTeam();
         return Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, LayerMask.GetMask("Unit"))
             .Where(col => col.GetComponent<ItTarget>() != null && col.GetComponent<ItTarget>().GetTeam() != parentTeam)
+            .ToList();
+    }
+
+    public List<Collider2D> AlliesDetection()
+    {
+        var parentTeam = transform.parent.GetComponent<ItTarget>().GetTeam();
+        return Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, LayerMask.GetMask("Unit"))
+            .Where(col => col.GetComponent<ItTarget>() != null && col.GetComponent<ItTarget>().GetTeam() == parentTeam)
             .ToList();
     }
 

@@ -6,15 +6,17 @@ using BOTL.Data;
 public abstract class AbstractUnit : AbstractTarget<UnitData>
 {
     protected Transform enemyTarget;
+    protected Transform allyTarget;
     protected List<Collider2D> enemiesInRange;
+    protected List<Collider2D> alliesInRange;
     protected UnitState unitState;
     [SerializeField] Rigidbody2D rb;
-    DetectEnemy detectEnemy;
+    DetectUnit detectUnit;
 
 
     protected override void Start()
     {
-        detectEnemy = GetComponentInChildren<DetectEnemy>();
+        detectUnit = GetComponentInChildren<DetectUnit>();
         base.Start();
         rb.excludeLayers = LayerMask.GetMask("Unit");
         InvokeRepeating(nameof(Behavior), 0f, 0.2f);
@@ -31,6 +33,10 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
     protected override void SetupTeam()
     {
         base.SetupTeam();
+        UpdateTeam();
+    }
+
+    protected virtual void UpdateTeam() {
         teamMultipl = team == Team.Team1 ? 1 : -1;
         if (team == Team.Team2) gameObject.GetComponent<SpriteRenderer>().flipX = true;
         transform.tag = team.ToString();
@@ -47,8 +53,14 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
 
     protected virtual void CheckEnemyInRange()
     {
-        enemiesInRange = detectEnemy.EnemiesDetection();
+        enemiesInRange = detectUnit.EnemiesDetection();
         enemyTarget = enemiesInRange.Count > 0 ? enemiesInRange[0].transform : null;
+    }
+
+    protected virtual void CheckAllyInRange()
+    {
+        alliesInRange = detectUnit.AlliesDetection();
+        allyTarget = alliesInRange.Count > 0 ? alliesInRange[0].transform : null;
     }
 
     protected virtual bool CheckUnitPosition()
@@ -109,7 +121,7 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
 
     protected void Rotate(float rotation)
     {
-        detectEnemy.SetRotation(rotation);
+        detectUnit.SetRotation(rotation);
         rotation *= teamMultipl;
         if (rotation == 1)
         {
@@ -154,6 +166,12 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
     public UnitStats GetSpecificUnitStats(Level level)
     {
         return data.GetUnitStats(level);
+    }
+
+    public void ChangeUnitTeam(Team newTeam)
+    {
+        team = newTeam;
+        UpdateTeam();
     }
 
 }
