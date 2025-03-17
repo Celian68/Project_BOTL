@@ -5,11 +5,12 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "SpellData", menuName = "ScriptableObject/SpellData")]
 public class SpellData : ScriptableObject
 {
-    [SerializeField] private string spellId;
-    [SerializeField] private string displayName;
+    [SerializeField] string spellId;
+    [SerializeField] string displayName;
     [SerializeField] Faction faction;
-    [SerializeField] private GameObject spellPrefab; 
+    [SerializeField] GameObject spellPrefab;
     [SerializeField] List<SpellStats> spellStats;
+    [SerializeField] List<SpellTriggerData> spellTriggers;
 
     public string SpellId => spellId;
     public string DisplayName => displayName;

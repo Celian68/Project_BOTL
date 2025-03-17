@@ -20,12 +20,18 @@ MonoBehaviour:
   - range: 1.5
     cooldown: 50
     nextUpgradeCost: 300
-    isInstant: 0
+    isGlobal: 0
+    initialisationTime: 0
   - range: 2
     cooldown: 50
     nextUpgradeCost: 450
-    isInstant: 0
+    isGlobal: 0
+    initialisationTime: 0
   - range: 3.5
     cooldown: 50
     nextUpgradeCost: -1
-    isInstant: 0
+    isGlobal: 0
+    initialisationTime: 0
+  spellTriggers:
+  - triggerType: 0
+  - triggerType: 0
