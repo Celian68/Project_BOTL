@@ -38,7 +38,7 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
 
     protected virtual void UpdateTeam() {
         teamMultipl = team == Team.Team1 ? 1 : -1;
-        if (team == Team.Team2) gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        gameObject.GetComponent<SpriteRenderer>().flipX = team == Team.Team2;
         transform.tag = team.ToString();
     }
 
