@@ -22,16 +22,61 @@ MonoBehaviour:
     nextUpgradeCost: 300
     isGlobal: 0
     initialisationTime: 0
+    spellTriggers:
+    - triggerType: 2
+      effects:
+      - rid: 5339346558906531843
+    - triggerType: 3
+      effects:
+      - rid: 5339346581893414920
   - range: 2
     cooldown: 50
     nextUpgradeCost: 450
     isGlobal: 0
     initialisationTime: 0
+    spellTriggers:
+    - triggerType: 2
+      effects:
+      - rid: 5339346581893414913
+    - triggerType: 3
+      effects:
+      - rid: 5339346581893414921
   - range: 3.5
     cooldown: 50
     nextUpgradeCost: -1
     isGlobal: 0
     initialisationTime: 0
-  spellTriggers:
-  - triggerType: 0
-  - triggerType: 0
+    spellTriggers:
+    - triggerType: 2
+      effects:
+      - rid: 5339346581893414914
+    - triggerType: 3
+      effects:
+      - rid: 5339346581893414922
+  references:
+    version: 2
+    RefIds:
+    - rid: 5339346558906531843
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 100
+    - rid: 5339346581893414913
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 250
+    - rid: 5339346581893414914
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 300
+    - rid: 5339346581893414920
+      type: {class: PushEffect, ns: , asm: Assembly-CSharp}
+      data:
+        pushForce: 7.5853043
+    - rid: 5339346581893414921
+      type: {class: PushEffect, ns: , asm: Assembly-CSharp}
+      data:
+        pushForce: 0
+    - rid: 5339346581893414922
+      type: {class: PushEffect, ns: , asm: Assembly-CSharp}
+      data:
+        pushForce: 0

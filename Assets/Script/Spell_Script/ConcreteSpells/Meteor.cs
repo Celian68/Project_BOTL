@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using System.Linq;
+using BOTL.Data;
 using UnityEngine;
 
-public class Meteor_Behavior : MonoBehaviour
+public class Meteor : AbstractSpell
 {
 
     public GameObject explosionWavePrefab;
@@ -21,23 +24,22 @@ public class Meteor_Behavior : MonoBehaviour
         }
     }
 
-    void Explode()
+    protected void Explode()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, 1.5f);
-        foreach (Collider2D enemy in enemies)
-        {
-            AbstractUnit unit = enemy.GetComponent<AbstractUnit>();
-            if (unit != null && (enemy.CompareTag("Team1") || enemy.CompareTag("Team2")))
-            {
-                unit.GetDamaged(100);
-            }
-        }
+
+        List<Transform> units = enemies
+            .Where(enemy => enemy.GetComponent<AbstractUnit>() != null 
+            && (enemy.CompareTag("Team1") || enemy.CompareTag("Team2")))
+            .Select(enemy => enemy.GetComponent<AbstractUnit>().transform)
+            .ToList();
+
+        StartTrigger(TriggerType.OnImpact, units);
 
         GameObject explosionWave = Instantiate(explosionWavePrefab, transform.position, Quaternion.identity);
         explosionWave.SetActive(true);
+        explosionWave.GetComponent<ExplosionWaveBehavior>().SetDataParent(data);
 
         Destroy(gameObject);
     }
-
-
 }

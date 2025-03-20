@@ -46,9 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9764cef920e8b3418b16bf09c1c9b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScale: 100
-  duration: 1
-  maxKnockbackForce: 20
 --- !u!58 &691801222404074129
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -256,4 +253,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bf57e321c879e748b8804350f6aea2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 6da3cab2b6e6a2a41a4c63611be24de1, type: 2}
   explosionWavePrefab: {fileID: 5094402253390987228}

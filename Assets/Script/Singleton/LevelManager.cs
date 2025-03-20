@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     public event Action<Team, Level> onCastleLevelUp;
     public event Action<Team, Level> onHeroLevelUp;
     public event Action<Team, UnitData, Level> onUnitLevelUp;
+    public event Action<Team, SpellData, Level> onSpellLevelUp;
 
     void Awake()
     {
@@ -66,6 +67,11 @@ public class LevelManager : MonoBehaviour
         return GetPlayerProgressionData(team).GetUnitLevel(unitData);
     }
 
+    public Level getLevelSpell(Team team, SpellData spellData)
+    {
+        return GetPlayerProgressionData(team).GetSpellLevel(spellData);
+    }
+
     public void LevelUpCastle(Team team)
     {
         if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).CastleData.GetUpgradeCost(getLevelCastle(team)), team))
@@ -97,6 +103,15 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void LevelUpSpell(Team team, SpellData spellData)
+    {
+        if (RessourceManager._instance.ConsumResources(spellData.GetUpgradeCost(getLevelCastle(team)), team))
+        {
+            GetPlayerProgressionData(team).UpgradeSpell(spellData);
+            onSpellLevelUp?.Invoke(team, spellData, getLevelSpell(team, spellData));
+        }
+    }
+
     public void LevelUpCastleInt(int team)
     {
         LevelUpCastle((Team)team);
@@ -110,6 +125,11 @@ public class LevelManager : MonoBehaviour
     public void LevelUpUnitInt(int team, int unitIndex)
     {
         LevelUpUnit((Team)team, GetPlayerProgressionData((Team)team).GetUnitData(unitIndex));
+    }
+
+    public void LevelUpSpellInt(int team, int spellIndex)
+    {
+        LevelUpSpell((Team)team, GetPlayerProgressionData((Team)team).GetSpellData(spellIndex));
     }
 
     public PlayerProgressionData GetPlayerProgressionData(Team team)
@@ -134,10 +154,5 @@ public class LevelManager : MonoBehaviour
         {
             return levelUpButtonCastle2;
         }
-    }
-
-    public UnitsCollectionData getUnitDataCollection()
-    {
-        return unitsDataCollection;
     }
 }

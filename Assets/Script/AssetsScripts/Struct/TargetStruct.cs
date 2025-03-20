@@ -23,27 +23,4 @@ namespace BOTL.Data
     {
         public int maxResource;
     }
-
-    [System.Serializable]
-    public struct ProducerStats
-    {
-        public float resourcePerSec;
-    }
-
-    [System.Serializable]
-    public struct SpellStats
-    {
-        public float range;
-        public float cooldown;
-        public int nextUpgradeCost;
-        public bool isGlobal;
-        public float initialisationTime;
-    }
-
-    [System.Serializable]
-    public struct BuildingStats
-    {
-        public int nextUpgradeCost;
-    }
-
 }

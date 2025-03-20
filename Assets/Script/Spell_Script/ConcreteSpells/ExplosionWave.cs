@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using BOTL.Data;
 using UnityEngine;
 
-public class ExplosionWaveBehavior : MonoBehaviour
+public class ExplosionWaveBehavior : AbstractSpell
 {
     float _maxScaleCoef = 5f;          // L'échelle maximale (considérée comme le rayon effectif)
     float _duration = 1f;        // Temps d'expansion avant destruction
@@ -43,8 +44,7 @@ public class ExplosionWaveBehavior : MonoBehaviour
 
     void ApplyKnockback(Collider2D enemy)
     {
-        Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (enemy != null)
         {
             // Calcul de la force décroissante
             float force = _maxKnockbackForce * ((_GetMaxScale() - transform.localScale.x) / (_GetMaxScale() - _initialScale));
@@ -57,14 +57,20 @@ public class ExplosionWaveBehavior : MonoBehaviour
             direction += new Vector2(0, 0.4f);
             direction.Normalize();
 
-            // Appliquer la force avec une poussée inclinée vers le haut
-            rb.AddForce(direction * force, ForceMode2D.Impulse);
-
+            EffectBlob blob = new();
+            blob.SetFloat(new List<float>{force});
+            blob.SetVector2(direction);
+            StartTrigger(TriggerType.OnEffect, new List<Transform>{enemy.transform}, new Dictionary<EffectType, EffectBlob>{{EffectType.Push, blob}});
         }
     }
 
     float _GetMaxScale()
     {
         return _maxScaleCoef * _initialScale;
+    }
+
+    public void SetDataParent(SpellData data)
+    {
+        this.data = data;
     }
 }
