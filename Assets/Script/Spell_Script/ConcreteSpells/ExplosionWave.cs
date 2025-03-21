@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using BOTL.Data;
 using UnityEngine;
 
-public class ExplosionWaveBehavior : AbstractSpell
+public class ExplosionWaveBehavior : AbstractCreatedSpell
 {
     float _maxScaleCoef = 5f;          // L'échelle maximale (considérée comme le rayon effectif)
     float _duration = 1f;        // Temps d'expansion avant destruction
@@ -67,10 +67,5 @@ public class ExplosionWaveBehavior : AbstractSpell
     float _GetMaxScale()
     {
         return _maxScaleCoef * _initialScale;
-    }
-
-    public void SetDataParent(SpellData data)
-    {
-        this.data = data;
     }
 }

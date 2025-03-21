@@ -16,5 +16,4 @@ public class UnitData : TargetData
     {
         return unitStats[(int)level];
     }
-
 }

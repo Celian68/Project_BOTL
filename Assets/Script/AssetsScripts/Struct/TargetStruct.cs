@@ -1,9 +1,10 @@
+using System.Collections.Generic;
+
 namespace BOTL.Data
 {
     [System.Serializable]
     public struct UnitStats
     {
-        public float damage;
         public float moveSpeed;
         public float attackRange;
         public float attackSpeed;
@@ -16,6 +17,7 @@ namespace BOTL.Data
     {
         public int maxLife;
         public int nextUpgradeCost;
+        public List<TriggerData> targetTriggers;
     }
 
     [System.Serializable]

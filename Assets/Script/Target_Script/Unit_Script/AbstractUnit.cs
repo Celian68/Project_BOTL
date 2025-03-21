@@ -104,7 +104,7 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
                 yield return new WaitForSeconds(0.25f);
                 if (CheckEnemyState())
                 {
-                    enemyTarget.GetComponent<ItTarget>()?.GetDamaged(GetUnitStats().damage);
+                    StartTrigger(TriggerType.OnHit, new List<Transform>{enemyTarget});
                 }
                 yield return new WaitForSeconds(0.1f);
             }

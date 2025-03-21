@@ -14,7 +14,6 @@ public class PushEffect : AbstractEffect
 
     public PushEffect() {
         type = EffectType.Push;
-        Debug.Log("PushEffect created" + type);
     }
 
     public override void ApplyEffect(EffectContext context)

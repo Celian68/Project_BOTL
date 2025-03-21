@@ -38,7 +38,7 @@ public class Meteor : AbstractSpell
 
         GameObject explosionWave = Instantiate(explosionWavePrefab, transform.position, Quaternion.identity);
         explosionWave.SetActive(true);
-        explosionWave.GetComponent<ExplosionWaveBehavior>().SetDataParent(data);
+        explosionWave.GetComponent<ExplosionWaveBehavior>().Initialize(data);
 
         Destroy(gameObject);
     }

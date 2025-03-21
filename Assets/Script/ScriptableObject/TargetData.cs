@@ -30,5 +30,14 @@ public abstract class TargetData : ScriptableObject
         return targetStats[(int)level];
     }
 
+    public void StartTrigger(TriggerType trigger, EffectContext context, Level level)
+    {
+        List<TriggerData> triggers = GetTargetStats(level).targetTriggers;
+        foreach (TriggerData t in triggers)
+        {
+            t.ApplyEffects(context, trigger);
+        }
+    }
+
 }
 

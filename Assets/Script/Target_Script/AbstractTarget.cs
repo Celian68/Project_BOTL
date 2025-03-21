@@ -1,5 +1,6 @@
 using UnityEngine;
 using BOTL.Data;
+using System.Collections.Generic;
 
 public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data : TargetData
 {
@@ -92,5 +93,10 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
     public int NextLevelUpCost()
     {
         return GetTargetStats().nextUpgradeCost;
+    }
+
+    protected void StartTrigger(TriggerType trigger, List<Transform> targets, Dictionary<EffectType, EffectBlob> blob = null)
+    {
+        data.StartTrigger(trigger, new EffectContext(transform, targets, blob), GetLevel());
     }
 }

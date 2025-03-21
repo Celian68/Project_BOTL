@@ -10,7 +10,6 @@ namespace BOTL.Data
         public int nextUpgradeCost;
         public bool isGlobal;
         public float initialisationTime;
-
         public List<TriggerData> spellTriggers;
     }
 }
