@@ -19,7 +19,7 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
         UpdateLife();
         if (data == null)
         {
-            Debug.LogError($" Erreur : `data` (UnitData) est NULL sur {gameObject.name} !");
+            Debug.LogError($" Erreur : `data` (UnitData) est NULL sur {gameObject.name} !"); 
         }
     }
 
@@ -95,8 +95,8 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
         return GetTargetStats().nextUpgradeCost;
     }
 
-    protected void StartTrigger(TriggerType trigger, List<Transform> targets, Dictionary<EffectType, EffectBlob> blob = null)
+    protected void StartTrigger(TriggerType trigger, List<Transform> targets, Dictionary<EffectType, AbstractEffectParam> blob = null)
     {
-        data.StartTrigger(trigger, new EffectContext(transform, targets, blob), GetLevel());
+        data.StartTrigger(trigger, new EffectContext(blob), GetLevel());
     }
 }

@@ -4,12 +4,19 @@ using BOTL.Data;
 [System.Serializable]
 public abstract class AbstractEffect
 {
-
     protected EffectType type; 
-    protected AbstractEffectParam parameters = null;
-    public virtual void ApplyEffect(EffectContext context) {
-        parameters = context.GetData(type);
+
+    public AbstractEffect(EffectType type)
+    {
+        this.type = type;
+    }  
+
+    public void ApplyEffects(EffectContext context) {
+        ApplyEffect(context.GetData(type));
+
     }
+
+    public abstract void ApplyEffect(AbstractEffectParam param);
 
     public EffectType GetEffectType()
     {

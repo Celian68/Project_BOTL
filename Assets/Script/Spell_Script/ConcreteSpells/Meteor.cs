@@ -29,12 +29,14 @@ public class Meteor : AbstractSpell
         Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, 1.5f);
 
         List<Transform> units = enemies
-            .Where(enemy => enemy.GetComponent<AbstractUnit>() != null 
+            .Where(enemy => enemy.GetComponent<AbstractUnit>() != null
             && (enemy.CompareTag("Team1") || enemy.CompareTag("Team2")))
             .Select(enemy => enemy.GetComponent<AbstractUnit>().transform)
             .ToList();
 
-        StartTrigger(TriggerType.OnImpact, units);
+        StartTrigger(TriggerType.OnImpact, new EffectContext(new Dictionary<EffectType, AbstractEffectParam> {
+            { EffectType.Damage, new MonoEffectParam(-1, transform, units) }
+        }));
 
         GameObject explosionWave = Instantiate(explosionWavePrefab, transform.position, Quaternion.identity);
         explosionWave.SetActive(true);

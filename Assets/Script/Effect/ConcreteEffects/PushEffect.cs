@@ -6,24 +6,21 @@ public class PushEffect : AbstractEffect
 {
     public float pushForce;
 
-    public PushEffect(float pushForce)
+    public PushEffect(float pushForce) : base(EffectType.Push)
     {
         this.pushForce = pushForce;
-        type = EffectType.Push;
     }
 
-    public PushEffect() {
-        type = EffectType.Push;
-    }
+    public PushEffect() : base(EffectType.Push) {}
 
-    public override void ApplyEffect(EffectContext context)
+    public override void ApplyEffect(AbstractEffectParam param)
     {
-        base.ApplyEffect(context);
-        if (parameters.NbFloat() > 0) {
-            pushForce = parameters.GetFloat(0);
+        MovementEffectParam castParam = param as MovementEffectParam;
+        if (castParam.GetFloat() != -1) {
+            pushForce = castParam.GetFloat();
         }
-        foreach (var enemyTarget in context.GetTargets()) {
-            enemyTarget.GetComponent<Rigidbody2D>().AddForce(parameters.GetVector2() * pushForce, ForceMode2D.Impulse);
+        foreach (var enemyTarget in castParam.GetTargets()) {
+            enemyTarget.GetComponent<Rigidbody2D>().AddForce(castParam.GetVector2() * pushForce, ForceMode2D.Impulse);
             Debug.Log("Push dealt: " + pushForce);
         }
     }

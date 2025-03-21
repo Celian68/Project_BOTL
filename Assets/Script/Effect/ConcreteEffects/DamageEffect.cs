@@ -6,23 +6,20 @@ public class DamageEffect : AbstractEffect
 {
     public float damage;
 
-    public DamageEffect(float damage)
+    public DamageEffect(float damage) : base(EffectType.Damage)
     {
         this.damage = damage;
-        type = EffectType.Damage;
     }
 
-    public DamageEffect() {
-        type = EffectType.Damage;
-    }
+    public DamageEffect() : base(EffectType.Damage) {}
 
-    public override void ApplyEffect(EffectContext context)
+    public override void ApplyEffect(AbstractEffectParam param)
     {
-        base.ApplyEffect(context);
-        if (parameters.NbFloat() > 0) {
-            damage = parameters.GetFloat(0);
+        MonoEffectParam castParam = param as MonoEffectParam;
+        if (castParam.GetFloat() != -1) {
+            damage = castParam.GetFloat();
         }
-        foreach (var enemyTarget in context.GetTargets()) {
+        foreach (var enemyTarget in castParam.GetTargets()) {
             enemyTarget.GetComponent<ItTarget>()?.GetDamaged(damage);
             Debug.Log("Damage dealt: " + damage);
         }

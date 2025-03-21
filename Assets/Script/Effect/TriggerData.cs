@@ -15,7 +15,7 @@ public class TriggerData
         {
             foreach (var effect in effects)
             {
-                effect.ApplyEffect(context);
+                effect.ApplyEffects(context);
             }
         }
     }
