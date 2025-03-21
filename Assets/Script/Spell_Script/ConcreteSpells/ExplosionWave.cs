@@ -58,9 +58,12 @@ public class ExplosionWaveBehavior : AbstractCreatedSpell
             direction.Normalize();
 
             EffectBlob blob = new();
+            // SpellEffect spell = new(EffectType.Push, blob);
             blob.SetFloat(new List<float>{force});
             blob.SetVector2(direction);
-            StartTrigger(TriggerType.OnEffect, new List<Transform>{enemy.transform}, new Dictionary<EffectType, EffectBlob>{{EffectType.Push, blob}});
+            // StartTrigger(TriggerType.OnEffect, new List<Transform>{enemy.transform}, EffectParameters params);
+            StartTrigger(TriggerType.OnEffect, new List<Transform>{enemy.transform}, new Dictionary<EffectType, EffectBlob>{{EffectType.Push, blob}, {EffectType.Damage, blob2}});
+
         }
     }
 

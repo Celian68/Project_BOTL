@@ -20,10 +20,13 @@ MonoBehaviour:
   targetStats:
   - maxLife: 500
     nextUpgradeCost: 100
+    targetTriggers: []
   - maxLife: 850
     nextUpgradeCost: 250
+    targetTriggers: []
   - maxLife: 1500
     nextUpgradeCost: -1
+    targetTriggers: []
   castleStats:
   - maxResource: 100
   - maxResource: 250
@@ -32,3 +35,6 @@ MonoBehaviour:
   - resourcePerSec: 1
   - resourcePerSec: 2
   - resourcePerSec: 3
+  references:
+    version: 2
+    RefIds: []

@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 114536734}
   - component: {fileID: 114536733}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Hero_Right_ButtonBackgroundIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 170180101}
   - component: {fileID: 170180100}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Hero_Stay_ButtonBackgroundIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -834,9 +834,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trans: {fileID: 1707320067}
+  cooldown: 0
+  currentCooldown: 0
   cost: 0
   description: 
-  type: 2
+  type: 0
 --- !u!114 &194429759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,7 +1402,7 @@ GameObject:
   - component: {fileID: 261886653}
   - component: {fileID: 261886652}
   - component: {fileID: 261886651}
-  - component: {fileID: 261886650}
+  - component: {fileID: 261886654}
   m_Layer: 5
   m_Name: Spell_Button1
   m_TagString: Untagged
@@ -1427,21 +1430,6 @@ RectTransform:
   m_AnchoredPosition: {x: 90, y: 435}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &261886650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261886648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: -1
-  description: "Fait  s'abattre  une  m\xE9t\xE9orite  sur  tes  adversaires"
-  type: 0
 --- !u!114 &261886651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1516,20 +1504,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640436}
-        m_TargetAssemblyTypeName: Spell_Manager, Assembly-CSharp
-        m_MethodName: ActivateSpell
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 261886650}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 261886654}
+        m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1548,6 +1524,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261886648}
   m_CullTransparentMesh: 1
+--- !u!114 &261886654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261886648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91802e66ea81cec40b8b7ad0467adab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 1889784519}
 --- !u!1 &284952067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,8 +1714,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: -1
-  description: "Ordonne  \xE0  votre  h\xE9ro  de  d\xE9fendre  sa  position"
+  trans: {fileID: 170180099}
+  cooldown: 0
+  currentCooldown: 0
+  cost: 0
+  description: 
   type: 0
 --- !u!114 &300195128
 MonoBehaviour:
@@ -1932,8 +1924,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 15
-  description: Invoque  un  chevalier
+  trans: {fileID: 572109983}
+  cooldown: 0
+  currentCooldown: 0
+  cost: 0
+  description: 
   type: 0
 --- !u!114 &322493883
 MonoBehaviour:
@@ -2211,7 +2206,7 @@ GameObject:
   - component: {fileID: 463101240}
   - component: {fileID: 463101239}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Unit_ButtonBackgroundIcon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2872,7 +2867,7 @@ GameObject:
   - component: {fileID: 572109985}
   - component: {fileID: 572109984}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Unit_ButtonBackgroundIcon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3069,8 +3064,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
-  description: Invoque  un  ork
+  trans: {fileID: 463101238}
+  cooldown: 0
+  currentCooldown: 0
+  cost: 0
+  description: 
   type: 0
 --- !u!114 &619321978
 MonoBehaviour:
@@ -4070,9 +4068,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trans: {fileID: 1063822329}
+  cooldown: 0
+  currentCooldown: 0
   cost: 0
   description: 
-  type: 1
+  type: 0
 --- !u!114 &956697195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4435,7 +4436,7 @@ GameObject:
   - component: {fileID: 1063822331}
   - component: {fileID: 1063822330}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Castle_LevelUp_ButtonBackgroundIcon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4702,8 +4703,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
-  description: Invoque  un  ork
+  trans: {fileID: 2086254008}
+  cooldown: 0
+  currentCooldown: 0
+  cost: 0
+  description: 
   type: 0
 --- !u!114 &1082998944
 MonoBehaviour:
@@ -5011,6 +5015,7 @@ GameObject:
   - component: {fileID: 1213035665}
   - component: {fileID: 1213035667}
   - component: {fileID: 1213035666}
+  - component: {fileID: 1213035668}
   m_Layer: 0
   m_Name: UI_Manager
   m_TagString: Untagged
@@ -5071,6 +5076,29 @@ MonoBehaviour:
   gameOverMenu: {fileID: 785363486}
   gameOverText: {fileID: 1706343028}
   gameOver: 0
+--- !u!114 &1213035668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213035664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5ad178e79c8e0441a564e979aa57f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitButtons:
+  - {fileID: 322493877}
+  - {fileID: 619321972}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spellButtons:
+  - {fileID: 261886648}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1264385529
 GameObject:
   m_ObjectHideFlags: 0
@@ -5317,8 +5345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: -1
-  description: "Ordonne  \xE0  votre  h\xE9ro  d'avancer"
+  trans: {fileID: 114536732}
+  cooldown: 0
+  currentCooldown: 0
+  cost: 0
+  description: 
   type: 0
 --- !u!114 &1371229902
 MonoBehaviour:
@@ -5656,8 +5687,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: -1
-  description: "Ordonne  \xE0  votre  h\xE9ro  de reculer"
+  trans: {fileID: 1994340835}
+  cooldown: 0
+  currentCooldown: 0
+  cost: 0
+  description: 
   type: 0
 --- !u!114 &1503944089
 MonoBehaviour:
@@ -5894,8 +5928,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 15
-  description: Invoque  un  chevalier
+  trans: {fileID: 2023439820}
+  cooldown: 0
+  currentCooldown: 0
+  cost: 0
+  description: 
   type: 0
 --- !u!114 &1562532258
 MonoBehaviour:
@@ -6392,7 +6429,7 @@ GameObject:
   - component: {fileID: 1707320069}
   - component: {fileID: 1707320068}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Castle_LevelUp_ButtonBackgroundIcon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7201,7 +7238,7 @@ GameObject:
   - component: {fileID: 1889784521}
   - component: {fileID: 1889784520}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Spell_ButtonBackgroundIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7445,7 +7482,7 @@ GameObject:
   - component: {fileID: 1994340837}
   - component: {fileID: 1994340836}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Hero_Left_ButtonBackgroundIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7521,7 +7558,7 @@ GameObject:
   - component: {fileID: 2023439822}
   - component: {fileID: 2023439821}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Unit_ButtonBackgroundIcon3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7847,7 +7884,7 @@ GameObject:
   - component: {fileID: 2086254010}
   - component: {fileID: 2086254009}
   m_Layer: 5
-  m_Name: ButtonBackgroundIcon
+  m_Name: Unit_ButtonBackgroundIcon4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

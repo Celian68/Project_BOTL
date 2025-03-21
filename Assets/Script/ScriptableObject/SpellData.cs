@@ -1,7 +1,6 @@
 using UnityEngine;
 using BOTL.Data;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 [CreateAssetMenu(fileName = "SpellData", menuName = "ScriptableObject/SpellData")]
 public class SpellData : ScriptableObject

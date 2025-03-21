@@ -67,7 +67,7 @@ public class Castle : AbstractTarget<CastleData>
 
     public override Level GetLevel()
     {
-        return LevelManager._instance.getLevelCastle(team);
+        return LevelManager._instance.GetLevelCastle(team);
     }
 
     protected void LevelUp(Team t, Level newLevel)

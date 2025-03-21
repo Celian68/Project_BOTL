@@ -13,7 +13,7 @@ public class Unit : AbstractUnit
     
     public override Level GetLevel()
     {
-        return LevelManager._instance.getLevelUnit(team, data);
+        return LevelManager._instance.GetLevelUnit(team, data);
     }
 
     protected override IEnumerator Attack()

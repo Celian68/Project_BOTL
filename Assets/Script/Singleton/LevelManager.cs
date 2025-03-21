@@ -52,7 +52,7 @@ public class LevelManager : MonoBehaviour
         levelUpButtonCastle2.SetActive(true);
     }
 
-    public Level getLevelCastle(Team team)
+    public Level GetLevelCastle(Team team)
     {
         return GetPlayerProgressionData(team).CastleLevel;
     }
@@ -62,32 +62,32 @@ public class LevelManager : MonoBehaviour
         return GetPlayerProgressionData(team).HeroLevel;
     }
 
-    public Level getLevelUnit(Team team, UnitData unitData)
+    public Level GetLevelUnit(Team team, UnitData unitData)
     {
         return GetPlayerProgressionData(team).GetUnitLevel(unitData);
     }
 
-    public Level getLevelSpell(Team team, SpellData spellData)
+    public Level GetLevelSpell(Team team, SpellData spellData)
     {
         return GetPlayerProgressionData(team).GetSpellLevel(spellData);
     }
 
     public void LevelUpCastle(Team team)
     {
-        if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).CastleData.GetUpgradeCost(getLevelCastle(team)), team))
+        if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).CastleData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeCastle();
             if (GetPlayerProgressionData(team).CastleLevel == Level.Level3)
             {
                 GetPlayerButton(team).SetActive(false);
             }
-            onCastleLevelUp?.Invoke(team, getLevelCastle(team));
+            onCastleLevelUp?.Invoke(team, GetLevelCastle(team));
         }
     }
 
     public void LevelUpHero(Team team)
     {
-        if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).HeroData.GetUpgradeCost(getLevelCastle(team)), team))
+        if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).HeroData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeHero();
             onHeroLevelUp?.Invoke(team, getLevelHero(team));
@@ -96,19 +96,19 @@ public class LevelManager : MonoBehaviour
 
     public void LevelUpUnit(Team team, UnitData unitData)
     {
-        if (RessourceManager._instance.ConsumResources(unitData.GetUpgradeCost(getLevelCastle(team)), team))
+        if (RessourceManager._instance.ConsumResources(unitData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeUnit(unitData);
-            onUnitLevelUp?.Invoke(team, unitData, getLevelUnit(team, unitData));
+            onUnitLevelUp?.Invoke(team, unitData, GetLevelUnit(team, unitData));
         }
     }
 
     public void LevelUpSpell(Team team, SpellData spellData)
     {
-        if (RessourceManager._instance.ConsumResources(spellData.GetUpgradeCost(getLevelCastle(team)), team))
+        if (RessourceManager._instance.ConsumResources(spellData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeSpell(spellData);
-            onSpellLevelUp?.Invoke(team, spellData, getLevelSpell(team, spellData));
+            onSpellLevelUp?.Invoke(team, spellData, GetLevelSpell(team, spellData));
         }
     }
 

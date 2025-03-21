@@ -20,28 +20,52 @@ MonoBehaviour:
   targetStats:
   - maxLife: 100
     nextUpgradeCost: 100
+    targetTriggers:
+    - triggerType: 4
+      effects:
+      - rid: 5339346598976028678
   - maxLife: 150
     nextUpgradeCost: 145
+    targetTriggers:
+    - triggerType: 4
+      effects:
+      - rid: 5339346598976028679
   - maxLife: 180
     nextUpgradeCost: -1
+    targetTriggers:
+    - triggerType: 4
+      effects:
+      - rid: 5339346598976028680
   unitType: 0
   unitClass: 0
   unitStats:
-  - damage: 30
-    moveSpeed: 0.8
+  - moveSpeed: 0.8
     attackRange: 1
     attackSpeed: 0.8
     baseCost: 20
     spawnTime: 4
-  - damage: 45
-    moveSpeed: 0.8
+  - moveSpeed: 0.8
     attackRange: 1
     attackSpeed: 0.8
     baseCost: 20
     spawnTime: 4
-  - damage: 70
-    moveSpeed: 0.8
+  - moveSpeed: 0.8
     attackRange: 1
     attackSpeed: 1
     baseCost: 20
     spawnTime: 4
+  references:
+    version: 2
+    RefIds:
+    - rid: 5339346598976028678
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 30
+    - rid: 5339346598976028679
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 45
+    - rid: 5339346598976028680
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 70
