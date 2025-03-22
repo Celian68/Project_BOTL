@@ -7,8 +7,6 @@ public class LevelManager : MonoBehaviour
 {
 
     public static LevelManager _instance;
-    [SerializeField] GameObject levelUpButtonCastle1;
-    [SerializeField] GameObject levelUpButtonCastle2;
     [SerializeField] PlayerProgressionData player1;
     [SerializeField] PlayerProgressionData player2;
     [SerializeField] UnitsCollectionData unitsDataCollection;
@@ -48,8 +46,6 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        levelUpButtonCastle1.SetActive(true);
-        levelUpButtonCastle2.SetActive(true);
         Army_Button._instance.SetSpells(player1.GetSpellsData());
         Army_Button._instance.SetUnits(player1.GetUnitsData(), Team.Team1);
         Army_Button._instance.SetUnits(player2.GetUnitsData(), Team.Team2);
@@ -80,10 +76,6 @@ public class LevelManager : MonoBehaviour
         if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).CastleData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeCastle();
-            if (GetPlayerProgressionData(team).CastleLevel == Level.Level3)
-            {
-                GetPlayerButton(team).SetActive(false);
-            }
             onCastleLevelUp?.Invoke(team, GetLevelCastle(team));
         }
     }
@@ -115,25 +107,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void LevelUpCastleInt(int team)
-    {
-        LevelUpCastle((Team)team);
-    }
-
-    public void LevelUpHeroInt(int team)
-    {
-        LevelUpHero((Team)team);
-    }
-
-    public void LevelUpUnitInt(int team, int unitIndex)
-    {
-        LevelUpUnit((Team)team, GetPlayerProgressionData((Team)team).GetUnitData(unitIndex));
-    }
-
-    public void LevelUpSpellInt(int team, int spellIndex)
-    {
-        LevelUpSpell((Team)team, GetPlayerProgressionData((Team)team).GetSpellData(spellIndex));
-    }
 
     public PlayerProgressionData GetPlayerProgressionData(Team team)
     {
@@ -144,18 +117,6 @@ public class LevelManager : MonoBehaviour
         else
         {
             return player2;
-        }
-    }
-
-    public GameObject GetPlayerButton(Team team)
-    {
-        if (team == Team.Team1)
-        {
-            return levelUpButtonCastle1;
-        }
-        else
-        {
-            return levelUpButtonCastle2;
         }
     }
 }

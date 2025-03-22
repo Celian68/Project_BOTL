@@ -718,7 +718,7 @@ GameObject:
   - component: {fileID: 194429757}
   - component: {fileID: 194429755}
   - component: {fileID: 194429759}
-  - component: {fileID: 194429758}
+  - component: {fileID: 194429760}
   m_Layer: 5
   m_Name: LvLUp_Button2
   m_TagString: Untagged
@@ -790,26 +790,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640437}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LevelUpCastleInt
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 194429758}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 194429760}
+        m_TargetAssemblyTypeName: LevelUpCastleButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -822,18 +810,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194429753}
   m_CullTransparentMesh: 1
---- !u!114 &194429758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194429753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &194429759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,6 +840,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &194429760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194429753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a8f46a1fa90d6459e6f3d2becf7923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 1707320067}
+  team: 1
 --- !u!1 &207138170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,7 +3898,7 @@ GameObject:
   - component: {fileID: 956697193}
   - component: {fileID: 956697191}
   - component: {fileID: 956697195}
-  - component: {fileID: 956697194}
+  - component: {fileID: 956697196}
   m_Layer: 5
   m_Name: LvLUp_Button1
   m_TagString: Untagged
@@ -3980,20 +3970,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640437}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LevelUpCastleInt
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 956697194}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 956697196}
+        m_TargetAssemblyTypeName: LevelUpCastleButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -4012,18 +3990,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956697189}
   m_CullTransparentMesh: 1
---- !u!114 &956697194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956697189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &956697195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4054,6 +4020,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &956697196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956697189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a8f46a1fa90d6459e6f3d2becf7923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 1063822329}
+  team: 0
 --- !u!4 &970463335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3450839366524183509, guid: 083497529efbb5046a17b8611121dc26, type: 3}
@@ -4358,8 +4338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395d36121243d55429b7dfb0200e0550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUpButtonCastle1: {fileID: 956697189}
-  levelUpButtonCastle2: {fileID: 194429753}
   player1: {fileID: 11400000, guid: baf09de12499535498dfb00da8e5aba4, type: 2}
   player2: {fileID: 11400000, guid: 55ca61118a2500a4eb93aa7f5b46f46d, type: 2}
   unitsDataCollection: {fileID: 11400000, guid: 0a9d8dd39de543f498e4e4d3104a1c4b, type: 2}

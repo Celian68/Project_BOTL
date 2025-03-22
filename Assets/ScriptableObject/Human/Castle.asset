@@ -15,6 +15,7 @@ MonoBehaviour:
   targetId: C000
   displayName: Castle
   faction: 0
+  description: "Am\xE9liore  la  sant\xE9  et  la  production  de  ton  ch\xE2teau"
   targetType: 1
   targetPrefab: {fileID: 1049432209788827590, guid: 083497529efbb5046a17b8611121dc26, type: 3}
   targetStats:

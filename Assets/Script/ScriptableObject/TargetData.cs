@@ -8,6 +8,7 @@ public abstract class TargetData : ScriptableObject
     [SerializeField] string targetId; 
     [SerializeField] string displayName; 
     [SerializeField] Faction faction;
+    [SerializeField] string description;
     [SerializeField] TargetType targetType;
     [SerializeField] GameObject targetPrefab;
 
@@ -16,6 +17,7 @@ public abstract class TargetData : ScriptableObject
     public string TargetId => targetId;
     public string DisplayName => displayName;
     public Faction Faction => faction;
+    public string Description => description;
     public TargetType TargetType => targetType;
     public GameObject TargetPrefab => targetPrefab;
 
