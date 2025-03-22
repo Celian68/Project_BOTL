@@ -96,7 +96,15 @@ public class PlayerProgressionData : ScriptableObject
         return unitsData.Keys.ToList()[index];
     }
 
+    public List<UnitData> GetUnitsData() {
+        return unitsData.Keys.ToList();
+    }
+
     public SpellData GetSpellData(int index) {
         return spellsData.Keys.ToList()[index];
+    }
+
+    public List<SpellData> GetSpellsData() {
+        return spellsData.Keys.ToList();
     }
 }

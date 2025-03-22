@@ -7,6 +7,7 @@ namespace BOTL.Data
     {
         public float range;
         public float cooldown;
+        public int baseCost;
         public int nextUpgradeCost;
         public bool isGlobal;
         public float initialisationTime;

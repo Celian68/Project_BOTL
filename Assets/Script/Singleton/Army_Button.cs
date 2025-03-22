@@ -19,6 +19,16 @@ public class Army_Button : MonoBehaviour
         }
     }
 
-    public void SetUnit() {}
+    public void SetUnits(UnitData data, int index) {
+
+    }
+
+    public void SetSpells(List<SpellData> data) {
+        int index = 0;
+        foreach(SpellData spell in data) {
+            spellButtons[index].GetComponent<SpellButton>().SetSpell(spell, index);
+            index++;
+        }
+    }
 
 }

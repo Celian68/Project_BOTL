@@ -7,12 +7,14 @@ public class SpellData : ScriptableObject
 {
     [SerializeField] string spellId;
     [SerializeField] string displayName;
+    [SerializeField] string description;
     [SerializeField] Faction faction;
     [SerializeField] GameObject spellPrefab;
     [SerializeField] List<SpellStats> spellStats;
 
     public string SpellId => spellId;
     public string DisplayName => displayName;
+    public string Description => description;
     public Faction Faction => faction;
     public GameObject SpellPrefab => spellPrefab;
 

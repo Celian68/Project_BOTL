@@ -1,3 +1,4 @@
+using UnityEngine;
 using BOTL.Data;
 
 public class SpellButton : AbstractButton {
@@ -5,8 +6,9 @@ public class SpellButton : AbstractButton {
 
     public void SetSpell(SpellData spell, int index) {
         spellIndex = index;
-        SetCost(spell.GetUpgradeCost(LevelManager._instance.GetLevelSpell(Team.Team1, spell)));
-        SetDescription(spell.DisplayName);
+        Debug.Log(spell);
+        SetCost(spell.GetSpellStats(LevelManager._instance.GetLevelSpell(Team.Team1, spell)).baseCost);
+        SetDescription(spell.Description);
         SetCooldown(spell.GetSpellStats(LevelManager._instance.GetLevelSpell(Team.Team1, spell)).cooldown);
     }
 

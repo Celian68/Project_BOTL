@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
         {
             spellsDataCollection.GetData(Faction.NewLand, "NS01")
         };
-        var defaultHero = unitsDataCollection.GetData(Faction.Human, "HH1");
+        var defaultHero = unitsDataCollection.GetData(Faction.Human, "HH01");
         player1.Initialize(Faction.Human, defaultUnits, defaultSpell, defaultHero);
         player2.Initialize(Faction.NewLand, defaultUnits, defaultSpell, defaultHero);
     }
@@ -50,6 +50,7 @@ public class LevelManager : MonoBehaviour
     {
         levelUpButtonCastle1.SetActive(true);
         levelUpButtonCastle2.SetActive(true);
+        Army_Button._instance.SetSpells(player1.GetSpellsData());
     }
 
     public Level GetLevelCastle(Team team)

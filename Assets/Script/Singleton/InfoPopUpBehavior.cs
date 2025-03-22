@@ -90,16 +90,16 @@ public class InfoPopUpBehavior : MonoBehaviour
     public void SetDescription(string newDescription, float newCost)
     {
         // Mettre à jour le cout du pop-up
-        cout.GetComponent<UnityEngine.UI.Text>().text = newCost.ToString();
+        cout.GetComponent<Text>().text = newCost.ToString();
         
         // Mettre à jour la description du pop-up
-        description.GetComponent<UnityEngine.UI.Text>().text = newDescription;
+        description.GetComponent<Text>().text = newDescription;
     }
 
     private void CheckCost()
     {
         // Vérifier si le coût est négatif
-        if (float.Parse(cout.GetComponent<UnityEngine.UI.Text>().text) < 0)
+        if (float.Parse(cout.GetComponent<Text>().text) < 0)
         {
             // Cacher le coût
             cout.gameObject.SetActive(false);
