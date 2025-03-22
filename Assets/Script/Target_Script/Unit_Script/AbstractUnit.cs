@@ -36,7 +36,8 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
         UpdateTeam();
     }
 
-    protected virtual void UpdateTeam() {
+    protected virtual void UpdateTeam()
+    {
         teamMultipl = team == Team.Team1 ? 1 : -1;
         gameObject.GetComponent<SpriteRenderer>().flipX = team == Team.Team2;
         transform.tag = team.ToString();
@@ -104,7 +105,9 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
                 yield return new WaitForSeconds(0.25f);
                 if (CheckEnemyState())
                 {
-                    StartTrigger(TriggerType.OnHit, new List<Transform>{enemyTarget});
+                    StartTrigger(TriggerType.OnHit, new EffectContext(new Dictionary<EffectType, AbstractEffectParam> {
+                        { EffectType.Damage, new MonoEffectParam(-1, transform, new List<Transform> { enemyTarget }) }
+                    }));
                 }
                 yield return new WaitForSeconds(0.1f);
             }

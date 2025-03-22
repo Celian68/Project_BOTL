@@ -15,7 +15,7 @@ MonoBehaviour:
   buildId: HB01
   displayName: Farm
   faction: 0
-  buildPrefab: {fileID: 0}
+  buildPrefab: {fileID: 6476053370543421833, guid: 283fcaf17dac3574f8560b3cee775e45, type: 3}
   buildStats:
   - nextUpgradeCost: 275
   - nextUpgradeCost: 350

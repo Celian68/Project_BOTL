@@ -17,6 +17,7 @@ public abstract class TargetData : ScriptableObject
     public string DisplayName => displayName;
     public Faction Faction => faction;
     public TargetType TargetType => targetType;
+    public GameObject TargetPrefab => targetPrefab;
 
     public int GetUpgradeCost(Level currentLevel)
     {

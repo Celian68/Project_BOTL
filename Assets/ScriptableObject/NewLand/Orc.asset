@@ -38,6 +38,7 @@ MonoBehaviour:
       - rid: 5339346598976028680
   unitType: 0
   unitClass: 0
+  description: "Un  guerrier  f\xE9roce  et  robuste"
   unitStats:
   - moveSpeed: 0.8
     attackRange: 1

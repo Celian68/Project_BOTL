@@ -834,12 +834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trans: {fileID: 1707320067}
-  cooldown: 0
-  currentCooldown: 0
-  cost: 0
-  description: 
-  type: 0
 --- !u!114 &194429759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,12 +1708,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trans: {fileID: 170180099}
-  cooldown: 0
-  currentCooldown: 0
-  cost: 0
-  description: 
-  type: 0
 --- !u!114 &300195128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1807,8 +1795,8 @@ GameObject:
   - component: {fileID: 322493878}
   - component: {fileID: 322493880}
   - component: {fileID: 322493881}
-  - component: {fileID: 322493882}
   - component: {fileID: 322493883}
+  - component: {fileID: 322493884}
   m_Layer: 5
   m_Name: Unit_Button1
   m_TagString: Untagged
@@ -1888,20 +1876,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640434}
-        m_TargetAssemblyTypeName: Spawn_Manager, Assembly-CSharp
-        m_MethodName: UnitButton1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 322493882}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 322493884}
+        m_TargetAssemblyTypeName: UnitButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1912,24 +1888,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &322493882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322493877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 572109983}
-  cooldown: 0
-  currentCooldown: 0
-  cost: 0
-  description: 
-  type: 0
 --- !u!114 &322493883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,6 +1918,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &322493884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322493877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b054533743c4a4999a50583bcf9f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 572109983}
+  team: 0
 --- !u!1 &372438441
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,7 +2920,7 @@ GameObject:
   - component: {fileID: 619321975}
   - component: {fileID: 619321976}
   - component: {fileID: 619321978}
-  - component: {fileID: 619321977}
+  - component: {fileID: 619321979}
   m_Layer: 5
   m_Name: Unit_Button2
   m_TagString: Untagged
@@ -3028,20 +3000,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640434}
-        m_TargetAssemblyTypeName: Spawn_Manager, Assembly-CSharp
-        m_MethodName: UnitButton2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 619321977}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 619321979}
+        m_TargetAssemblyTypeName: UnitButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -3052,24 +3012,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &619321977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619321972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 463101238}
-  cooldown: 0
-  currentCooldown: 0
-  cost: 0
-  description: 
-  type: 0
 --- !u!114 &619321978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3100,6 +3042,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &619321979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619321972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b054533743c4a4999a50583bcf9f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 463101238}
+  team: 0
 --- !u!1 &658798087
 GameObject:
   m_ObjectHideFlags: 0
@@ -4068,12 +4024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trans: {fileID: 1063822329}
-  cooldown: 0
-  currentCooldown: 0
-  cost: 0
-  description: 
-  type: 0
 --- !u!114 &956697195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4104,6 +4054,11 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &970463335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3450839366524183509, guid: 083497529efbb5046a17b8611121dc26, type: 3}
+  m_PrefabInstance: {fileID: 1083290755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &976739709 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 120612526372955414, guid: 083497529efbb5046a17b8611121dc26, type: 3}
@@ -4375,16 +4330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8ddc2678668e141864f2bd5c0a25ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unite1: {fileID: 245119952990548611, guid: 6b4b785282ed39e4087b4221de69c1f7, type: 3}
-  unite2: {fileID: 8959025170286639158, guid: 54ebc2696e3099f4b9b285edf62b1228, type: 3}
-  unite3: {fileID: 0}
-  unite4: {fileID: 0}
-  unite5: {fileID: 0}
-  unite6: {fileID: 245119952990548611, guid: 6b4b785282ed39e4087b4221de69c1f7, type: 3}
-  unite7: {fileID: 8959025170286639158, guid: 54ebc2696e3099f4b9b285edf62b1228, type: 3}
-  unite8: {fileID: 0}
-  unite9: {fileID: 0}
-  unite10: {fileID: 0}
+  spawn1: {fileID: 1958011095}
+  spawn2: {fileID: 970463335}
 --- !u!114 &1033640436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4587,7 +4534,7 @@ GameObject:
   - component: {fileID: 1082998941}
   - component: {fileID: 1082998942}
   - component: {fileID: 1082998944}
-  - component: {fileID: 1082998943}
+  - component: {fileID: 1082998945}
   m_Layer: 5
   m_Name: Unit_Button4
   m_TagString: Untagged
@@ -4667,20 +4614,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640434}
-        m_TargetAssemblyTypeName: Spawn_Manager, Assembly-CSharp
-        m_MethodName: UnitButton7
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1082998943}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 1082998945}
+        m_TargetAssemblyTypeName: UnitButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -4691,24 +4626,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1082998943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082998938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 2086254008}
-  cooldown: 0
-  currentCooldown: 0
-  cost: 0
-  description: 
-  type: 0
 --- !u!114 &1082998944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4739,6 +4656,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1082998945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082998938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b054533743c4a4999a50583bcf9f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 2086254008}
+  team: 1
 --- !u!1001 &1083290755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5088,9 +5019,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5ad178e79c8e0441a564e979aa57f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitButtons:
+  unitButtonsTeam1:
   - {fileID: 322493877}
   - {fileID: 619321972}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  unitButtonsTeam2:
+  - {fileID: 1562532252}
+  - {fileID: 1082998938}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -5345,12 +5283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trans: {fileID: 114536732}
-  cooldown: 0
-  currentCooldown: 0
-  cost: 0
-  description: 
-  type: 0
 --- !u!114 &1371229902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5687,12 +5619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trans: {fileID: 1994340835}
-  cooldown: 0
-  currentCooldown: 0
-  cost: 0
-  description: 
-  type: 0
 --- !u!114 &1503944089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5812,7 +5738,7 @@ GameObject:
   - component: {fileID: 1562532255}
   - component: {fileID: 1562532256}
   - component: {fileID: 1562532258}
-  - component: {fileID: 1562532257}
+  - component: {fileID: 1562532259}
   m_Layer: 5
   m_Name: Unit_Button3
   m_TagString: Untagged
@@ -5892,20 +5818,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033640434}
-        m_TargetAssemblyTypeName: Spawn_Manager, Assembly-CSharp
-        m_MethodName: UnitButton6
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1562532257}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 1562532259}
+        m_TargetAssemblyTypeName: UnitButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -5916,24 +5830,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1562532257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562532252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trans: {fileID: 2023439820}
-  cooldown: 0
-  currentCooldown: 0
-  cost: 0
-  description: 
-  type: 0
 --- !u!114 &1562532258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5964,6 +5860,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1562532259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562532252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04b054533743c4a4999a50583bcf9f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 2023439820}
+  team: 1
 --- !u!1 &1588813431
 GameObject:
   m_ObjectHideFlags: 0

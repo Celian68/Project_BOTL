@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Knight
   faction: 0
   targetType: 0
-  targetPrefab: {fileID: 0}
+  targetPrefab: {fileID: 245119952990548611, guid: 6b4b785282ed39e4087b4221de69c1f7, type: 3}
   targetStats:
   - maxLife: 80
     nextUpgradeCost: 90
@@ -38,6 +38,7 @@ MonoBehaviour:
       - rid: 5339346598976028674
   unitType: 0
   unitClass: 0
+  description: Un  guerrier  loyal  et  polyvalent
   unitStats:
   - moveSpeed: 1.5
     attackRange: 0.8

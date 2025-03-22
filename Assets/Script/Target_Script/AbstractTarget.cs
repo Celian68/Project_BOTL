@@ -95,8 +95,8 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
         return GetTargetStats().nextUpgradeCost;
     }
 
-    protected void StartTrigger(TriggerType trigger, List<Transform> targets, Dictionary<EffectType, AbstractEffectParam> blob = null)
+    protected void StartTrigger(TriggerType trigger, EffectContext context)
     {
-        data.StartTrigger(trigger, new EffectContext(blob), GetLevel());
+        data.StartTrigger(trigger, context, GetLevel());
     }
 }

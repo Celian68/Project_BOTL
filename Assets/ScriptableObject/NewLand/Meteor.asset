@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellId: NS01
   displayName: Meteor
-  description: "Faites tomber le ciel sur vos ennemis (et vos alli\xE9s)"
+  description: "Faites  tomber  le  ciel  sur  vos  ennemis (et  vos  alli\xE9s)"
   faction: 2
   spellPrefab: {fileID: 7235025505526691539, guid: 3636e6572926d2b4589ed87e4a5ad2f1, type: 3}
   spellStats:
   - range: 1.5
     cooldown: 50
-    baseCost: 0
+    baseCost: -1
     nextUpgradeCost: 300
     isGlobal: 0
     initialisationTime: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
       - rid: 5339346581893414920
   - range: 2
     cooldown: 50
-    baseCost: 0
+    baseCost: -1
     nextUpgradeCost: 450
     isGlobal: 0
     initialisationTime: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
       - rid: 5339346581893414921
   - range: 3.5
     cooldown: 50
-    baseCost: 0
+    baseCost: -1
     nextUpgradeCost: -1
     isGlobal: 0
     initialisationTime: 0

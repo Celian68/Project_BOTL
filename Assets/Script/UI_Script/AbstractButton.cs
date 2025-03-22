@@ -43,6 +43,7 @@ public abstract class AbstractButton : MonoBehaviour, IPointerEnterHandler, IPoi
 
     public void PopUpActive() {
         InfoPopUpBehavior._instance.Visibility(true);
+        InfoPopUpBehavior._instance.SetDescription(description, cost);
     }
 
     public float GetUpgradeCost() {

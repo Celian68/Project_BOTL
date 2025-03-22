@@ -6,7 +6,6 @@ public class SpellButton : AbstractButton {
 
     public void SetSpell(SpellData spell, int index) {
         spellIndex = index;
-        Debug.Log(spell);
         SetCost(spell.GetSpellStats(LevelManager._instance.GetLevelSpell(Team.Team1, spell)).baseCost);
         SetDescription(spell.Description);
         SetCooldown(spell.GetSpellStats(LevelManager._instance.GetLevelSpell(Team.Team1, spell)).cooldown);

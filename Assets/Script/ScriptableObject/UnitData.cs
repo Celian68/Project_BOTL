@@ -7,10 +7,12 @@ public class UnitData : TargetData
 {
     [SerializeField] UnitType unitType;
     [SerializeField] UnitClass unitClass;
+    [SerializeField] string description;
     [SerializeField] List<UnitStats> unitStats;
 
     public UnitType UnitType => unitType;
     public UnitClass UnitClass => unitClass;
+    public string Description => description;
 
     public UnitStats GetUnitStats(Level level)
     {

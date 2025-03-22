@@ -1,3 +1,4 @@
+using BOTL.Data;
 using UnityEngine;
 
 public class KeyBoradManager : MonoBehaviour
@@ -63,15 +64,15 @@ public class KeyBoradManager : MonoBehaviour
         }
 
         if(Input.GetKeyDown(spawnAlly1)) {
-            Spawn_Manager._instance.UnitButton1();
+            Spawn_Manager._instance.Spawn_Unit(0, Team.Team1);
         }
 
         if(Input.GetKeyDown(spawnAlly2)) {
-            Spawn_Manager._instance.UnitButton2();
+            Spawn_Manager._instance.Spawn_Unit(1, Team.Team1);
         }
 
         if(Input.GetKeyDown(spawnAlly3)) {
-            Spawn_Manager._instance.UnitButton3();
+
         }
 
         if(Input.GetKeyDown(spawnAlly4)) {
@@ -83,15 +84,15 @@ public class KeyBoradManager : MonoBehaviour
         }
 
         if(Input.GetKeyDown(spawnEnemy1)) {
-            Spawn_Manager._instance.UnitButton6();
+            Spawn_Manager._instance.Spawn_Unit(0, Team.Team2);
         }
 
         if(Input.GetKeyDown(spawnEnemy2)) {
-            Spawn_Manager._instance.UnitButton7();
+            Spawn_Manager._instance.Spawn_Unit(1, Team.Team2);
         }
 
         if(Input.GetKeyDown(spawnEnemy3)) {
-            Spawn_Manager._instance.UnitButton8();
+
         }
 
         if(Input.GetKeyDown(spawnEnemy4)) {

@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Ebony Knight
   faction: 0
   targetType: 0
-  targetPrefab: {fileID: 0}
+  targetPrefab: {fileID: 3756801475192485856, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
   targetStats:
   - maxLife: 200
     nextUpgradeCost: 200
@@ -38,6 +38,7 @@ MonoBehaviour:
       - rid: 5339346598976028677
   unitType: 0
   unitClass: 1
+  description: "H\xE9ro  de  la  race  humaine"
   unitStats:
   - moveSpeed: 1.2
     attackRange: 1

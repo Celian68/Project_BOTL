@@ -51,6 +51,8 @@ public class LevelManager : MonoBehaviour
         levelUpButtonCastle1.SetActive(true);
         levelUpButtonCastle2.SetActive(true);
         Army_Button._instance.SetSpells(player1.GetSpellsData());
+        Army_Button._instance.SetUnits(player1.GetUnitsData(), Team.Team1);
+        Army_Button._instance.SetUnits(player2.GetUnitsData(), Team.Team2);
     }
 
     public Level GetLevelCastle(Team team)

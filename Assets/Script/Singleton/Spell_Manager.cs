@@ -1,3 +1,4 @@
+using BOTL.Data;
 using UnityEngine;
 
 public class Spell_Manager : MonoBehaviour
@@ -36,8 +37,8 @@ public class Spell_Manager : MonoBehaviour
 
     public void ActivateSpell(int SpellIndex)
     {
-        currentSpell = LevelManager._instance.GetPlayerProgressionData(BOTL.Data.Team.Team1).GetSpellData(SpellIndex);
-        if (currentSpell.GetSpellStats(BOTL.Data.Level.Level1).isGlobal)
+        currentSpell = LevelManager._instance.GetPlayerProgressionData(Team.Team1).GetSpellData(SpellIndex);
+        if (currentSpell.GetSpellStats(Level.Level1).isGlobal)
         {
             CastCurrentSpell();
         }else{
