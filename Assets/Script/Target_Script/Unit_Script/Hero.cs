@@ -8,7 +8,6 @@ public class Hero : AbstractUnit
 {
     UnitState command;
 
-    [SerializeField] Text lifeCount;
 
     protected override void Start()
     {
@@ -48,7 +47,7 @@ public class Hero : AbstractUnit
 
     protected override void UpdateLife()
     {
-        lifeCount.text = currentLife.ToString();
+        HeroController._instance.updateHeroLife(currentLife);
     }
 
     protected override void Die()
@@ -67,7 +66,7 @@ public class Hero : AbstractUnit
         SetUnitState(UnitState.Idle);
     }
 
-    public override void SetUnitState(UnitState newState)
+    public void SetOrderUnitState(UnitState newState)
     {
         command = newState;
 

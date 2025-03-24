@@ -70,7 +70,6 @@ public class UI_Manager : MonoBehaviour
         }
 
         if (!gameOver) {
-            Debug.Log(HeroController._instance.GetHero());
             float currentLife = HeroController._instance.GetHero().GetComponent<Hero>().GetLife();
             float maximumLife = HeroController._instance.GetHero().GetComponent<Hero>().GetTargetStats().maxLife;
             float FillAmout = currentLife / maximumLife;

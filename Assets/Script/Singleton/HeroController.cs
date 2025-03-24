@@ -1,10 +1,12 @@
 using BOTL.Data;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroController : MonoBehaviour
 {
     public static HeroController _instance;
     GameObject hero;
+    [SerializeField] Text lifeCount;
 
 
     void Awake()
@@ -29,7 +31,11 @@ public class HeroController : MonoBehaviour
     }
 
     public void SetHeroOrder(UnitState order) {
-        hero.GetComponent<Hero>().SetUnitState(order);
+        hero.GetComponent<Hero>().SetOrderUnitState(order);
+    }
+
+    public void updateHeroLife(float life) {
+        lifeCount.text = life.ToString();
     }
 
 }
