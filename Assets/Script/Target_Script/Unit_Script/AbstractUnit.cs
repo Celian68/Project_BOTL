@@ -101,7 +101,6 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
             yield return new WaitForSeconds(GetUnitStats().attackSpeed);
             if (CheckEnemyState())
             {
-                Debug.Log("Attack");
                 SetUnitState(UnitState.Attacking);
                 yield return new WaitForSeconds(0.25f);
                 if (CheckEnemyState())
@@ -140,7 +139,6 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
     public virtual void SetUnitState(UnitState newState)
     {
         unitState = newState;
-        Debug.Log((int)unitState);
         animator.SetInteger("UnitState", (int)unitState);
         if (newState == UnitState.Retreating)
         {

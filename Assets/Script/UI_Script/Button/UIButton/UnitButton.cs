@@ -1,7 +1,7 @@
 using UnityEngine;
 using BOTL.Data;
 
-public class UnitButton : AbstractButton {
+public class UnitButton : UIButton {
     int unitIndex;
     [SerializeField] Team team;
 

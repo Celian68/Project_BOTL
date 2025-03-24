@@ -1,7 +1,7 @@
 using UnityEngine;
 using BOTL.Data;
 
-public class LevelUpCastleButton : AbstractButton {
+public class LevelUpCastleButton : UIButton {
     [SerializeField] Team team;
 
     void Start()

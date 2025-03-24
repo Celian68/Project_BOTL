@@ -1,7 +1,7 @@
 using UnityEngine;
 using BOTL.Data;
 
-public class HeroOrderButton : AbstractButton {
+public class HeroOrderButton : UIButton {
     [SerializeField] UnitState order;
     [SerializeField] string descriptionState;
 

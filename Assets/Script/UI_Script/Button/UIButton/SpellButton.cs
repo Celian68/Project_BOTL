@@ -1,7 +1,7 @@
 using UnityEngine;
 using BOTL.Data;
 
-public class SpellButton : AbstractButton {
+public class SpellButton : UIButton {
     int spellIndex;
 
     public void SetSpell(SpellData spell, int index) {

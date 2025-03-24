@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class AbstractButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public abstract class AbstractButton : MonoBehaviour
 {
     [SerializeField] protected Transform trans;
     protected float cooldown = 0;
@@ -9,35 +9,18 @@ public abstract class AbstractButton : MonoBehaviour, IPointerEnterHandler, IPoi
     protected int cost;
     protected string description;
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void CustomCursorEnter()
     {
-        if (IsActive()) trans.localScale = new Vector3(trans.localScale.x - 0.1f, trans.localScale.y - 0.1f, 1f);
         PopUpActive();
     }
 
-    public virtual void OnClick() {
+    public virtual void CustomClick() {
         InfoPopUpBehavior._instance.Visibility(false);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void CustomCursorExit()
     {
         trans.localScale = new Vector3(trans.localScale.x + 0.1f, trans.localScale.y + 0.1f, 1f);
-        InfoPopUpBehavior._instance.Visibility(false);
-    }
-
-
-    // For button in the scene
-    private void OnMouseEnter() {
-        trans.localScale = new Vector3(trans.localScale.x - 0.2f, trans.localScale.y - 0.2f, 1f);
-        PopUpActive();
-    }
-
-    private void OnMouseDown() {
-        OnClick();
-    }
-
-    private void OnMouseExit() {
-        trans.localScale = new Vector3(trans.localScale.x + 0.2f, trans.localScale.y + 0.2f, 1f);
         InfoPopUpBehavior._instance.Visibility(false);
     }
 
@@ -62,7 +45,7 @@ public abstract class AbstractButton : MonoBehaviour, IPointerEnterHandler, IPoi
         this.cooldown = cooldown;
     }
 
-    bool IsActive() {
+    protected bool IsActive() {
         return currentCooldown == 0;
     }
 }
