@@ -136,7 +136,7 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
         }
     }
 
-    protected void SetUnitState(UnitState newState)
+    public virtual void SetUnitState(UnitState newState)
     {
         unitState = newState;
         animator.SetInteger("UnitState", (int)unitState);
@@ -148,12 +148,6 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
         {
             Rotate(1);
         }
-    }
-
-    // Not optimal but necessary because onClick doesn't work with enum
-    public virtual void SetUnitState(int newState)
-    {
-        SetUnitState((UnitState)newState);
     }
 
     public UnitClass GetUnitClass()

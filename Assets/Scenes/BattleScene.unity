@@ -1628,7 +1628,7 @@ GameObject:
   - component: {fileID: 300195129}
   - component: {fileID: 300195128}
   - component: {fileID: 300195126}
-  - component: {fileID: 300195127}
+  - component: {fileID: 300195130}
   m_Layer: 5
   m_Name: Stay_Button
   m_TagString: Untagged
@@ -1686,18 +1686,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &300195127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 300195124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &300195128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1742,20 +1730,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7816246585920784296}
-        m_TargetAssemblyTypeName: AbstractUnit, Assembly-CSharp
-        m_MethodName: SetUnitState
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 300195127}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 300195130}
+        m_TargetAssemblyTypeName: HeroOrderButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1774,6 +1750,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300195124}
   m_CullTransparentMesh: 1
+--- !u!114 &300195130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300195124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f14f5a89001746a65322e028521ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 170180099}
+  order: 0
+  descriptionState: "Ordonne  \xE0  votre  H\xE9ro  de  d\xE9fendre  sa  position"
 --- !u!1 &322493877
 GameObject:
   m_ObjectHideFlags: 0
@@ -5191,7 +5182,7 @@ GameObject:
   - component: {fileID: 1371229903}
   - component: {fileID: 1371229902}
   - component: {fileID: 1371229900}
-  - component: {fileID: 1371229901}
+  - component: {fileID: 1371229904}
   m_Layer: 5
   m_Name: Right_Button
   m_TagString: Untagged
@@ -5249,18 +5240,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1371229901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371229898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1371229902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5305,26 +5284,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7816246585920784296}
-        m_TargetAssemblyTypeName: AbstractUnit, Assembly-CSharp
-        m_MethodName: SetUnitState
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1371229901}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 1371229904}
+        m_TargetAssemblyTypeName: HeroOrderButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5337,6 +5304,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371229898}
   m_CullTransparentMesh: 1
+--- !u!114 &1371229904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371229898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f14f5a89001746a65322e028521ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 114536732}
+  order: 1
+  descriptionState: "Ordonne  \xE0  votre  H\xE9ro  d'avancer"
 --- !u!1001 &1469494580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5527,7 +5509,7 @@ GameObject:
   - component: {fileID: 1503944090}
   - component: {fileID: 1503944089}
   - component: {fileID: 1503944087}
-  - component: {fileID: 1503944088}
+  - component: {fileID: 1503944091}
   m_Layer: 5
   m_Name: Left_Button
   m_TagString: Untagged
@@ -5585,18 +5567,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1503944088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503944085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05344c4c89bd8864b89ff44d1502b559, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1503944089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5641,26 +5611,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7816246585920784296}
-        m_TargetAssemblyTypeName: AbstractUnit, Assembly-CSharp
-        m_MethodName: SetUnitState
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1503944088}
-        m_TargetAssemblyTypeName: UIButtonBehavior, Assembly-CSharp
+      - m_Target: {fileID: 1503944091}
+        m_TargetAssemblyTypeName: HeroOrderButton, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5673,6 +5631,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503944085}
   m_CullTransparentMesh: 1
+--- !u!114 &1503944091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503944085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07f14f5a89001746a65322e028521ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 1994340835}
+  order: 2
+  descriptionState: "Ordonne  \xE0  votre  H\xE9ro  de  reculer"
 --- !u!1 &1531417773
 GameObject:
   m_ObjectHideFlags: 0
@@ -8368,17 +8341,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
---- !u!114 &7816246585920784296 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4486222980684554416, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
-  m_PrefabInstance: {fileID: 7816246585920784295}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299964811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b5696298fe7064183ee9ebf6b0d05b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

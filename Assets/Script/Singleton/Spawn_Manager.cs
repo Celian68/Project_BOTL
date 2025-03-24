@@ -40,4 +40,16 @@ public class Spawn_Manager : MonoBehaviour
             Instantiate(data.TargetPrefab, spawn.position, Quaternion.identity);
         }
     }
+
+    public Transform getSpawn(Team team)
+    {
+        if (team == Team.Team1)
+        {
+            return spawn1;
+        }
+        else
+        {
+            return spawn2;
+        }
+    }
 }

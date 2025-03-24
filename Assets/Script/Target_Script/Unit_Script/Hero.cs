@@ -9,7 +9,6 @@ public class Hero : AbstractUnit
     UnitState command;
 
     [SerializeField] Text lifeCount;
-    [SerializeField] Transform respawn;
 
     protected override void Start()
     {
@@ -21,14 +20,6 @@ public class Hero : AbstractUnit
     protected override void SetupTeam()
     {
         base.SetupTeam();
-        if (team == Team.Team1)
-        {
-            respawn = GameObject.Find("Spawn1").transform;
-        }
-        else
-        {
-            respawn = GameObject.Find("Spawn2").transform;
-        }
     }
 
     protected override void Move()
@@ -64,7 +55,7 @@ public class Hero : AbstractUnit
     {
         base.Die();
         gameObject.SetActive(false);
-        transform.position = new Vector3(respawn.position.x, 0.7f, 0);
+        transform.position = new Vector3(Spawn_Manager._instance.getSpawn(team).position.x, 0.7f, 0);
         Invoke("Respawn", GetUnitStats().spawnTime);
     }
 
@@ -76,12 +67,12 @@ public class Hero : AbstractUnit
         SetUnitState(UnitState.Idle);
     }
 
-    public override void SetUnitState(int newState)
+    public override void SetUnitState(UnitState newState)
     {
-        command = (UnitState)newState;
+        command = newState;
 
-        if (newState == (int)UnitState.Retreating && unitState == UnitState.Charging) {
-            SetUnitState(UnitState.CancelLoad);
+        if (newState == UnitState.Retreating && unitState == UnitState.Charging) {
+            base.SetUnitState(UnitState.CancelLoad);
             return;
         }
         if (unitState != UnitState.Attacking && unitState != UnitState.Charging)
