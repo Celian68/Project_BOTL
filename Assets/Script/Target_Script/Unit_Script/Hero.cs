@@ -56,7 +56,7 @@ public class Hero : AbstractUnit
         base.Die();
         gameObject.SetActive(false);
         transform.position = new Vector3(Spawn_Manager._instance.getSpawn(team).position.x, 0.7f, 0);
-        Invoke("Respawn", GetUnitStats().spawnTime);
+        Invoke(nameof(Respawn), GetUnitStats().spawnTime);
     }
 
     void Respawn()

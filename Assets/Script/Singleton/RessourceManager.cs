@@ -37,7 +37,7 @@ public class RessourceManager : MonoBehaviour
         maxRessourcesJ2 = 100;
         ressourcesPerSecJ1 = 1;
         ressourcesPerSecJ2 = 1;
-        InvokeRepeating("GenerateRessources", 0f, 0.5f);  
+        InvokeRepeating(nameof(GenerateRessources), 0f, 0.5f);  
     }
 
     void Update() {
@@ -105,7 +105,7 @@ public class RessourceManager : MonoBehaviour
         }
     }
 
-    public void setMaxResources(int ressources, Team player)
+    public void SetMaxResources(int ressources, Team player)
     {
         if (player == Team.Team2) {
             maxRessourcesJ2 = ressources;
@@ -114,7 +114,7 @@ public class RessourceManager : MonoBehaviour
         }
     }
 
-    public void setResourcePerSec(float ressource, Team player)
+    public void SetResourcePerSec(float ressource, Team player)
     {
         if (player == Team.Team2) {
             ressourcesPerSecJ2 = ressource;

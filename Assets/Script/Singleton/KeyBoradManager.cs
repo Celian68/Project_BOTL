@@ -56,7 +56,7 @@ public class KeyBoradManager : MonoBehaviour
         }
 
         if(Input.GetKeyDown(damageIndicators)) {
-            bool res = UI_Manager._instance.setActiv();
+            bool res = UI_Manager._instance.SetActiv();
             if (res)
                 MessagePopUpBehavior._instance.showPopUp("Affichage Nombres Indicateurs Activé");
             else

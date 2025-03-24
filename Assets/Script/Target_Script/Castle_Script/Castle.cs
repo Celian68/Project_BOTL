@@ -75,8 +75,8 @@ public class Castle : AbstractTarget<CastleData>
         if (team == t)
         {
             currentLife = Mathf.RoundToInt(GetTargetStats().maxLife * currentLife / GetSpecificTargetStats(GetLevel() - 1).maxLife);
-            RessourceManager._instance.setMaxResources(GetCastleStats().maxResource, team);
-            RessourceManager._instance.setResourcePerSec(GetProducerStats().resourcePerSec, team);
+            RessourceManager._instance.SetMaxResources(GetCastleStats().maxResource, team);
+            RessourceManager._instance.SetResourcePerSec(GetProducerStats().resourcePerSec, team);
             animator.SetInteger("Level", (int)GetLevel());
             Arch.GetComponent<Arch>().LevelUp((int)newLevel);
             UpdateLife();

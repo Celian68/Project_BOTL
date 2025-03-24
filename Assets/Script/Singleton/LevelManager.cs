@@ -49,7 +49,8 @@ public class LevelManager : MonoBehaviour
         Army_Button._instance.SetSpells(player1.GetSpellsData());
         Army_Button._instance.SetUnits(player1.GetUnitsData(), Team.Team1);
         Army_Button._instance.SetUnits(player2.GetUnitsData(), Team.Team2);
-        //Spawn_Manager._instance.Spawn_Unit(player1.HeroData, Team.Team1);
+        GameObject hero = Spawn_Manager._instance.Spawn_Unit(player1.HeroData, Team.Team1);
+        HeroController._instance.SetHero(hero);
     }
 
     public Level GetLevelCastle(Team team)

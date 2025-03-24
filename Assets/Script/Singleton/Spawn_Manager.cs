@@ -26,19 +26,24 @@ public class Spawn_Manager : MonoBehaviour
         UnitData data = LevelManager._instance.GetPlayerProgressionData(team).GetUnitData(unitIndex);
         if (RessourceManager._instance.ConsumResources(data.GetUnitStats(LevelManager._instance.GetLevelUnit(team, data)).baseCost, team))
         {
-            Transform spawn;
-            if (team == Team.Team1)
-            {
-                spawn = spawn1;
-            }
-            else
-            {
-                spawn = spawn2;
-            }
-            float randomNumber = Random.Range(23, 65) / 100f;
-            spawn.position = new Vector3(spawn.position.x, randomNumber, 0);
-            Instantiate(data.TargetPrefab, spawn.position, Quaternion.identity);
+            Spawn_Unit(LevelManager._instance.GetPlayerProgressionData(team).GetUnitData(unitIndex), team);
         }
+    }
+
+    public GameObject Spawn_Unit(UnitData unit, Team team)
+    {
+        Transform spawn;
+        if (team == Team.Team1)
+        {
+            spawn = spawn1;
+        }
+        else
+        {
+            spawn = spawn2;
+        }
+        float randomNumber = Random.Range(23, 65) / 100f;
+        spawn.position = new Vector3(spawn.position.x, randomNumber, 0);
+        return Instantiate(unit.TargetPrefab, spawn.position, Quaternion.identity);
     }
 
     public Transform getSpawn(Team team)

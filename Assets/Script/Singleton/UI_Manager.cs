@@ -10,7 +10,6 @@ public class UI_Manager : MonoBehaviour
 
     [SerializeField] GameObject castle1;
     [SerializeField] GameObject castle2;
-    public GameObject hero1;
 
     public GameObject hero_menu;
 
@@ -32,7 +31,6 @@ public class UI_Manager : MonoBehaviour
     public static UI_Manager _instance;
 
     void Awake() { 
-        // If there is an instance, and it's not me, delete myself.
         if (_instance != null && _instance != this) { 
             Destroy(this); 
         }else{ 
@@ -46,16 +44,15 @@ public class UI_Manager : MonoBehaviour
         hero_menu.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update() {
         GetCurrentFill();    
     }
 
-    public bool setActiv() {
+    public bool SetActiv() {
         return activ = !activ;
     }
 
-    void GetCurrentFill(){
+    void GetCurrentFill() {
         if (castle1 != null) {
             current1 = castle1.GetComponent<Castle>().GetLife();
             maximum1 = castle1.GetComponent<Castle>().GetTargetStats().maxLife;
@@ -73,8 +70,9 @@ public class UI_Manager : MonoBehaviour
         }
 
         if (!gameOver) {
-            float currentLife = hero1.GetComponent<Hero>().GetLife();
-            float maximumLife = hero1.GetComponent<Hero>().GetTargetStats().maxLife;
+            Debug.Log(HeroController._instance.GetHero());
+            float currentLife = HeroController._instance.GetHero().GetComponent<Hero>().GetLife();
+            float maximumLife = HeroController._instance.GetHero().GetComponent<Hero>().GetTargetStats().maxLife;
             float FillAmout = currentLife / maximumLife;
             maskHero.fillAmount = FillAmout;
         }

@@ -15,9 +15,6 @@ public class HeroOrderButton : AbstractButton {
 
     public override void OnClick() {
         base.OnClick();
-        Debug.Log(LevelManager._instance.GetPlayerProgressionData(Team.Team1).HeroData);
-        Debug.Log(LevelManager._instance.GetPlayerProgressionData(Team.Team1).HeroData.TargetPrefab);
-        Debug.Log(LevelManager._instance.GetPlayerProgressionData(Team.Team1).HeroData.TargetPrefab.GetComponent<Hero>());
-        LevelManager._instance.GetPlayerProgressionData(Team.Team1).HeroData.TargetPrefab.GetComponent<Hero>().SetUnitState(order);
+        HeroController._instance.SetHeroOrder(order);
     }
 }
