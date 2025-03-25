@@ -1,4 +1,3 @@
-using UnityEngine;
 using BOTL.Data;
 
 public class SpellButton : UIButton {
@@ -12,7 +11,9 @@ public class SpellButton : UIButton {
     }
 
     public override void OnClick() {
+        if (!IsActive()) return;
         base.OnClick();
+        StartCooldown();
         Spell_Manager._instance.ActivateSpell(spellIndex);
     }
 }

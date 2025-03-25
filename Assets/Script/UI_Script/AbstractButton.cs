@@ -1,11 +1,10 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public abstract class AbstractButton : MonoBehaviour
 {
     [SerializeField] protected Transform trans;
     protected float cooldown = 0;
-    protected int currentCooldown = 0;
+    protected float currentCooldown = 0;
     protected int cost;
     protected string description;
 
@@ -20,7 +19,6 @@ public abstract class AbstractButton : MonoBehaviour
 
     public void CustomCursorExit()
     {
-        trans.localScale = new Vector3(trans.localScale.x + 0.1f, trans.localScale.y + 0.1f, 1f);
         InfoPopUpBehavior._instance.Visibility(false);
     }
 

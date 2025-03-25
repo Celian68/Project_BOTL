@@ -21,7 +21,6 @@ public class DamageEffect : AbstractEffect
         }
         foreach (var enemyTarget in castParam.GetTargets()) {
             enemyTarget.GetComponent<ItTarget>()?.GetDamaged(damage);
-            Debug.Log("Damage dealt: " + damage);
         }
     }
 }

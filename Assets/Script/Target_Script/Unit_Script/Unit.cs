@@ -8,7 +8,7 @@ public class Unit : AbstractUnit
     {
         base.Start();
         SetUnitState(UnitState.Moving);
-        LevelManager._instance.onUnitLevelUp += LevelUp;
+        LevelManager._instance.OnUnitLevelUp += LevelUp;
     }
     
     public override Level GetLevel()
@@ -40,7 +40,7 @@ public class Unit : AbstractUnit
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        LevelManager._instance.onUnitLevelUp -= LevelUp;
+        LevelManager._instance.OnUnitLevelUp -= LevelUp;
     }
 
     protected override void UpdateLife()

@@ -13,7 +13,7 @@ public class Hero : AbstractUnit
     {
         base.Start();
         SetUnitState(UnitState.Idle);
-        LevelManager._instance.onHeroLevelUp += LevelUp;
+        LevelManager._instance.OnHeroLevelUp += LevelUp;
     }
 
     protected override void SetupTeam()
@@ -97,6 +97,6 @@ public class Hero : AbstractUnit
 
     protected override void OnDestroy()
     {
-        LevelManager._instance.onHeroLevelUp -= LevelUp;
+        LevelManager._instance.OnHeroLevelUp -= LevelUp;
     }
 }

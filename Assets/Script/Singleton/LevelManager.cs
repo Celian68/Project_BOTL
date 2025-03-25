@@ -14,10 +14,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] UnitsCollectionData herosDataCollection;
     [SerializeField] BuildingsCollectionData buildingsDataCollection;
 
-    public event Action<Team, Level> onCastleLevelUp;
-    public event Action<Team, Level> onHeroLevelUp;
-    public event Action<Team, UnitData, Level> onUnitLevelUp;
-    public event Action<Team, SpellData, Level> onSpellLevelUp;
+    public event Action<Team, Level> OnCastleLevelUp;
+    public event Action<Team, Level> OnHeroLevelUp;
+    public event Action<Team, UnitData, Level> OnUnitLevelUp;
+    public event Action<Team, SpellData, Level> OnSpellLevelUp;
 
     void Awake()
     {
@@ -78,7 +78,7 @@ public class LevelManager : MonoBehaviour
         if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).CastleData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeCastle();
-            onCastleLevelUp?.Invoke(team, GetLevelCastle(team));
+            OnCastleLevelUp?.Invoke(team, GetLevelCastle(team));
         }
     }
 
@@ -87,7 +87,7 @@ public class LevelManager : MonoBehaviour
         if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).HeroData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeHero();
-            onHeroLevelUp?.Invoke(team, getLevelHero(team));
+            OnHeroLevelUp?.Invoke(team, getLevelHero(team));
         }
     }
 
@@ -96,7 +96,7 @@ public class LevelManager : MonoBehaviour
         if (RessourceManager._instance.ConsumResources(unitData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeUnit(unitData);
-            onUnitLevelUp?.Invoke(team, unitData, GetLevelUnit(team, unitData));
+            OnUnitLevelUp?.Invoke(team, unitData, GetLevelUnit(team, unitData));
         }
     }
 
@@ -105,7 +105,7 @@ public class LevelManager : MonoBehaviour
         if (RessourceManager._instance.ConsumResources(spellData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeSpell(spellData);
-            onSpellLevelUp?.Invoke(team, spellData, GetLevelSpell(team, spellData));
+            OnSpellLevelUp?.Invoke(team, spellData, GetLevelSpell(team, spellData));
         }
     }
 

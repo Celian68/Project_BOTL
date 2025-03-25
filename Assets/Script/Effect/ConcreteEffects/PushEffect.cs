@@ -21,7 +21,6 @@ public class PushEffect : AbstractEffect
         }
         foreach (var enemyTarget in castParam.GetTargets()) {
             enemyTarget.GetComponent<Rigidbody2D>().AddForce(castParam.GetVector2() * pushForce, ForceMode2D.Impulse);
-            Debug.Log("Push dealt: " + pushForce);
         }
     }
 }
