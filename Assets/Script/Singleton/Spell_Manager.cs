@@ -7,6 +7,7 @@ public class Spell_Manager : MonoBehaviour
     public GameObject zoneIndicator; 
     public Camera mainCamera;
     private SpellData currentSpell;
+    private int spellIndex;
     public static Spell_Manager _instance;
 
     void Awake() { 
@@ -37,7 +38,8 @@ public class Spell_Manager : MonoBehaviour
 
     public void ActivateSpell(int SpellIndex)
     {
-        currentSpell = LevelManager._instance.GetPlayerProgressionData(Team.Team1).GetSpellData(SpellIndex);
+        spellIndex = SpellIndex;
+        currentSpell = LevelManager._instance.GetPlayerProgressionData(Team.Team1).GetSpellData(spellIndex);
         if (currentSpell.GetSpellStats(Level.Level1).isGlobal)
         {
             CastCurrentSpell();
@@ -52,6 +54,7 @@ public class Spell_Manager : MonoBehaviour
         {
             Vector3 spawnPos = zoneIndicator.transform.position + Vector3.up * 10f;
             Instantiate(currentSpell.SpellPrefab, spawnPos, Quaternion.identity);
+            Army_Button._instance.StartSpellCooldown(spellIndex);
         }
         CancelSpell();
     }
@@ -60,5 +63,6 @@ public class Spell_Manager : MonoBehaviour
     {
         zoneIndicator.SetActive(false);
         currentSpell = null;
+        spellIndex = -1;
     }
 }

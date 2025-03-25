@@ -43,4 +43,8 @@ public class Army_Button : MonoBehaviour
         }
     }
 
+    public void StartSpellCooldown(int index) {
+        spellButtons[index].GetComponent<SpellButton>().StartCooldown();
+    }
+
 }
