@@ -1,6 +1,8 @@
 BOTL – Battle of the Land
 ============================
 
+![Game Screenshot](BOTL_Screen.png)
+
 Description:
 ------------
 BOTL is a real-time strategy game inspired by classics such as Age of War and Clan Wars: Goblin Forest. Developed as a passion project by an indie developer working in his free time, BOTL combines strategic unit management, hero customization, dynamic spellcasting, and building upgrades—all presented in a 2D pixel art style (temporary).
