@@ -8,11 +8,13 @@ public class UnitData : TargetData
     [SerializeField] UnitType unitType;
     [SerializeField] UnitClass unitClass;
     [SerializeField] Sprite icon;
+    [SerializeField] GameObject deadProp;
     [SerializeField] List<UnitStats> unitStats;
 
     public UnitType UnitType => unitType;
     public UnitClass UnitClass => unitClass;
     public Sprite Icon => icon;
+    public GameObject DeadProp => deadProp;
 
     public UnitStats GetUnitStats(Level level)
     {

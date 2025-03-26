@@ -25,6 +25,8 @@ public class Unit : AbstractUnit
     protected override void Die()
     {
         base.Die();
+        GameObject prop = Instantiate(data.DeadProp, new Vector3(transform.position.x + 0.3f, transform.position.y, 1) , Quaternion.identity);
+        prop.GetComponent<SpriteRenderer>().flipX = gameObject.GetComponent<SpriteRenderer>().flipX;
         Destroy(gameObject);
     }
 

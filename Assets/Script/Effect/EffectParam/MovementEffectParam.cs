@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementEffectParam : AbstractEffectParam {
-    float push;
+    readonly float push;
     Vector2 vector2Value;
 
     public MovementEffectParam(float push, Vector2 vector2Value, Transform caster, List<Transform> targets, string typeEffect  = "Neutre") : base(caster, targets, typeEffect)  {

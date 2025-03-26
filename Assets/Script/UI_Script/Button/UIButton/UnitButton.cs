@@ -21,6 +21,12 @@ public class UnitButton : UIButton
         {
             if (UnitWaitList._instance.AddUnit(unit)) StartCooldown();
         }
-        else if (Spawn_Manager._instance.Spawn_Unit(unit, team)) StartCooldown();
+        else
+        {
+            if (RessourceManager._instance.ConsumResources(unit.GetUnitStats(LevelManager._instance.GetLevelUnit(Team.Team2, unit)).baseCost, Team.Team2))
+            {
+                if (Spawn_Manager._instance.Spawn_Unit(unit, team)) StartCooldown();
+            }
+        }
     }
 }

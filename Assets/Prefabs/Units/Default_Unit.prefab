@@ -176,7 +176,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 96
+    m_Bits: 352
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -240,4 +240,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 65a28b3c7c929d44dad40c014092bf03, type: 2}
   animator: {fileID: 1000138867113782091}
+  unitState: 0
   rb: {fileID: -4380587117591914697}

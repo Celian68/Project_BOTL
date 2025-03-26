@@ -40,6 +40,7 @@ MonoBehaviour:
   unitType: 0
   unitClass: 0
   icon: {fileID: 21300000, guid: 8eef8603a2ed0ec48965a535bfb84df0, type: 3}
+  deadProp: {fileID: 4802322998304609433, guid: 62d1a89fa94e4f54cba09f016affc9d5, type: 3}
   unitStats:
   - moveSpeed: 0.8
     attackRange: 1
