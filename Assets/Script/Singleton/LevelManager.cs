@@ -73,13 +73,15 @@ public class LevelManager : MonoBehaviour
         return GetPlayerProgressionData(team).GetSpellLevel(spellData);
     }
 
-    public void LevelUpCastle(Team team)
+    public bool LevelUpCastle(Team team)
     {
         if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).CastleData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeCastle();
             OnCastleLevelUp?.Invoke(team, GetLevelCastle(team));
+            return true;
         }
+        return false;
     }
 
     public void LevelUpHero(Team team)

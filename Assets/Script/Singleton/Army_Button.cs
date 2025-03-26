@@ -30,7 +30,7 @@ public class Army_Button : MonoBehaviour
             unitButtons = unitButtonsTeam2;
         }
         foreach(UnitData unit in data) {
-            unitButtons[index].GetComponent<UnitButton>().SetUnit(unit, index);
+            unitButtons[index].GetComponent<UnitButton>().SetUnit(unit);
             index++;
         }
     }

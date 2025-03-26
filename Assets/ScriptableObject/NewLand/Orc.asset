@@ -15,6 +15,7 @@ MonoBehaviour:
   targetId: NU01
   displayName: Orc
   faction: 2
+  description: "Un  guerrier  f\xE9roce  et  robuste"
   targetType: 0
   targetPrefab: {fileID: 8959025170286639158, guid: 54ebc2696e3099f4b9b285edf62b1228, type: 3}
   targetStats:
@@ -38,7 +39,7 @@ MonoBehaviour:
       - rid: 5339346598976028680
   unitType: 0
   unitClass: 0
-  description: "Un  guerrier  f\xE9roce  et  robuste"
+  icon: {fileID: 21300000, guid: 8eef8603a2ed0ec48965a535bfb84df0, type: 3}
   unitStats:
   - moveSpeed: 0.8
     attackRange: 1

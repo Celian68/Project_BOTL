@@ -50,17 +50,17 @@ public class KeyBoradManager : MonoBehaviour
         if(Input.GetKeyDown(infoPopUp)) {
             bool res = InfoPopUpBehavior._instance.setActiv();
             if (res)
-                MessagePopUpBehavior._instance.showPopUp("InfoPopUp Activé");
+                MessagePopUpBehavior._instance.ShowPopUp("InfoPopUp Activé");
             else
-                MessagePopUpBehavior._instance.showPopUp("InfoPopUp Désactivé");
+                MessagePopUpBehavior._instance.ShowPopUp("InfoPopUp Désactivé");
         }
 
         if(Input.GetKeyDown(damageIndicators)) {
             bool res = UI_Manager._instance.SetActiv();
             if (res)
-                MessagePopUpBehavior._instance.showPopUp("Affichage Nombres Indicateurs Activé");
+                MessagePopUpBehavior._instance.ShowPopUp("Affichage Nombres Indicateurs Activé");
             else
-                MessagePopUpBehavior._instance.showPopUp("Affichage Nombres Indicateurs Désactivé");
+                MessagePopUpBehavior._instance.ShowPopUp("Affichage Nombres Indicateurs Désactivé");
         }
 
         if(Input.GetKeyDown(spawnAlly1)) {

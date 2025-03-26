@@ -10,8 +10,6 @@ public class HeroOrderButton : UIButton {
         base.Start();
         gameObject.SetActive(true);
         SetDescription(descriptionState);
-        SetCost(-1);
-        SetCooldown(0.3f);
     }
 
     public override void OnClick() {

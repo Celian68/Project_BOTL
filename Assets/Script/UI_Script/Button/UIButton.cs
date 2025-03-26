@@ -8,7 +8,6 @@ public abstract class UIButton : AbstractButton, IPointerEnterHandler, IPointerE
 
     protected virtual void Start()
     {
-        Debug.Log(currentCooldown);
         cooldownOverlay.GetComponent<Image>().fillAmount = currentCooldown;
     }
 

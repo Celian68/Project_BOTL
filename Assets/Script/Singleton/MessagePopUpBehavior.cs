@@ -7,7 +7,6 @@ public class MessagePopUpBehavior : MonoBehaviour
     public static MessagePopUpBehavior _instance;
 
     void Awake() { 
-        // If there is an instance, and it's not me, delete myself.
         if (_instance != null && _instance != this) { 
             Destroy(this); 
         }else{ 
@@ -15,10 +14,9 @@ public class MessagePopUpBehavior : MonoBehaviour
         } 
     }
     
-    // Start is called before the first frame update
     void Start()
     {
-        setTransparency(0);
+        SetTransparency(0);
     }
 
     private float getTransparency()
@@ -26,9 +24,9 @@ public class MessagePopUpBehavior : MonoBehaviour
         return gameObject.GetComponent<Image>().color.a;
     }
 
-    public void setTransparency(float alpha)
+    public void SetTransparency(float alpha)
     {
-        alpha = alpha/10;
+        alpha /= 10;
 
         Color color = gameObject.GetComponent<Image>().color;
         color.a = alpha;
@@ -43,20 +41,20 @@ public class MessagePopUpBehavior : MonoBehaviour
         gameObject.transform.GetChild(1).gameObject.GetComponent<Text>().color = colorText;
     }
 
-    public void setMessage(string message)
+    public void SetMessage(string message)
     {
         gameObject.transform.GetChild(1).gameObject.GetComponent<Text>().text = message;
     }
 
-    public void showPopUp(string message)
+    public void ShowPopUp(string message)
     {
-        setMessage(message);
-        setTransparency(100);
+        SetMessage(message);
+        SetTransparency(100);
 
         StopAllCoroutines();
-        CancelInvoke("StartHidePopUpCoroutine");
+        CancelInvoke(nameof(StartHidePopUpCoroutine));
 
-        Invoke("StartHidePopUpCoroutine", 2);
+        Invoke(nameof(StartHidePopUpCoroutine), 2);
     }
 
     private void StartHidePopUpCoroutine()
@@ -75,10 +73,10 @@ public class MessagePopUpBehavior : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float alpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
-            setTransparency(alpha);
+            SetTransparency(alpha);
             yield return null;
         }
 
-        setTransparency(endAlpha); // S'assurer que la transparence est entièrement à zéro
+        SetTransparency(endAlpha); // S'assurer que la transparence est entièrement à zéro
     }
 }

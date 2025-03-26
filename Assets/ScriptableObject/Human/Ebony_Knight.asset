@@ -15,6 +15,7 @@ MonoBehaviour:
   targetId: HH01
   displayName: Ebony Knight
   faction: 0
+  description: "H\xE9ro  de  la  race  humaine"
   targetType: 0
   targetPrefab: {fileID: 3756801475192485856, guid: f8bb44eb59e2d6743973df82da133ad3, type: 3}
   targetStats:
@@ -38,7 +39,7 @@ MonoBehaviour:
       - rid: 5339346598976028677
   unitType: 0
   unitClass: 1
-  description: "H\xE9ro  de  la  race  humaine"
+  icon: {fileID: 21300000, guid: 7dd1c94663957d545ae4965aa3aff93b, type: 3}
   unitStats:
   - moveSpeed: 1.2
     attackRange: 1

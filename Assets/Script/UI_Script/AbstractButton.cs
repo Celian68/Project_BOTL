@@ -3,9 +3,9 @@ using UnityEngine;
 public abstract class AbstractButton : MonoBehaviour
 {
     [SerializeField] protected Transform trans;
-    protected float cooldown = 0;
+    protected float cooldown = 0.3f;
     protected float currentCooldown = 0;
-    protected int cost;
+    protected int cost = -1;
     protected string description;
 
     public void CustomCursorEnter()

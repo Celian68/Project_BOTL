@@ -15,6 +15,7 @@ MonoBehaviour:
   targetId: HU01
   displayName: Knight
   faction: 0
+  description: Un  guerrier  loyal  et  polyvalent
   targetType: 0
   targetPrefab: {fileID: 245119952990548611, guid: 6b4b785282ed39e4087b4221de69c1f7, type: 3}
   targetStats:
@@ -38,23 +39,23 @@ MonoBehaviour:
       - rid: 5339346598976028674
   unitType: 0
   unitClass: 0
-  description: Un  guerrier  loyal  et  polyvalent
+  icon: {fileID: 21300000, guid: 30549b5d5ae0e404eaebec10565e48e3, type: 3}
   unitStats:
   - moveSpeed: 1.5
     attackRange: 0.8
     attackSpeed: 1.2
     baseCost: 15
-    spawnTime: 3
+    spawnTime: 2
   - moveSpeed: 1.5
     attackRange: 0.8
     attackSpeed: 1.2
     baseCost: 15
-    spawnTime: 3
+    spawnTime: 2
   - moveSpeed: 1.5
     attackRange: 0.8
     attackSpeed: 1.5
     baseCost: 15
-    spawnTime: 3
+    spawnTime: 2
   references:
     version: 2
     RefIds:
