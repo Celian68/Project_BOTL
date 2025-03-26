@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using BOTL.Data;
 using System.Collections;
 
@@ -25,9 +24,9 @@ public class Hero : AbstractUnit
     {
         if (unitState == UnitState.Retreating)
         {
-            Vector3 tar = new Vector3(teamMultipl, 0, 0);
+            Vector3 tar = new(teamMultipl, 0, 0);
             tar *= -1;
-            transform.Translate(tar.normalized * GetUnitStats().moveSpeed * Time.deltaTime, Space.World);
+            transform.Translate(GetUnitStats().moveSpeed * Time.deltaTime * tar.normalized, Space.World);
             if (transform.position.x < -13f)
             {
                 SetUnitState(UnitState.Idle);
