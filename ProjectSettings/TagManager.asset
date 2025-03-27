@@ -50,7 +50,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - UserUI
   m_SortingLayers:
   - name: Background
     uniqueID: 2783469557
