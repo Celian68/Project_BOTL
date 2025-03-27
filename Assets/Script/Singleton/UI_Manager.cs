@@ -1,3 +1,4 @@
+using BOTL.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,27 +7,31 @@ public class UI_Manager : MonoBehaviour
 
     bool gameOver;
 
-    public Transform InGameUI;
+    [SerializeField] Transform InGameUI;
 
     [SerializeField] GameObject castle1;
     [SerializeField] GameObject castle2;
 
-    public GameObject hero_menu;
+    [SerializeField] GameObject hero_menu;
+
 
     float maximum1;
     float current1;
     float maximum2;
     float current2;
 
-    public Image mask1;
-    public Image mask2;
-    public Image maskHero;
+    [SerializeField] Image mask1;
+    [SerializeField] Image mask2;
+    [SerializeField] Image maskHero;
+    [SerializeField] Image respawnCooldownUIHero;
+    float currentRespawnCooldownHero = 0;
+    float respawnCooldownHero;
 
-    public Text damageTextPrefab;
+    [SerializeField] Text damageTextPrefab;
 
-    public Camera mainCamera;
+    [SerializeField] Camera mainCamera;
 
-    public bool activ;
+    [SerializeField] bool activ;
 
     public static UI_Manager _instance;
 
@@ -42,14 +47,24 @@ public class UI_Manager : MonoBehaviour
         activ = true;
         castle1.SetActive(true);
         hero_menu.SetActive(true);
+        respawnCooldownHero = LevelManager._instance.GetPlayerProgressionData(Team.Team1).HeroData.GetUnitStats(LevelManager._instance.getLevelHero(Team.Team1)).spawnTime;
+        respawnCooldownUIHero.fillAmount = 0;
     }
 
     void Update() {
-        GetCurrentFill();    
+        GetCurrentFill();
+        HeroRespawnCooldown(); 
     }
 
     public bool SetActiv() {
         return activ = !activ;
+    }
+
+    void HeroRespawnCooldown() {
+        if (currentRespawnCooldownHero > 0) {
+            currentRespawnCooldownHero -= Time.deltaTime;
+            respawnCooldownUIHero.fillAmount = currentRespawnCooldownHero / respawnCooldownHero;
+        }
     }
 
     void GetCurrentFill() {
@@ -74,6 +89,9 @@ public class UI_Manager : MonoBehaviour
             float maximumLife = HeroController._instance.GetHero().GetComponent<Hero>().GetTargetStats().maxLife;
             float FillAmout = currentLife / maximumLife;
             maskHero.fillAmount = FillAmout;
+            if (currentLife <= 0 && currentRespawnCooldownHero <= 0) {
+                currentRespawnCooldownHero = respawnCooldownHero;
+            }
         }
     }
 
