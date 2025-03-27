@@ -1,4 +1,6 @@
-namespace BOTL.Data
+using Assets.Script.AssetsScripts.Enum;
+
+namespace Assets.Script.AssetsScripts.Struct
 {
 
     [System.Serializable]

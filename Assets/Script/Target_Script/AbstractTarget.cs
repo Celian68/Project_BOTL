@@ -1,8 +1,8 @@
 using UnityEngine;
-using BOTL.Data;
-using System.Collections.Generic;
+using Assets.Script.AssetsScripts.Enum;
+using Assets.Script.AssetsScripts.Struct;
 
-public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data : TargetData
+public abstract class AbstractTarget<Data> : MonoBehaviour, ITTarget where Data : TargetData
 {
     [SerializeField] protected Data data;
     [SerializeField] protected Animator animator;
@@ -19,7 +19,7 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
         UpdateLife();
         if (data == null)
         {
-            Debug.LogError($" Erreur : `data` (UnitData) est NULL sur {gameObject.name} !"); 
+            Debug.LogError($" Erreur : `data` (UnitData) est NULL sur {gameObject.name} !");
         }
     }
 
@@ -60,8 +60,7 @@ public abstract class AbstractTarget<Data> : MonoBehaviour, ItTarget where Data 
     protected abstract void Die();
 
     protected abstract void UpdateLife();
-    protected virtual void OnDestroy()
-    { }
+    protected virtual void OnDestroy() { }
 
     public abstract Level GetLevel();
 

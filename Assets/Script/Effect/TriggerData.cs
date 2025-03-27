@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using UnityEngine;
 
 [Serializable]
@@ -26,7 +26,9 @@ public class TriggerData
         if (pos == -1)
         {
             effects.Add(effect);
-        }else{
+        }
+        else
+        {
             effects[pos] = effect;
         }
     }

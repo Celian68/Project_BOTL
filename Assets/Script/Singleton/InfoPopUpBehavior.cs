@@ -14,13 +14,17 @@ public class InfoPopUpBehavior : MonoBehaviour
 
     public static InfoPopUpBehavior _instance;
 
-    void Awake() { 
+    void Awake()
+    {
         // If there is an instance, and it's not me, delete myself.
-        if (_instance != null && _instance != this) { 
-            Destroy(this); 
-        }else{ 
-            _instance = this; 
-        } 
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            _instance = this;
+        }
     }
 
     void Start()
@@ -56,12 +60,12 @@ public class InfoPopUpBehavior : MonoBehaviour
             if (mousePosition.y < screenHeight / 2f)
             {
                 // La souris est dans le quadrant inférieur gauche de l'écran
-                popupPosition = mousePosition + new Vector3(size.x, size.y/2, 0f); // ajustez la position du pop-up selon vos besoins
+                popupPosition = mousePosition + new Vector3(size.x, size.y / 2, 0f); // ajustez la position du pop-up selon vos besoins
             }
             else
             {
                 // La souris est dans le quadrant supérieur gauche de l'écran
-                popupPosition = mousePosition + new Vector3(size.x, -size.y/2, 0f); // ajustez la position du pop-up selon vos besoins
+                popupPosition = mousePosition + new Vector3(size.x, -size.y / 2, 0f); // ajustez la position du pop-up selon vos besoins
             }
         }
         else
@@ -70,12 +74,12 @@ public class InfoPopUpBehavior : MonoBehaviour
             if (mousePosition.y < screenHeight / 2f)
             {
                 // La souris est dans le quadrant inférieur droit de l'écran
-                popupPosition = mousePosition + new Vector3(-size.x, size.y/2, 0f); // ajustez la position du pop-up selon vos besoins
+                popupPosition = mousePosition + new Vector3(-size.x, size.y / 2, 0f); // ajustez la position du pop-up selon vos besoins
             }
             else
             {
                 // La souris est dans le quadrant supérieur droit de l'écran
-                popupPosition = mousePosition + new Vector3(-size.x, -size.y/2, 0f); // ajustez la position du pop-up selon vos besoins
+                popupPosition = mousePosition + new Vector3(-size.x, -size.y / 2, 0f); // ajustez la position du pop-up selon vos besoins
             }
         }
 
@@ -83,7 +87,8 @@ public class InfoPopUpBehavior : MonoBehaviour
         transform.position = popupPosition;
     }
 
-    public bool setActiv() {
+    public bool SetActiv()
+    {
         return activ = !activ;
     }
 
@@ -91,7 +96,7 @@ public class InfoPopUpBehavior : MonoBehaviour
     {
         // Mettre à jour le cout du pop-up
         cout.GetComponent<Text>().text = newCost.ToString();
-        
+
         // Mettre à jour la description du pop-up
         description.GetComponent<Text>().text = newDescription;
     }
@@ -115,7 +120,8 @@ public class InfoPopUpBehavior : MonoBehaviour
 
     public void Visibility(bool state)
     {
-        if (!state || (state && activ)) {
+        if (!state || (state && activ))
+        {
             // Activer ou désactiver le pop-up
             gameObject.GetComponent<Image>().enabled = state;
             gameObject.transform.GetChild(0).gameObject.GetComponent<Image>().enabled = state;

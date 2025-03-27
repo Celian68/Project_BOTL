@@ -1,5 +1,5 @@
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using System.Collections;
 
 // Class that take care of the little Arch in front of the Castle of each player
@@ -10,7 +10,8 @@ public class Arch : MonoBehaviour
     Coroutine healingCoroutine;
 
     // When the Caslte Level Up, the Arch does it too and change his visual
-    public void LevelUp(int level) {
+    public void LevelUp(int level)
+    {
         animArch.SetInteger("Level", level);
     }
 

@@ -1,21 +1,25 @@
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using UnityEngine;
 
 public class Spell_Manager : MonoBehaviour
 {
 
-    public GameObject zoneIndicator; 
+    public GameObject zoneIndicator;
     public Camera mainCamera;
     private SpellData currentSpell;
     private int spellIndex;
     public static Spell_Manager _instance;
 
-    void Awake() { 
-        if (_instance != null && _instance != this) { 
-            Destroy(this); 
-        }else{ 
-            _instance = this; 
-        } 
+    void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            _instance = this;
+        }
     }
 
     void Update()
@@ -43,7 +47,9 @@ public class Spell_Manager : MonoBehaviour
         if (currentSpell.GetSpellStats(Level.Level1).isGlobal)
         {
             CastCurrentSpell();
-        }else{
+        }
+        else
+        {
             zoneIndicator.SetActive(true);
         }
     }

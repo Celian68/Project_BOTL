@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BOTL.Data
+namespace Assets.Script.AssetsScripts.Struct
 {
     [System.Serializable]
     public struct UnitStats

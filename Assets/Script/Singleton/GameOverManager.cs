@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -13,13 +13,17 @@ public class GameOverManager : MonoBehaviour
 
     public static GameOverManager _instance;
 
-    void Awake() { 
+    void Awake()
+    {
         // If there is an instance, and it's not me, delete myself.
-        if (_instance != null && _instance != this) { 
-            Destroy(this); 
-        }else{ 
-            _instance = this; 
-        } 
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            _instance = this;
+        }
     }
 
     void Start()
@@ -28,16 +32,19 @@ public class GameOverManager : MonoBehaviour
         gameOver = false;
     }
 
-    public void setGameOver(bool state, Team player) {
+    public void SetGameOver(bool state, Team player)
+    {
         gameOver = state;
 
-        if (gameOver) {
+        if (gameOver)
+        {
             gameOverText.text = "Player " + ((int)player + 1).ToString() + " Win !";
             gameOverMenu.SetActive(true);
         }
     }
 
-    public void ReturnMainMenu() {
+    public void ReturnMainMenu()
+    {
         SceneManager.LoadScene("MainMenu");
         gameOver = false;
     }

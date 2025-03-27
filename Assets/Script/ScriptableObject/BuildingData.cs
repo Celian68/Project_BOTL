@@ -1,5 +1,6 @@
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
+using Assets.Script.AssetsScripts.Struct;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "BuildingData", menuName = "ScriptableObject/BuildingData")]
@@ -8,7 +9,7 @@ public class BuildingData : ScriptableObject
     [SerializeField] private string buildId;
     [SerializeField] private string displayName;
     [SerializeField] Faction faction;
-    [SerializeField] private GameObject buildPrefab; 
+    [SerializeField] private GameObject buildPrefab;
     [SerializeField] List<BuildingStats> buildStats;
 
     public string BuildId => buildId;
@@ -20,7 +21,7 @@ public class BuildingData : ScriptableObject
     {
         return buildStats[(int)level];
     }
-    
+
     public BuildingStats GetSpecificBuildStats(int idx)
     {
         return buildStats[idx];

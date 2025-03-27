@@ -1,5 +1,5 @@
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,26 +21,26 @@ public class PlayerProgressionData : ScriptableObject
     public UnitData HeroData => heroData;
 
     public void Initialize(Faction faction, List<UnitData> selectedUnits, List<SpellData> selectedSpells, UnitData selectedHero)
-{
-    this.faction = faction;
-    castleLevel = Level.Level1;
-    heroLevel = Level.Level1;
-
-    unitsData = new Dictionary<UnitData, Level>();
-    spellsData = new Dictionary<SpellData, Level>();
-    heroData = selectedHero;
-
-
-    foreach (UnitData unitData in selectedUnits)
     {
-        unitsData[unitData] = Level.Level1;
-    }
+        this.faction = faction;
+        castleLevel = Level.Level1;
+        heroLevel = Level.Level1;
 
-    foreach (SpellData spellData in selectedSpells)
-    {
-        spellsData[spellData] = Level.Level1;
+        unitsData = new Dictionary<UnitData, Level>();
+        spellsData = new Dictionary<SpellData, Level>();
+        heroData = selectedHero;
+
+
+        foreach (UnitData unitData in selectedUnits)
+        {
+            unitsData[unitData] = Level.Level1;
+        }
+
+        foreach (SpellData spellData in selectedSpells)
+        {
+            spellsData[spellData] = Level.Level1;
+        }
     }
-}
 
     public Level GetUnitLevel(UnitData unitData)
     {
@@ -92,19 +92,23 @@ public class PlayerProgressionData : ScriptableObject
         }
     }
 
-    public UnitData GetUnitData(int index) {
+    public UnitData GetUnitData(int index)
+    {
         return unitsData.Keys.ToList()[index];
     }
 
-    public List<UnitData> GetUnitsData() {
+    public List<UnitData> GetUnitsData()
+    {
         return unitsData.Keys.ToList();
     }
 
-    public SpellData GetSpellData(int index) {
+    public SpellData GetSpellData(int index)
+    {
         return spellsData.Keys.ToList()[index];
     }
 
-    public List<SpellData> GetSpellsData() {
+    public List<SpellData> GetSpellsData()
+    {
         return spellsData.Keys.ToList();
     }
 }

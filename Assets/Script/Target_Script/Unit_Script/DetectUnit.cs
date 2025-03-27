@@ -19,17 +19,17 @@ public class DetectUnit : MonoBehaviour
 
     public List<Collider2D> EnemiesDetection()
     {
-        var parentTeam = transform.parent.GetComponent<ItTarget>().GetTeam();
+        var parentTeam = transform.parent.GetComponent<ITTarget>().GetTeam();
         return Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, LayerMask.GetMask("Unit"))
-            .Where(col => col.GetComponent<ItTarget>() != null && col.GetComponent<ItTarget>().GetTeam() != parentTeam)
+            .Where(col => col.GetComponent<ITTarget>() != null && col.GetComponent<ITTarget>().GetTeam() != parentTeam)
             .ToList();
     }
 
     public List<Collider2D> AlliesDetection()
     {
-        var parentTeam = transform.parent.GetComponent<ItTarget>().GetTeam();
+        var parentTeam = transform.parent.GetComponent<ITTarget>().GetTeam();
         return Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, LayerMask.GetMask("Unit"))
-            .Where(col => col.GetComponent<ItTarget>() != null && col.GetComponent<ItTarget>().GetTeam() == parentTeam)
+            .Where(col => col.GetComponent<ITTarget>() != null && col.GetComponent<ITTarget>().GetTeam() == parentTeam)
             .ToList();
     }
 

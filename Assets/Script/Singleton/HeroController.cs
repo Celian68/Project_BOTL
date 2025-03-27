@@ -1,4 +1,4 @@
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,15 +26,18 @@ public class HeroController : MonoBehaviour
         return hero;
     }
 
-    public void SetHero(GameObject hero) {
+    public void SetHero(GameObject hero)
+    {
         this.hero = hero;
     }
 
-    public void SetHeroOrder(UnitState order) {
+    public void SetHeroOrder(UnitState order)
+    {
         hero.GetComponent<Hero>().SetOrderUnitState(order);
     }
 
-    public void updateHeroLife(float life) {
+    public void UpdateHeroLife(float life)
+    {
         lifeCount.text = life.ToString();
     }
 

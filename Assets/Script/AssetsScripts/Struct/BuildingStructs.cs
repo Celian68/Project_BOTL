@@ -1,4 +1,4 @@
-namespace BOTL.Data
+namespace Assets.Script.AssetsScripts.Struct
 {
     [System.Serializable]
     public struct ProducerStats

@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class BuildButton : InGameButton {
+public class BuildButton : InGameButton
+{
 
     [SerializeField] GameObject menu;
 
@@ -12,7 +13,8 @@ public class BuildButton : InGameButton {
         SetCooldown(0.1f);
     }
 
-    public override void OnMouseDown() {
+    public override void OnMouseDown()
+    {
         base.OnMouseDown();
         menu.SetActive(true);
         gameObject.SetActive(false);

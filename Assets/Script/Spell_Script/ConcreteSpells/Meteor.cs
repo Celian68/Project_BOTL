@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using UnityEngine;
 
 public class Meteor : AbstractSpell
@@ -15,8 +15,8 @@ public class Meteor : AbstractSpell
 
     void Move()
     {
-        Vector3 pos = new Vector3(0, -1, 0);
-        transform.Translate(pos * 20 * Time.deltaTime, Space.World);
+        Vector3 pos = new(0, -1, 0);
+        transform.Translate(20 * Time.deltaTime * pos, Space.World);
 
         if (transform.position.y < 0f)
         {

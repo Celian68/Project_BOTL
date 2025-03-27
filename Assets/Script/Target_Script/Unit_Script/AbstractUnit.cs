@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
+using Assets.Script.AssetsScripts.Struct;
 
 public abstract class AbstractUnit : AbstractTarget<UnitData>
 {
@@ -76,11 +77,7 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
 
     protected virtual bool CheckUnitState()
     {
-        if (unitState == UnitState.Idle || unitState == UnitState.Moving)
-        {
-            return true;
-        }
-        return false;
+        return unitState == UnitState.Idle || unitState == UnitState.Moving;
     }
 
     bool CheckEnemyState()
@@ -90,7 +87,7 @@ public abstract class AbstractUnit : AbstractTarget<UnitData>
 
     protected virtual void Move()
     {
-        transform.Translate(Vector3.right * teamMultipl * GetUnitStats().moveSpeed * Time.deltaTime, Space.World);
+        transform.Translate(GetUnitStats().moveSpeed * teamMultipl * Time.deltaTime * Vector3.right, Space.World);
     }
 
     protected virtual IEnumerator Attack()

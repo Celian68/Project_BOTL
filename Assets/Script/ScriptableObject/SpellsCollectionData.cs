@@ -1,13 +1,13 @@
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "SpellsCollectionData", menuName = "ScriptableObject/SpellsCollectionData")]
 public class SpellsCollectionData : ScriptableObject
 {
-    [SerializeField] List<SpellData> _humanData = new List<SpellData>();
-    [SerializeField] List<SpellData> _elfData = new List<SpellData>();
-    [SerializeField] List<SpellData> _newLandData = new List<SpellData>();
+    [SerializeField] List<SpellData> _humanData = new();
+    [SerializeField] List<SpellData> _elfData = new();
+    [SerializeField] List<SpellData> _newLandData = new();
 
     public SpellData GetData(Faction faction, string spellID)
     {

@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using UnityEngine;
 
 public abstract class AbstractSpell : MonoBehaviour

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -58,7 +58,7 @@ public class LevelManager : MonoBehaviour
         return GetPlayerProgressionData(team).CastleLevel;
     }
 
-    public Level getLevelHero(Team team)
+    public Level GetLevelHero(Team team)
     {
         return GetPlayerProgressionData(team).HeroLevel;
     }
@@ -89,7 +89,7 @@ public class LevelManager : MonoBehaviour
         if (RessourceManager._instance.ConsumResources(GetPlayerProgressionData(team).HeroData.GetUpgradeCost(GetLevelCastle(team)), team))
         {
             GetPlayerProgressionData(team).UpgradeHero();
-            OnHeroLevelUp?.Invoke(team, getLevelHero(team));
+            OnHeroLevelUp?.Invoke(team, GetLevelHero(team));
         }
     }
 

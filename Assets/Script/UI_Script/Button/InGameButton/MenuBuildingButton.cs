@@ -37,7 +37,7 @@ public class MenuBuildingButton : InGameButton
                 transform.parent.gameObject.SetActive(false);
                 break;
             case 1:
-                if (RessourceManager._instance.ConsumResources(gameObject.GetComponent<AbstractButton>().GetUpgradeCost(), TeamManager._instance.getTeamWithTag(building.tag)))
+                if (RessourceManager._instance.ConsumResources(gameObject.GetComponent<AbstractButton>().GetUpgradeCost(), TeamManager._instance.GetTeamWithTag(building.tag)))
                 {
                     building.GetComponent<Building>().SetBuildingType(batimentType);
                     transform.parent.gameObject.SetActive(false);

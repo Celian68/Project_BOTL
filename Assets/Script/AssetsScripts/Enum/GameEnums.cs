@@ -1,4 +1,4 @@
-namespace BOTL.Data
+namespace Assets.Script.AssetsScripts.Enum
 {
     public enum UnitState { Idle, Moving, Retreating, Attacking, Charging, CancelLoad, Stunned, Dead }
     public enum Team { Team1, Team2 }

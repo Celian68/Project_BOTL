@@ -1,16 +1,16 @@
 using System.Collections.Generic;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using UnityEngine;
 
 public class ExplosionWaveBehavior : AbstractCreatedSpell
 {
-    float _maxScaleCoef = 5f;          // L'échelle maximale (considérée comme le rayon effectif)
-    float _duration = 1f;        // Temps d'expansion avant destruction
-    float _maxKnockbackForce = 30f; // Force maximale du knockback
+    readonly float _maxScaleCoef = 5f;          // L'échelle maximale (considérée comme le rayon effectif)
+    readonly float _duration = 1f;        // Temps d'expansion avant destruction
+    readonly float _maxKnockbackForce = 30f; // Force maximale du knockback
 
     float _currentTime = 0f;
     float _initialScale;
-    List<Collider2D> _ennmiesTouched = new List<Collider2D>();
+    readonly List<Collider2D> _ennmiesTouched = new();
 
     void Start()
     {
@@ -23,10 +23,10 @@ public class ExplosionWaveBehavior : AbstractCreatedSpell
         _currentTime += Time.deltaTime;
         float expansionFactor = _currentTime / _duration;
         // Calculer la nouvelle échelle de façon linéaire entre l'échelle initiale et maxScale
-        float newScale = Mathf.Lerp(_initialScale, _GetMaxScale(), expansionFactor);
+        float newScale = Mathf.Lerp(_initialScale, GetMaxScale(), expansionFactor);
         transform.localScale = new Vector3(newScale, newScale, 1f);
 
-        if (_GetMaxScale() <= transform.localScale.x)
+        if (GetMaxScale() <= transform.localScale.x)
         {
             Destroy(gameObject);
         }
@@ -47,7 +47,7 @@ public class ExplosionWaveBehavior : AbstractCreatedSpell
         if (enemy != null)
         {
             // Calcul de la force décroissante
-            float force = _maxKnockbackForce * ((_GetMaxScale() - transform.localScale.x) / (_GetMaxScale() - _initialScale));
+            float force = _maxKnockbackForce * ((GetMaxScale() - transform.localScale.x) / (GetMaxScale() - _initialScale));
             force = Mathf.Clamp(force, 0, _maxKnockbackForce);
 
             // Direction initiale (point d'impact à l'ennemi)
@@ -63,7 +63,7 @@ public class ExplosionWaveBehavior : AbstractCreatedSpell
         }
     }
 
-    float _GetMaxScale()
+    float GetMaxScale()
     {
         return _maxScaleCoef * _initialScale;
     }

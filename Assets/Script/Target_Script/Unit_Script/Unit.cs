@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 
 public class Unit : AbstractUnit
 {
@@ -10,7 +10,7 @@ public class Unit : AbstractUnit
         SetUnitState(UnitState.Moving);
         LevelManager._instance.OnUnitLevelUp += LevelUp;
     }
-    
+
     public override Level GetLevel()
     {
         return LevelManager._instance.GetLevelUnit(team, data);
@@ -21,11 +21,11 @@ public class Unit : AbstractUnit
         yield return base.Attack();
         SetUnitState(UnitState.Moving);
     }
-    
+
     protected override void Die()
     {
         base.Die();
-        GameObject prop = Instantiate(data.DeadProp, new Vector3(transform.position.x + 0.3f, transform.position.y, 1) , Quaternion.identity);
+        GameObject prop = Instantiate(data.DeadProp, new Vector3(transform.position.x + 0.3f, transform.position.y, 1), Quaternion.identity);
         prop.GetComponent<SpriteRenderer>().flipX = gameObject.GetComponent<SpriteRenderer>().flipX;
         Destroy(gameObject);
     }

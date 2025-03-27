@@ -1,25 +1,32 @@
 using System.Collections.Generic;
-using BOTL.Data;
-using UnityEngine;
+using Assets.Script.AssetsScripts.Enum;
 
-public class EffectContext {
-    
+public class EffectContext
+{
+
     readonly Dictionary<EffectType, AbstractEffectParam> data = new();
 
-    public EffectContext(Dictionary<EffectType, AbstractEffectParam> data) {
-        if (data != null) {
+    public EffectContext(Dictionary<EffectType, AbstractEffectParam> data)
+    {
+        if (data != null)
+        {
             this.data = data;
         }
     }
 
-    public void SetData(EffectType key, AbstractEffectParam value) {
+    public void SetData(EffectType key, AbstractEffectParam value)
+    {
         data[key] = value;
     }
 
-    public AbstractEffectParam GetData(EffectType key) {
-        if (data.ContainsKey(key)) {
+    public AbstractEffectParam GetData(EffectType key)
+    {
+        if (data.ContainsKey(key))
+        {
             return data[key];
-        }else{
+        }
+        else
+        {
             return null;
         }
     }

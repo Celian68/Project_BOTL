@@ -1,6 +1,6 @@
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 
-public interface ItTarget
+public interface ITTarget
 {
     void GetDamaged(float damage);
     void Heal(float heal);

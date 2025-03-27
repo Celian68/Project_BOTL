@@ -6,20 +6,24 @@ public class MessagePopUpBehavior : MonoBehaviour
 {
     public static MessagePopUpBehavior _instance;
 
-    void Awake() { 
-        if (_instance != null && _instance != this) { 
-            Destroy(this); 
-        }else{ 
-            _instance = this; 
-        } 
+    void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            _instance = this;
+        }
     }
-    
+
     void Start()
     {
         SetTransparency(0);
     }
 
-    private float getTransparency()
+    private float GetTransparency()
     {
         return gameObject.GetComponent<Image>().color.a;
     }
@@ -65,7 +69,7 @@ public class MessagePopUpBehavior : MonoBehaviour
     private IEnumerator FadeOutPopUp()
     {
         float duration = 2f; // Durée de la transition en secondes
-        float startAlpha = getTransparency();
+        float startAlpha = GetTransparency();
         float endAlpha = 0;
         float elapsed = 0;
 

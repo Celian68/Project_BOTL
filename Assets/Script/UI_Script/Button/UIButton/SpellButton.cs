@@ -1,16 +1,19 @@
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 
-public class SpellButton : UIButton {
+public class SpellButton : UIButton
+{
     int spellIndex;
 
-    public void SetSpell(SpellData spell, int index) {
+    public void SetSpell(SpellData spell, int index)
+    {
         spellIndex = index;
         SetCost(spell.GetSpellStats(LevelManager._instance.GetLevelSpell(Team.Team1, spell)).baseCost);
         SetDescription(spell.Description);
         SetCooldown(spell.GetSpellStats(LevelManager._instance.GetLevelSpell(Team.Team1, spell)).cooldown);
     }
 
-    public override void OnClick() {
+    public override void OnClick()
+    {
         if (!IsActive()) return;
         base.OnClick();
         Spell_Manager._instance.ActivateSpell(spellIndex);

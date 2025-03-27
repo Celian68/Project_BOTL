@@ -1,5 +1,5 @@
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 
 public class Spawn_Manager : MonoBehaviour
 {
@@ -45,7 +45,7 @@ public class Spawn_Manager : MonoBehaviour
         return Instantiate(unit.TargetPrefab, spawn.position, Quaternion.identity);
     }
 
-    public Transform getSpawn(Team team)
+    public Transform GetSpawn(Team team)
     {
         if (team == Team.Team1)
         {

@@ -1,5 +1,6 @@
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
+using Assets.Script.AssetsScripts.Struct;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "SpellData", menuName = "ScriptableObject/SpellData")]
@@ -22,7 +23,7 @@ public class SpellData : ScriptableObject
     {
         return spellStats[(int)level];
     }
-    
+
     public SpellStats GetSpecificSpellStats(int idx)
     {
         return spellStats[idx];
@@ -30,7 +31,7 @@ public class SpellData : ScriptableObject
 
     public int GetUpgradeCost(Level currentLevel)
     {
-        int idx = (int)currentLevel; 
+        int idx = (int)currentLevel;
         if (idx < 0 || idx >= spellStats.Count - 1) return -1;
         return spellStats[idx].nextUpgradeCost;
     }

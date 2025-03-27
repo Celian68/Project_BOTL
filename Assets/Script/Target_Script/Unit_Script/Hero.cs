@@ -1,5 +1,5 @@
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using System.Collections;
 
 
@@ -46,14 +46,14 @@ public class Hero : AbstractUnit
 
     protected override void UpdateLife()
     {
-        HeroController._instance.updateHeroLife(currentLife);
+        HeroController._instance.UpdateHeroLife(currentLife);
     }
 
     protected override void Die()
     {
         base.Die();
         gameObject.SetActive(false);
-        transform.position = new Vector3(Spawn_Manager._instance.getSpawn(team).position.x, 0.7f, 0);
+        transform.position = new Vector3(Spawn_Manager._instance.GetSpawn(team).position.x, 0.7f, 0);
         Invoke(nameof(Respawn), GetUnitStats().spawnTime);
     }
 
@@ -69,7 +69,8 @@ public class Hero : AbstractUnit
     {
         command = newState;
 
-        if (newState == UnitState.Retreating && unitState == UnitState.Charging) {
+        if (newState == UnitState.Retreating && unitState == UnitState.Charging)
+        {
             base.SetUnitState(UnitState.CancelLoad);
             return;
         }
@@ -77,12 +78,12 @@ public class Hero : AbstractUnit
         {
             base.SetUnitState(newState);
         }
-        
+
     }
 
     public override Level GetLevel()
     {
-        return LevelManager._instance.getLevelHero(team);
+        return LevelManager._instance.GetLevelHero(team);
     }
 
     private void LevelUp(Team t, Level newLevel)

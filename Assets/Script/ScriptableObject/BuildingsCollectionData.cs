@@ -1,13 +1,13 @@
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "BuildingsCollectionData", menuName = "ScriptableObject/BuildingsCollectionData")]
 public class BuildingsCollectionData : ScriptableObject
 {
-    [SerializeField] List<BuildingData> _humanData = new List<BuildingData>();
-    [SerializeField] List<BuildingData> _elfData = new List<BuildingData>();
-    [SerializeField] List<BuildingData> _newLandData = new List<BuildingData>();
+    [SerializeField] List<BuildingData> _humanData = new();
+    [SerializeField] List<BuildingData> _elfData = new();
+    [SerializeField] List<BuildingData> _newLandData = new();
     [SerializeField] CastleData _castleData;
 
     public BuildingData GetData(Faction faction, string unitID)

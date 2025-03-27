@@ -13,35 +13,43 @@ public class Main_Menu : MonoBehaviour
 
     public Canvas menu;
 
-    public void StartGame() {
+    public void StartGame()
+    {
         startCinematic = true;
         menu.enabled = false;
     }
 
-    public void SettingsButton() {
+    public void SettingsButton()
+    {
         settingsWindow.SetActive(true);
     }
 
-    public void CloseSettingsWindow() {
+    public void CloseSettingsWindow()
+    {
         settingsWindow.SetActive(false);
     }
 
-    public void QuitGame() {
+    public void QuitGame()
+    {
         Application.Quit();
     }
 
-    public void gameEntranceCinematic() {
-        if (background.position.y < 3.5f) {
+    public void gameEntranceCinematic()
+    {
+        if (background.position.y < 3.5f)
+        {
             //background.position = new Vector3(background.position.x, background.position.y + 0.0005f, background.position.z);
-            background.transform.Translate(Vector3.up * Time.deltaTime * 1f);
-        }
-        
-        if (battleGround.position.y < -1.5f) {
-            //battleGround.position = new Vector3(battleGround.position.x, battleGround.position.y + 0.0015f, battleGround.position.z);
-            battleGround.transform.Translate(Vector3.up * Time.deltaTime * 3f);
+            background.transform.Translate(1f * Time.deltaTime * Vector3.up);
         }
 
-        if (background.position.y >= 3.5f && battleGround.position.y >= -1.5f) {
+        if (battleGround.position.y < -1.5f)
+        {
+            //battleGround.position = new Vector3(battleGround.position.x, battleGround.position.y + 0.0015f, battleGround.position.z);
+            battleGround.transform.Translate(3f * Time.deltaTime * Vector3.up);
+        }
+
+        if (background.position.y >= 3.5f && battleGround.position.y >= -1.5f)
+        {
             startCinematic = false;
             SceneManager.LoadScene("BattleScene");
             background.position = new Vector3(background.position.x, 3.5f, background.position.z);
@@ -49,16 +57,19 @@ public class Main_Menu : MonoBehaviour
         }
     }
 
-    void Start() {
+    void Start()
+    {
         background.position = new Vector3(background.position.x, 0f, background.position.z);
         battleGround.position = new Vector3(battleGround.position.x, -12f, battleGround.position.z);
         startCinematic = false;
         menu.enabled = true;
     }
 
-    void Update() {
-        if (startCinematic) {
+    void Update()
+    {
+        if (startCinematic)
+        {
             gameEntranceCinematic();
         }
-    } 
+    }
 }

@@ -1,5 +1,5 @@
 using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 
 public class LevelUpCastleButton : UIButton
 {

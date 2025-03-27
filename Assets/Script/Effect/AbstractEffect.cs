@@ -1,17 +1,17 @@
-using UnityEngine;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
 
 [System.Serializable]
 public abstract class AbstractEffect
 {
-    protected EffectType type; 
+    protected EffectType type;
 
     public AbstractEffect(EffectType type)
     {
         this.type = type;
-    }  
+    }
 
-    public void ApplyEffects(EffectContext context) {
+    public void ApplyEffects(EffectContext context)
+    {
         ApplyEffect(context.GetData(type));
 
     }

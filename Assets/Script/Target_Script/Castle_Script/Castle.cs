@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using BOTL.Data;
+using Assets.Script.AssetsScripts.Enum;
+using Assets.Script.AssetsScripts.Struct;
 
 // Class that take care of the Castle of each player
 public class Castle : AbstractTarget<CastleData>
@@ -9,7 +10,7 @@ public class Castle : AbstractTarget<CastleData>
     [SerializeField] GameObject Arch;
 
     protected BuildingState buildingState;
-    
+
     protected override void Start()
     {
         base.Start();
@@ -55,7 +56,7 @@ public class Castle : AbstractTarget<CastleData>
     protected override void Die()
     {
         currentLife = 0;
-        GameOverManager._instance.setGameOver(true, enemyTeam);
+        GameOverManager._instance.SetGameOver(true, enemyTeam);
         gameObject.SetActive(false);
     }
 
